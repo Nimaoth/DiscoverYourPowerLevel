@@ -23,11 +23,14 @@ public class MashSingleMode : Mode
             player2.PowerLevel += GainPerHit;
         }
 
+        player1.PowerLevel -= (int)(LossPerSecond * time);
+        player2.PowerLevel -= (int)(LossPerSecond * time);
+
         secondTimer += time;
         if (secondTimer >= 1) {
             secondTimer -= 1;
-            player1.PowerLevel -= GainPerHit;
-            player2.PowerLevel -= GainPerHit;
+            // player1.PowerLevel -= LossPerSecond;
+            // player2.PowerLevel -= LossPerSecond;
         }
     }
 }
