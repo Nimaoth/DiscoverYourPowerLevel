@@ -56,6 +56,7 @@ public class RhythmMode : Mode {
         }
 
         var timer3 = (progress + 0) % tbb;
-        UIManager.Instance.HitCircle.openness = 1 - (timer3 / tbb);
+        UIManager.Instance.HitCirclePlayer1.openness = 1 - (timer3 / tbb);
+        UIManager.Instance.HitCirclePlayer2.openness = 1 - (timer3 / tbb);
     }
 }
