@@ -57,16 +57,23 @@ public class Clip : ScriptableObject {
 
 
 
-        if(debugStart)
-        {
-            double seekTime = ( DurationInMS / 1000.0) * debugPercent;
- 
-            VideoPlayer.time = seekTime * DurationInMS;
-        }
 
         AudioSource = ClipManager.Instance.ClipAudioSource;
         AudioSource.clip = AudioClip;
         VideoPlayer.clip = VideoClip;
+
+        
+        if(debugStart)
+        {
+            //DICKES TODO
+            double seekTime = (200567.034264208f / 1000.0) * debugPercent;
+            Debug.Log("eektime" + seekTime);
+            VideoPlayer.time = seekTime;
+            float audioSeekTime = AudioClip.length * debugPercent;
+            AudioSource.time = audioSeekTime;
+        }
+
+
         AudioSource.Play();
         VideoPlayer.Play();
     }
@@ -76,7 +83,6 @@ public class Clip : ScriptableObject {
 
     public void OnUpdate(float time) {
         float progress = (float)AudioSource.timeSamples / AudioClip.samples * AudioClip.length;
-
         //Switch to next Mode
         if (CurrentModeIndex + 1 < Modes.Length) {
             var modeTrigger = Modes[CurrentModeIndex + 1];
