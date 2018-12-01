@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae121803a2d6824da98c6a094232492, type: 3}
   m_Name: Mash Alternating Mode Test
   m_EditorClassIdentifier: 
+  AudioSource: {fileID: 0}
   Player1Key1: x
   Player1Key2: v
-  Player2Key1: f
-  Player2Key2: q
-  LossPerSecond: 1
-  GainPerHit: 1
+  Player2Key1: q
+  Player2Key2: f
+  LossPerSecond: 5
+  GainPerHit: 100

@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3317a7439fde64e4580aba6944378ced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugStart: 1
+  debugStart: 0
   debugPercent: 0.4
   Clips:
   - {fileID: 11400000, guid: 7e56ad68b785871438c305635d99f301, type: 2}
@@ -1401,9 +1401,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25a181adf6c65049b0c0d71dba53466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1PowerLevel: {fileID: 621023983}
-  Player2PowerLevel: {fileID: 187784411}
+  Player1PowerLevelText: {fileID: 0}
+  Player2PowerLevelText: {fileID: 0}
   HitCircle: {fileID: 1238160176}
+  levelThresholds: 
 --- !u!1 &1934617215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,7 +1440,7 @@ VideoPlayer:
   m_AspectRatio: 2
   m_DataSource: 0
   m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
+  m_AudioOutputMode: 0
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:

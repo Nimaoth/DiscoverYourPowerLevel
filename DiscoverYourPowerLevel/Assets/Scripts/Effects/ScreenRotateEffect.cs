@@ -5,21 +5,20 @@ using UnityEngine;
 public class ScreenRotateEffect : MonoBehaviour {
 
     public GameObject cameraAnchorToRotate;
-    public int rotationCount;
     public float rotationDuration;
     private float rotTimer;
-    private float steps;
-    private bool rotate;
+    private bool rotate = true;
 
     // Use this for initialization
     private void Start()
     {
-        steps = 36 / rotationDuration;
+        rotTimer = rotationDuration;
     }
 
     // Update is called once per frame
-    void Update () {
-        if(rotTimer <= 0)
+    void FixedUpdate () {
+        
+        if (rotTimer <= 0)
         {
             rotTimer = rotationDuration;
             rotate = false;
@@ -27,8 +26,11 @@ public class ScreenRotateEffect : MonoBehaviour {
 
         if(rotate)
         {
+            Debug.Log("Rotation timer: " + rotTimer);
+            Debug.Log("Rotation: " + cameraAnchorToRotate.transform.rotation.z);
             rotTimer -= Time.deltaTime;
-            //cameraAnchorToRotate.transform.eulerAngles.z = transform.eulerAngles.z + steps * 10;
+            cameraAnchorToRotate.transform.RotateAround(Vector3.forward, 360 / (50 * rotationDuration) * 0.864f * Time.deltaTime);
+            //cameraAnchorToRotate.transform.rotation = new Quaternion(cameraAnchorToRotate.transform.rotation.x, cameraAnchorToRotate.transform.rotation.y, cameraAnchorToRotate.transform.rotation.z + (- 360 / (50 * rotationDuration)), 1);
         }
         
 	}
