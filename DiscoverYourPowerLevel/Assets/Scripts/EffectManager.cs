@@ -6,6 +6,8 @@ public class EffectManager : MonoBehaviour {
 
     public static EffectManager Instance;
 
+    public Transform EffectCanvas;
+
 
     public GameObject[] NegEffects;
     public GameObject[] PosEffects;
@@ -23,19 +25,19 @@ public class EffectManager : MonoBehaviour {
 
     public void PlayNegEffect()
     {
-        GameObject prefab = NegEffects[Random.Range(0, NegEffects.Length - 1)];
+        GameObject prefab = NegEffects[Random.Range(0, NegEffects.Length)];
         Instantiate(prefab);
     }
 
     public void PlayPosEffect()
     {
-        GameObject prefab = PosEffects[Random.Range(0, PosEffects.Length - 1)];
+        GameObject prefab = PosEffects[Random.Range(0, PosEffects.Length)];
         Instantiate(prefab);
     }
 
     public void PlaySuperPosEffect()
     {
-        GameObject prefab = SuperPosEffects[Random.Range(0, SuperPosEffects.Length - 1)];
+        GameObject prefab = SuperPosEffects[Random.Range(0, SuperPosEffects.Length)];
         Instantiate(prefab);
     }
 

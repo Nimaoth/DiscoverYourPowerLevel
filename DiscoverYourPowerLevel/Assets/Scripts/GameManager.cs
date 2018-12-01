@@ -31,5 +31,6 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown("space")) {
             EffectManager.Instance.PlayPosEffect();
         }
+        
     }
 }
