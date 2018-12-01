@@ -8,6 +8,8 @@ public abstract class Mode : ScriptableObject {
     protected Player player1;
     protected Player player2;
 
+    public AudioSource AudioSource;
+
     public virtual void Start() {
         player1 = GameManager.Instance.Player1;
         player2 = GameManager.Instance.Player2;

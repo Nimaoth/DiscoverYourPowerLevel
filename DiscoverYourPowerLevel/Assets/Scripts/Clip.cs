@@ -56,6 +56,7 @@ public class Clip : ScriptableObject {
         if (CurrentModeIndex < Modes.Length) {
             CurrentMode = Modes[CurrentModeIndex].Mode;
             CurrentMode.Start();
+            CurrentMode.AudioSource = AudioSource;
         }
     }
 

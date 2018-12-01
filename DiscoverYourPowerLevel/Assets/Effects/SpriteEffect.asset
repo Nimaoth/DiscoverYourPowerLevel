@@ -11,5 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db555235bdc032042b74d474e01bf92e, type: 3}
   m_Name: SpriteEffect
   m_EditorClassIdentifier: 
-  sprites: []
-  obj: {fileID: 0}
+  sprites:
+  - {fileID: 21300000, guid: da31f57df24a38a43b08ed3fb846b800, type: 3}
+  - {fileID: 21300000, guid: d46cca02760939447bd68abd73cad5a3, type: 3}
+  - {fileID: 21300000, guid: 0c03ede526848184fa7dec414be8d761, type: 3}
+  - {fileID: 21300000, guid: eefda4a98a8f6ff4d93890a2665bbb2c, type: 3}
+  - {fileID: 21300000, guid: 5218527f9b51ba24dad79e64aca035f1, type: 3}
+  obj: {fileID: 1210370709499060, guid: b654126d5dcf67545b82a2a551960a85, type: 2}
+  bounds_x: 20
+  bounds_y: 10

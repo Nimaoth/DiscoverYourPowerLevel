@@ -10,39 +10,49 @@ public class RhythmMode : Mode {
     public int LossPerHit;
     public int GainPerHit;
 
-    public float tactTime;
+    public float bpm;
     public float timingAccuracy;
     public float tickOffset;
+    public float klickOffset;
     public float timer;
 
     public AudioClip testSound;
+
     public override void Start()
     {
         base.Start();
         timer = tickOffset;
     }
 
+    float lastTimer = 0;
+
     public override void OnUpdate(float time)
     {
-        if(timer <= 0)
-        {
+        float progress = AudioSource.time;
+
+        // time between beats
+        float tbb = 60 / bpm;
+
+
+        timer = (progress + tickOffset) % tbb;
+        if (Mathf.Abs(timer - lastTimer) > 0.5f * tbb) {
             EffectManager.Instance.PlayPosEffect();
             AudioSource.PlayClipAtPoint(testSound, Vector3.zero);
-            timer += tactTime;
         }
+        lastTimer = timer;
+
+        var timer2 = timer + klickOffset;
         if (Input.GetKeyDown(Player1Key)) {
-            if (timer < timingAccuracy || timer > tactTime - timingAccuracy)
+            if (timer2 < timingAccuracy || timer2 > tbb - timingAccuracy)
                 player1.PowerLevel += GainPerHit;
             else
                 player1.PowerLevel -= LossPerHit;
         }
         if (Input.GetKeyDown(Player2Key)) {
-            if (timer < timingAccuracy || timer > tactTime - timingAccuracy)
+            if (timer2 < timingAccuracy || timer2 > tbb - timingAccuracy)
                 player2.PowerLevel += GainPerHit;
             else
                 player2.PowerLevel -= LossPerHit;
         }
-
-        timer -= time;
     }
 }

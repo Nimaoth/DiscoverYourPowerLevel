@@ -11,12 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7bb44a44d52ede4bace6ea5283757f1, type: 3}
   m_Name: New Rhythm Mode
   m_EditorClassIdentifier: 
-  Player1Key: p
+  Player1Key: x
   Player2Key: q
   LossPerHit: 0
   GainPerHit: 50
-  tactTime: 0.43
+  bpm: 128
   timingAccuracy: 0.1
-  tickOffset: 0.9
-  timer: 0.08154873
+  tickOffset: 0.4
+  timer: 0.17236
   testSound: {fileID: 8300000, guid: 4bcf0673b76bb2540ba38f814c84bc74, type: 3}
+  AudioSource: {fileID: 0}
