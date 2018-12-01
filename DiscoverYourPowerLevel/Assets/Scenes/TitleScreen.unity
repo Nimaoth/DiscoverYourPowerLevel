@@ -379,6 +379,7 @@ GameObject:
   - component: {fileID: 709683193}
   - component: {fileID: 709683192}
   - component: {fileID: 709683191}
+  - component: {fileID: 709683195}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -448,11 +449,68 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 709683190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 556, y: 597, z: 41}
+  m_LocalPosition: {x: 556, y: 621, z: 41}
   m_LocalScale: {x: 92.7685, y: 306.47668, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &709683195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709683190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52bfa1f1d75fdc4aa2115c7391eb216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cylinder: {fileID: 709683190}
+  button: {fileID: 1607734694}
+--- !u!1 &1208416687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1208416689}
+  - component: {fileID: 1208416688}
+  m_Layer: 0
+  m_Name: ScriptDummy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1208416688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1208416687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11034c8aeb599b489e6dc66bcf8eb4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonDefault: {fileID: 21300000, guid: 8a8b0a8684b791641bc3f8141ba746f7, type: 3}
+  buttonPressed: {fileID: 21300000, guid: fc66561129b315f458a1dda0811a7e2a, type: 3}
+  button: {fileID: 1607734694}
+  powerLevel: 0
+--- !u!4 &1208416689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1208416687}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 494.56943, y: 254.00844, z: -114.89105}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1228943631
 GameObject:
