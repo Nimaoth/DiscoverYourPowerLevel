@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: TestClip
   m_EditorClassIdentifier: 
   Done: 0
+  VideoClip: {fileID: 32900000, guid: 224cf85924cfc3540a42240ac63b4bcb, type: 3}
   AudioSource: {fileID: 0}
   AudioClip: {fileID: 8300000, guid: f8b31c2b38a8c1741966c6faf063490b, type: 3}
   Modes:

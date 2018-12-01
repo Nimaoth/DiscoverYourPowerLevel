@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 [Serializable]
 public struct ModeTrigger {
@@ -20,6 +21,7 @@ public class Clip : ScriptableObject {
 
     public bool Done = false;
 
+    public VideoClip VideoClip;
     public AudioSource AudioSource;
     public AudioClip AudioClip;
 
@@ -40,20 +42,37 @@ public class Clip : ScriptableObject {
     [SerializeField]
     private int CurrentEffectIndex = 0;
 
+    //Video
+    private VideoPlayer VideoPlayer;
 
 
-    public void Start() {
+    public void StartClip(bool debugStart, float debugPercent) {
         CurrentModeIndex = -1;
         CurrentMode = null;
         StartNextMode();
 
         CurrentEffectIndex = 0;
         EffectManager = GameObject.FindGameObjectWithTag("EffectManager").GetComponent<EffectManager>();
+        VideoPlayer = GameObject.FindGameObjectWithTag("VideoPlayer").GetComponent<VideoPlayer>();
+
+
+
+        if(debugStart)
+        {
+            double seekTime = ( DurationInMS / 1000.0) * debugPercent;
+ 
+            VideoPlayer.time = seekTime * DurationInMS;
+        }
 
         AudioSource = ClipManager.Instance.ClipAudioSource;
         AudioSource.clip = AudioClip;
+        VideoPlayer.clip = VideoClip;
         AudioSource.Play();
+        VideoPlayer.Play();
     }
+
+    
+
 
     public void OnUpdate(float time) {
         float progress = (float)AudioSource.timeSamples / AudioClip.samples * AudioClip.length;
@@ -106,4 +125,12 @@ public class Clip : ScriptableObject {
         
     }
 
+    public double DurationInMS {
+        get{
+            if(VideoPlayer != null)
+                return (VideoPlayer.frameCount / VideoPlayer.frameRate) * 1000f;
+            else
+                return 0;
+        }
+    }
 }
