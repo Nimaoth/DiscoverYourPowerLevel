@@ -1567,6 +1567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25a181adf6c65049b0c0d71dba53466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Effects: []
+  CurrentEffectIndex: 0
   Player1PowerLevelText: {fileID: 621023983}
   Player2PowerLevelText: {fileID: 187784411}
   HitCirclePlayer1: {fileID: 1238160176}
