@@ -13,6 +13,7 @@ public abstract class Mode : ScriptableObject {
     public virtual void Start() {
         player1 = GameManager.Instance.Player1;
         player2 = GameManager.Instance.Player2;
+        AudioSource = ClipManager.Instance.ClipAudioSource;
     }
 
     public abstract void OnUpdate(float time);
