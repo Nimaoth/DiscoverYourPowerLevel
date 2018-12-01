@@ -1717,7 +1717,7 @@ MonoBehaviour:
   HitCirclePlayer2: {fileID: 1598975328}
   Player1PowerBar: {fileID: 736101627}
   Player2PowerBar: {fileID: 629315229}
-  levelThresholds: e80300008813000010270000983a0000
+  levelThresholds: e80300008813000010270000983a0000ffffff7f
   currentLevelProgressPlayer1: 0
   currentLevelProgressPlayer2: 0
 --- !u!1 &1598975327
