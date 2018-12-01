@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8278e3c508967da4ebfb7f5dc5555923, type: 3}
   m_Name: LightScreenShake
   m_EditorClassIdentifier: 
-  Insensity: 2
+  Insensity: 1
   Decay: 0.2

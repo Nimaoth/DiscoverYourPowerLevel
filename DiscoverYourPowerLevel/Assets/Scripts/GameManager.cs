@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour {
         }
 
         if (Input.GetKeyDown("space")) {
-            CameraShake.Shake(CameraShakeIntesity, CameraShakeDecay);
+            EffectManager.Instance.PlayPosEffect();
         }
         
     }

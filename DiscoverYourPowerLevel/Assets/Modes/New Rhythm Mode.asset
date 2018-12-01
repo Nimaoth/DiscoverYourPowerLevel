@@ -16,7 +16,7 @@ MonoBehaviour:
   LossPerHit: 0
   GainPerHit: 50
   tactTime: 0.43
-  timingAccuracy: 0.05
+  timingAccuracy: 0.1
   tickOffset: 0.9
-  timer: 0.07096859
+  timer: 0.08154873
   testSound: {fileID: 8300000, guid: 4bcf0673b76bb2540ba38f814c84bc74, type: 3}

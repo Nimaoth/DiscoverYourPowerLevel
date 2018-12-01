@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour {
 
-
-
-    // Use this for initialization
     public void Shake(float intesity, float duration) {
         StopAllCoroutines();
         transform.position = Vector3.zero;

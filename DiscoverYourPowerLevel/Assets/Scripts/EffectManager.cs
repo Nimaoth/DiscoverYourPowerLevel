@@ -9,36 +9,30 @@ public class EffectManager : MonoBehaviour {
     public Transform EffectCanvas;
 
 
-    public GameObject[] NegEffects;
-    public GameObject[] PosEffects;
-    public GameObject[] SuperPosEffects;
+    public Effect[] NegEffects;
+    public Effect[] PosEffects;
+    public Effect[] SuperPosEffects;
 
     private void Awake() {
         Instance = this;
     }
 
-    public void PlayEffect(int effect, GameObject[] EffectType)
-    {
-        GameObject prefab = EffectType[effect];
-        Instantiate(prefab);
-    }
-
     public void PlayNegEffect()
     {
-        GameObject prefab = NegEffects[Random.Range(0, NegEffects.Length)];
-        Instantiate(prefab);
+        var effect = NegEffects[Random.Range(0, NegEffects.Length)];
+        effect.Spawn();
     }
 
     public void PlayPosEffect()
     {
-        GameObject prefab = PosEffects[Random.Range(0, PosEffects.Length)];
-        Instantiate(prefab);
+        var effect = PosEffects[Random.Range(0, PosEffects.Length)];
+        effect.Spawn();
     }
 
     public void PlaySuperPosEffect()
     {
-        GameObject prefab = SuperPosEffects[Random.Range(0, SuperPosEffects.Length)];
-        Instantiate(prefab);
+        var effect = SuperPosEffects[Random.Range(0, SuperPosEffects.Length)];
+        effect.Spawn();
     }
 
 }
