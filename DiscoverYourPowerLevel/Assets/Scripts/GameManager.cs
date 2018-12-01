@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    public float CameraShakeIntesity = 1;
+    public float CameraShakeDecay = 0.1f;
+
     public static GameManager Instance;
+
+    public CameraShake CameraShake;
 
     public Player Player1;
     public Player Player2;
@@ -17,6 +22,8 @@ public class GameManager : MonoBehaviour {
     void Start () {
         Player1.Start();
         Player2.Start();
+
+        CameraShake = Camera.main.transform.GetComponent<CameraShake>();
     }
     
     void Update () {
@@ -29,7 +36,7 @@ public class GameManager : MonoBehaviour {
         }
 
         if (Input.GetKeyDown("space")) {
-            EffectManager.Instance.PlayPosEffect();
+            CameraShake.Shake(CameraShakeIntesity, CameraShakeDecay);
         }
         
     }
