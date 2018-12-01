@@ -9,6 +9,12 @@ public struct ModeTrigger {
     public Mode Mode;
 }
 
+[Serializable]
+public struct EffectTrigger {
+    public float StartTime;
+    public Effect Effect;
+}
+
 [CreateAssetMenu(menuName="Custom/Clip")]
 public class Clip : ScriptableObject {
 
@@ -17,6 +23,8 @@ public class Clip : ScriptableObject {
     public AudioSource AudioSource;
     public AudioClip AudioClip;
 
+
+    //Modes
     public ModeTrigger[] Modes;
 
     [SerializeField]
@@ -25,10 +33,22 @@ public class Clip : ScriptableObject {
     [SerializeField]
     private Mode CurrentMode = null;
 
+    //ScreenEffects
+    private EffectManager EffectManager;
+    public EffectTrigger[] Effects;
+
+    [SerializeField]
+    private int CurrentEffectIndex = 0;
+
+
+
     public void Start() {
         CurrentModeIndex = -1;
         CurrentMode = null;
         StartNextMode();
+
+        CurrentEffectIndex = 0;
+        EffectManager = GameObject.FindGameObjectWithTag("EffectManager").GetComponent<EffectManager>();
 
         AudioSource = ClipManager.Instance.ClipAudioSource;
         AudioSource.clip = AudioClip;
@@ -38,6 +58,7 @@ public class Clip : ScriptableObject {
     public void OnUpdate(float time) {
         float progress = (float)AudioSource.timeSamples / AudioClip.samples * AudioClip.length;
 
+        //Switch to next Mode
         if (CurrentModeIndex + 1 < Modes.Length) {
             var modeTrigger = Modes[CurrentModeIndex + 1];
             if (progress >= modeTrigger.StartTime) {
@@ -45,9 +66,20 @@ public class Clip : ScriptableObject {
             }
         }
 
+        //Update Mode
         if (CurrentMode != null) {
             CurrentMode.OnUpdate(time);
         }
+
+        //Play Effect
+        if(CurrentEffectIndex != -1)
+        {
+            var effectTrigger = Effects[CurrentEffectIndex];
+            if (progress >= effectTrigger.StartTime) {
+                PlayEffect(effectTrigger.Effect);
+            }
+        }
+
     }
 
     private void StartNextMode() {
@@ -58,6 +90,20 @@ public class Clip : ScriptableObject {
             CurrentMode.Start();
             CurrentMode.AudioSource = AudioSource;
         }
+    }
+
+    private void PlayEffect(Effect effect) {  
+        Debug.Log("Effect played");
+        if (CurrentEffectIndex < Effects.Length) {
+            // Call EffectManager
+            EffectManager.PlayEffect(effect);
+            CurrentEffectIndex += 1;
+        }
+        if (CurrentEffectIndex == Effects.Length)
+        {
+            CurrentEffectIndex = -1;
+        }
+        
     }
 
 }

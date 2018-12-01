@@ -17,6 +17,12 @@ public class EffectManager : MonoBehaviour {
         Instance = this;
     }
 
+    public void PlayEffect(Effect effect)
+    {
+        //Todo
+        effect.Spawn(Vector3.zero);
+    }
+
     public void PlayNegEffect()
     {
         var effect = NegEffects[Random.Range(0, NegEffects.Length)];
