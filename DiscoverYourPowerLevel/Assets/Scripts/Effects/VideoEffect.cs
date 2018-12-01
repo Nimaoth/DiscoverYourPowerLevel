@@ -10,7 +10,7 @@ public class VideoEffect : Effect {
 	public int bounds_y;
 
 
-	public void override spawn(Vector3 location)
+	public override void Spawn(Vector3 location)
 	{
 		
 	}
