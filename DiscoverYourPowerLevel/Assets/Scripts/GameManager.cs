@@ -29,8 +29,5 @@ public class GameManager : MonoBehaviour {
         if (Player2.PowerLevel < 0) {
             Player2.PowerLevel = 0;
         }
-
-        Debug.Log($"p1: {Player1.PowerLevel}, p2: {Player2.PowerLevel}");
-
     }
 }

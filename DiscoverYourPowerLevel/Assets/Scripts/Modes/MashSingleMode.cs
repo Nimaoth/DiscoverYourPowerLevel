@@ -9,10 +9,7 @@ public class MashSingleMode : Mode
     public string Player2Key;
 
     public int LossPerSecond;
-
     public int GainPerHit;
-
-    private float secondTimer = 0;
 
     public override void OnUpdate(float time)
     {
@@ -23,11 +20,7 @@ public class MashSingleMode : Mode
             player2.PowerLevel += GainPerHit;
         }
 
-        secondTimer += time;
-        if (secondTimer >= 1) {
-            secondTimer -= 1;
-            player1.PowerLevel -= GainPerHit;
-            player2.PowerLevel -= GainPerHit;
-        }
+        player1.PowerLevel -= (int)(LossPerSecond * time);
+        player2.PowerLevel -= (int)(LossPerSecond * time);
     }
 }
