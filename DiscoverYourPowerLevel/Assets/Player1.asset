@@ -8,12 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ae121803a2d6824da98c6a094232492, type: 3}
-  m_Name: Mash Alternating Mode Test
+  m_Script: {fileID: 11500000, guid: fa5de78f03d3f4e449036abc7d44c1df, type: 3}
+  m_Name: Player1
   m_EditorClassIdentifier: 
-  Player1Key1: x
-  Player1Key2: v
-  Player2Key1: f
-  Player2Key2: q
-  LossPerSecond: 1
-  GainPerHit: 1
