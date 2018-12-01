@@ -12,6 +12,8 @@ public class EffectManager : MonoBehaviour {
     public Effect[] NegEffects;
     public Effect[] PosEffects;
     public Effect[] SuperPosEffects;
+    public Effect[] NegAudioEffects;
+    public Effect[] PosAudioEffects;
 
     private void Awake() {
         Instance = this;
@@ -41,4 +43,15 @@ public class EffectManager : MonoBehaviour {
         effect.Spawn();
     }
 
+    public void PlayNegAudioEffect()
+    {
+        var effect = NegAudioEffects[Random.Range(0, NegAudioEffects.Length)];
+        effect.Spawn();
+    }
+
+    public void PlayPosAudioEffect()
+    {
+        var effect = PosAudioEffects[Random.Range(0, PosAudioEffects.Length)];
+        effect.Spawn();
+    }
 }
