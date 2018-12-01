@@ -9,33 +9,51 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1538381504951420}
+  m_RootGameObject: {fileID: 1579956735763088}
   m_IsPrefabAsset: 1
---- !u!1 &1538381504951420
+--- !u!1 &1579956735763088
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 224952279744832634}
-  - component: {fileID: 222371319063803888}
-  - component: {fileID: 114253836881018588}
-  - component: {fileID: 114884954249903820}
-  - component: {fileID: 114315551492239452}
+  - component: {fileID: 224612536606599670}
+  - component: {fileID: 222741033756262592}
+  - component: {fileID: 114102893694918470}
+  - component: {fileID: 95373791208274120}
+  - component: {fileID: 114256749687376000}
   m_Layer: 5
-  m_Name: EffectImagePrefab
+  m_Name: BongoCatEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114253836881018588
+--- !u!95 &95373791208274120
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1579956735763088}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de32a51c380116947b2d07e223ed4a14, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114102893694918470
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1538381504951420}
+  m_GameObject: {fileID: 1579956735763088}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -49,7 +67,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 956763fcbb5e7e5459d0c0ef282158cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -57,43 +75,30 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114315551492239452
+--- !u!114 &114256749687376000
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1538381504951420}
+  m_GameObject: {fileID: 1579956735763088}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be77ef9b4f288884996f8bbcb5a11b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114884954249903820
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1538381504951420}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebca9b583b1b8c84da862ac00fe843a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  lifetime: 3
---- !u!222 &222371319063803888
+--- !u!222 &222741033756262592
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1538381504951420}
+  m_GameObject: {fileID: 1579956735763088}
   m_CullTransparentMesh: 0
---- !u!224 &224952279744832634
+--- !u!224 &224612536606599670
 RectTransform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1538381504951420}
+  m_GameObject: {fileID: 1579956735763088}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}

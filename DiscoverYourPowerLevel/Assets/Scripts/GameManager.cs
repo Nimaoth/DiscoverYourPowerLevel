@@ -27,5 +27,10 @@ public class GameManager : MonoBehaviour {
         if (Player2.PowerLevel < 0) {
             Player2.PowerLevel = 0;
         }
+
+        if (Input.GetKeyDown("space")) {
+            EffectManager.Instance.PlayPosEffect();
+        }
+        
     }
 }
