@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugStart: 1
-  debugPercent: 0
+  debugPercent: 0.4
   Clips:
   - {fileID: 11400000, guid: 7e56ad68b785871438c305635d99f301, type: 2}
   ClipAudioSource: {fileID: 318986}
@@ -1439,7 +1439,7 @@ VideoPlayer:
   m_AspectRatio: 2
   m_DataSource: 0
   m_PlaybackSpeed: 1
-  m_AudioOutputMode: 0
+  m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
