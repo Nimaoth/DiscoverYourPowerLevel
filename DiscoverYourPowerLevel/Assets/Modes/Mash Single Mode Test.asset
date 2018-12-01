@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player1Key: x
   Player2Key: q
-  LossPerSecond: 2
-  GainPerHit: 1
+  LossPerSecond: 1000
+  GainPerHit: 175

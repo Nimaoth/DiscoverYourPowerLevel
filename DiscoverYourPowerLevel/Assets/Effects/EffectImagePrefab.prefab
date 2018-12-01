@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222371319063803888}
   - component: {fileID: 114253836881018588}
   m_Layer: 5
-  m_Name: Image
+  m_Name: EffectImagePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

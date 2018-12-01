@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4935326913949042}
   - component: {fileID: 328311556243778570}
   m_Layer: 0
-  m_Name: Video Player
+  m_Name: EffectVideoPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
