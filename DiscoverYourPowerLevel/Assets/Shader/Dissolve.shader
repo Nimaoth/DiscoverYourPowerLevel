@@ -1,4 +1,4 @@
-﻿Shader "ShaderCourse/Week6/6.3. Dissolve" {
+﻿Shader "Custom/Dissolve" {
     Properties 
     {
         _GlowThickness ("GlowThickness", Float) = 0.1
@@ -45,5 +45,4 @@
 
         ENDCG
     }
-    //ToDo: Set fallback
 }
