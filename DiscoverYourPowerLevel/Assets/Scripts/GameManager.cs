@@ -12,13 +12,11 @@ public class GameManager : MonoBehaviour {
     private void Awake() {
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        Player1 = new Player();
-        Player2 = new Player();
     }
 
     void Start () {
-        
+        Player1.Start();
+        Player2.Start();
     }
     
     void Update () {

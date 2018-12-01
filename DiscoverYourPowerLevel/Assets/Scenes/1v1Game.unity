@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 187784410}
   - component: {fileID: 187784412}
   - component: {fileID: 187784411}
+  - component: {fileID: 187784413}
   m_Layer: 5
   m_Name: Player2
   m_TagString: Untagged
@@ -307,7 +308,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 8956cb812285ffc4c97470d734978180, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -327,6 +328,23 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 187784409}
   m_CullTransparentMesh: 0
+--- !u!114 &187784413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 187784409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d0337a6f4e1e8429691b50e31315e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxScale: 1.25
+  bounceSpeed: 5
+  Player: {fileID: 11400000, guid: 0d92dbc29fdc87b488fecd2dcd09cd7a, type: 2}
+  text: {fileID: 0}
+  isBoucingUp: 0
+  currentScale: 0
 --- !u!1 &297336214
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,6 +446,7 @@ GameObject:
   - component: {fileID: 621023982}
   - component: {fileID: 621023984}
   - component: {fileID: 621023983}
+  - component: {fileID: 621023985}
   m_Layer: 5
   m_Name: Player1
   m_TagString: Untagged
@@ -473,7 +492,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 8956cb812285ffc4c97470d734978180, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -493,6 +512,23 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 621023981}
   m_CullTransparentMesh: 0
+--- !u!114 &621023985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 621023981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d0337a6f4e1e8429691b50e31315e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxScale: 1.25
+  bounceSpeed: 5
+  Player: {fileID: 11400000, guid: 897c7e3f0991c784e85ea67a5af9c7bf, type: 2}
+  text: {fileID: 0}
+  isBoucingUp: 0
+  currentScale: 0
 --- !u!1 &1083158641
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ae73e1059719349804c765bfe9592d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player1: {fileID: 11400000, guid: 897c7e3f0991c784e85ea67a5af9c7bf, type: 2}
+  Player2: {fileID: 11400000, guid: 0d92dbc29fdc87b488fecd2dcd09cd7a, type: 2}
 --- !u!4 &1205006177
 Transform:
   m_ObjectHideFlags: 0

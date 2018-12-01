@@ -15,12 +15,13 @@ public class MashSingleMode : Mode
     {
         if (Input.GetKeyDown(Player1Key)) {
             player1.PowerLevel += GainPerHit;
+        } else {
+            player1.PowerLevel -= LossPerSecond * time;
         }
         if (Input.GetKeyDown(Player2Key)) {
             player2.PowerLevel += GainPerHit;
+        } else {
+            player2.PowerLevel -= LossPerSecond * time;
         }
-
-        player1.PowerLevel -= (int)(LossPerSecond * time);
-        player2.PowerLevel -= (int)(LossPerSecond * time);
     }
 }

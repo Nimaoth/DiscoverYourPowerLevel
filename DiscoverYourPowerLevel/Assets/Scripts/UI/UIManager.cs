@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour {
     public Text Player2PowerLevel;
 
     private void Update() {
-        Player1PowerLevel.text = GameManager.Instance.Player1.PowerLevel.ToString();
-        Player2PowerLevel.text = GameManager.Instance.Player2.PowerLevel.ToString();
+        Player1PowerLevel.text = ((int)GameManager.Instance.Player1.PowerLevel).ToString();
+        Player2PowerLevel.text = ((int)GameManager.Instance.Player2.PowerLevel).ToString();
     }
 }
