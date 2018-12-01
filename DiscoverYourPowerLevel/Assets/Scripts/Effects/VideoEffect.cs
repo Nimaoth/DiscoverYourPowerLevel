@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Custom/Effect/VideoEffect")]
 public class VideoEffect : Effect {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+	public GameObject obj;
+	public int bounds_x;
+	public int bounds_y;
+
+
+	public void override spawn(Vector3 location)
+	{
 		
 	}
 }
