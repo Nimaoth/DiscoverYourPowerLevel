@@ -18,15 +18,17 @@ public class Clip : ScriptableObject {
     public AudioClip AudioClip;
 
     public ModeTrigger[] Modes;
-    public int CurrentModeIndex = 0;
+
+    [SerializeField]
+    private int CurrentModeIndex = -1;
 
     [SerializeField]
     private Mode CurrentMode = null;
 
     public void Start() {
-        foreach (var mode in Modes) {
-            mode.Mode.Start();
-        }
+        CurrentModeIndex = -1;
+        CurrentMode = null;
+        StartNextMode();
 
         AudioSource = ClipManager.Instance.ClipAudioSource;
         AudioSource.clip = AudioClip;
@@ -36,16 +38,24 @@ public class Clip : ScriptableObject {
     public void OnUpdate(float time) {
         float progress = (float)AudioSource.timeSamples / AudioClip.samples * AudioClip.length;
 
-        if (CurrentModeIndex < Modes.Length) {
-            var modeTrigger = Modes[CurrentModeIndex];
+        if (CurrentModeIndex + 1 < Modes.Length) {
+            var modeTrigger = Modes[CurrentModeIndex + 1];
             if (progress >= modeTrigger.StartTime) {
-                CurrentModeIndex++;
-                CurrentMode = modeTrigger.Mode;
+                StartNextMode();
             }
         }
 
         if (CurrentMode != null) {
             CurrentMode.OnUpdate(time);
+        }
+    }
+
+    private void StartNextMode() {
+        CurrentMode = null;
+        CurrentModeIndex++;
+        if (CurrentModeIndex < Modes.Length) {
+            CurrentMode = Modes[CurrentModeIndex].Mode;
+            CurrentMode.Start();
         }
     }
 
