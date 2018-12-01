@@ -4,13 +4,41 @@ using UnityEngine;
 
 public class EffectManager : MonoBehaviour {
 
-    // Use this for initialization
-    void Start () {
-        
+    public static EffectManager Instance;
+
+    public Transform EffectCanvas;
+
+
+    public GameObject[] NegEffects;
+    public GameObject[] PosEffects;
+    public GameObject[] SuperPosEffects;
+
+    private void Awake() {
+        Instance = this;
     }
-    
-    // Update is called once per frame
-    void Update () {
-        
+
+    public void PlayEffect(int effect, GameObject[] EffectType)
+    {
+        GameObject prefab = EffectType[effect];
+        Instantiate(prefab);
     }
+
+    public void PlayNegEffect()
+    {
+        GameObject prefab = NegEffects[Random.Range(0, NegEffects.Length)];
+        Instantiate(prefab);
+    }
+
+    public void PlayPosEffect()
+    {
+        GameObject prefab = PosEffects[Random.Range(0, PosEffects.Length)];
+        Instantiate(prefab);
+    }
+
+    public void PlaySuperPosEffect()
+    {
+        GameObject prefab = SuperPosEffects[Random.Range(0, SuperPosEffects.Length)];
+        Instantiate(prefab);
+    }
+
 }

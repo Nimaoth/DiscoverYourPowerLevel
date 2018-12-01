@@ -36,8 +36,8 @@ public class MashAlternatingMode : Mode {
             Player2Key = !Player2Key;
         }
 
-        player1.PowerLevel -= (int)(LossPerSecond * time);
-        player2.PowerLevel -= (int)(LossPerSecond * time);
+        player1.PowerLevel -= LossPerSecond * time;
+        player2.PowerLevel -= LossPerSecond * time;
     }
 
 }

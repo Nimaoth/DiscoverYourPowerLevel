@@ -12,13 +12,11 @@ public class GameManager : MonoBehaviour {
     private void Awake() {
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        Player1 = new Player();
-        Player2 = new Player();
     }
 
     void Start () {
-        
+        Player1.Start();
+        Player2.Start();
     }
     
     void Update () {
@@ -29,5 +27,10 @@ public class GameManager : MonoBehaviour {
         if (Player2.PowerLevel < 0) {
             Player2.PowerLevel = 0;
         }
+
+        if (Input.GetKeyDown("space")) {
+            EffectManager.Instance.PlayPosEffect();
+        }
+        
     }
 }
