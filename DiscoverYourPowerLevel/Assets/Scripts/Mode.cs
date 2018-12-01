@@ -8,9 +8,12 @@ public abstract class Mode : ScriptableObject {
     protected Player player1;
     protected Player player2;
 
-    public void Start() {
+    public AudioSource AudioSource;
+
+    public virtual void Start() {
         player1 = GameManager.Instance.Player1;
         player2 = GameManager.Instance.Player2;
+        AudioSource = ClipManager.Instance.ClipAudioSource;
     }
 
     public abstract void OnUpdate(float time);

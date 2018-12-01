@@ -4,33 +4,41 @@ using UnityEngine;
 
 public class EffectManager : MonoBehaviour {
 
+    public static EffectManager Instance;
 
-    public GameObject[] NegEffects;
-    public GameObject[] PosEffects;
-    public GameObject[] SuperPosEffects;
+    public Transform EffectCanvas;
 
-    private void PlayEffect(int effect, GameObject[] EffectType)
-    {
-        GameObject prefab = EffectType[effect];
-        Instantiate(prefab);
+
+    public Effect[] NegEffects;
+    public Effect[] PosEffects;
+    public Effect[] SuperPosEffects;
+
+    private void Awake() {
+        Instance = this;
     }
 
-    private void PlayNegEffct()
+    public void PlayEffect(Effect effect)
     {
-        GameObject prefab = NegEffects[Random.Range(0, NegEffects.Length - 1)];
-        Instantiate(prefab);
+        //Todo
+        effect.Spawn(Vector3.zero);
     }
 
-    private void PlayPosEffct()
+    public void PlayNegEffect()
     {
-        GameObject prefab = PosEffects[Random.Range(0, PosEffects.Length - 1)];
-        Instantiate(prefab);
+        var effect = NegEffects[Random.Range(0, NegEffects.Length)];
+        effect.Spawn();
     }
 
-    private void PlaySuperPosEffct()
+    public void PlayPosEffect()
     {
-        GameObject prefab = SuperPosEffects[Random.Range(0, SuperPosEffects.Length - 1)];
-        Instantiate(prefab);
+        var effect = PosEffects[Random.Range(0, PosEffects.Length)];
+        effect.Spawn();
+    }
+
+    public void PlaySuperPosEffect()
+    {
+        var effect = SuperPosEffects[Random.Range(0, SuperPosEffects.Length)];
+        effect.Spawn();
     }
 
 }

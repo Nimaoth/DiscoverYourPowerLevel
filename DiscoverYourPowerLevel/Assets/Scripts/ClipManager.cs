@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ClipManager : MonoBehaviour {
 
+    public bool debugStart;
+    public float debugPercent;
+
     public static ClipManager Instance;
 
     public Clip[] Clips;
@@ -39,7 +42,7 @@ public class ClipManager : MonoBehaviour {
         CurrentClipIndex++;
         if (CurrentClipIndex < Clips.Length) {
             currentClip = Clips[CurrentClipIndex];
-            currentClip.Start();
+            currentClip.StartClip(debugStart, debugPercent);
         }
     }
 
