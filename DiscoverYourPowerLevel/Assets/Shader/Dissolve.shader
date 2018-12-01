@@ -41,7 +41,7 @@
 
         void surf (Input i, inout SurfaceOutputStandard o) 
         {
-            float noise = (snoise(i.worldPos * _Size) * 0.5 ) * (1 - _GlowThickness * 2) + _GlowThickness * 2;
+            float noise = (snoise(i.worldPos * _Size) * 0.5) * (1 - _GlowThickness * 2) + _GlowThickness * 2;
             float time = 1 - _Flow * 2 + i.objPos.y;
             //float t = sin(time) * 0.5 + 0.5;
 
