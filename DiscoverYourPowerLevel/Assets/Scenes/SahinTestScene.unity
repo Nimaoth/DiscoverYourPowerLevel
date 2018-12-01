@@ -466,6 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraAnchorToRotate: {fileID: 57270299}
+  rotationCount: 0
   rotationDuration: 10
 --- !u!4 &358811594
 Transform:
