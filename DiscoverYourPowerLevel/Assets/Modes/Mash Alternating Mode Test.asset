@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae121803a2d6824da98c6a094232492, type: 3}
+  m_Name: Mash Alternating Mode Test
+  m_EditorClassIdentifier: 
+  Player1Key1: x
+  Player1Key2: v
+  Player2Key1: f
+  Player2Key2: q
+  LossPerSecond: 1000
+  GainPerHit: 175
