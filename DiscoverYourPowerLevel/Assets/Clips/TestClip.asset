@@ -17,5 +17,9 @@ MonoBehaviour:
   Modes:
   - StartTime: 0
     Mode: {fileID: 11400000, guid: 24a1e80b9e43b2f4cb823a070a6295d2, type: 2}
-  CurrentModeIndex: 0
-  CurrentMode: {fileID: 11400000, guid: 24a1e80b9e43b2f4cb823a070a6295d2, type: 2}
+  - StartTime: 30
+    Mode: {fileID: 11400000, guid: 8a2e0a2da23499a46a32032b0a9e347d, type: 2}
+  - StartTime: 59
+    Mode: {fileID: 11400000, guid: 930ffdc2c1d10e748ab5436728cba092, type: 2}
+  CurrentModeIndex: 2
+  CurrentMode: {fileID: 11400000, guid: 930ffdc2c1d10e748ab5436728cba092, type: 2}

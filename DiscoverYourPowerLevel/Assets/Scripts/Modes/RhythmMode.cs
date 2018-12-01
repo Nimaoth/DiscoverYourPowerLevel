@@ -36,12 +36,12 @@ public class RhythmMode : Mode {
 
         timer = (progress + tickOffset) % tbb;
         if (Mathf.Abs(timer - lastTimer) > 0.5f * tbb) {
-            EffectManager.Instance.PlayPosEffect();
+            // EffectManager.Instance.PlayPosEffect();
             AudioSource.PlayClipAtPoint(testSound, Vector3.zero);
         }
         lastTimer = timer;
 
-        var timer2 = timer + klickOffset;
+        var timer2 = (timer + klickOffset) % tbb;
         if (Input.GetKeyDown(Player1Key)) {
             if (timer2 < timingAccuracy || timer2 > tbb - timingAccuracy)
                 player1.PowerLevel += GainPerHit;
@@ -54,5 +54,8 @@ public class RhythmMode : Mode {
             else
                 player2.PowerLevel -= LossPerHit;
         }
+
+        var timer3 = (progress + 0) % tbb;
+        UIManager.Instance.HitCircle.openness = 1 - (timer3 / tbb);
     }
 }
