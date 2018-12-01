@@ -88,9 +88,6 @@ public class UIManager : MonoBehaviour {
 
         //Update Progress
         float p1 = Player1PowerLevel - lowerThresholdPlayer1;
-        Debug.Log("power player1" + Player1PowerLevel);
-        Debug.Log("p1" + p1);
-        Debug.Log("uppertrhes" + upperThresholdPlayer1);
 
         currentLevelProgressPlayer1 = p1/(upperThresholdPlayer1-lowerThresholdPlayer1);
 

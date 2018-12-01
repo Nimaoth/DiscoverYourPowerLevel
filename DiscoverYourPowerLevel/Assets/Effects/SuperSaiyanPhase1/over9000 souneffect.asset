@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c892cb0a37189d40b9512190f51c4a6, type: 3}
   m_Name: over9000 souneffect
   m_EditorClassIdentifier: 
-  soundClip: {fileID: 0}
+  soundClip: {fileID: 8300000, guid: 30866f524f7ade346bf3ab28a0116e85, type: 3}
