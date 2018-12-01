@@ -8,11 +8,28 @@ public class ScreenRotateEffect : MonoBehaviour {
     public int rotationCount;
     public float rotationDuration;
     private float rotTimer;
+    private float steps;
+    private bool rotate;
 
-	// Use this for initialization
-	
-	// Update is called once per frame
-	void Update () {
-		
+    // Use this for initialization
+    private void Start()
+    {
+        steps = 36 / rotationDuration;
+    }
+
+    // Update is called once per frame
+    void Update () {
+        if(rotTimer <= 0)
+        {
+            rotTimer = rotationDuration;
+            rotate = false;
+        }
+
+        if(rotate)
+        {
+            rotTimer -= Time.deltaTime;
+            //cameraAnchorToRotate.transform.eulerAngles.z = transform.eulerAngles.z + steps * 10;
+        }
+        
 	}
 }
