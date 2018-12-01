@@ -772,7 +772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NegEffects: []
-  PosEffects: []
+  PosEffects:
+  - {fileID: 1538381504951420, guid: 1928c22708d467c4fa46c324612b83ae, type: 2}
   SuperPosEffects: []
 --- !u!4 &1514807024
 Transform:
