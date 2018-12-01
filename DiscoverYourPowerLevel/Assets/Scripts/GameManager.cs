@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour {
     public Player Player1;
     public Player Player2;
 
-
     private void Awake() {
         Instance = this;
         DontDestroyOnLoad(gameObject);
@@ -23,6 +22,12 @@ public class GameManager : MonoBehaviour {
     }
     
     void Update () {
+        if (Player1.PowerLevel < 0) {
+            Player1.PowerLevel = 0;
+        }
         
+        if (Player2.PowerLevel < 0) {
+            Player2.PowerLevel = 0;
+        }
     }
 }

@@ -28,14 +28,13 @@ public class Clip : ScriptableObject {
             mode.Mode.Start();
         }
 
-        AudioSource = new AudioSource();
+        AudioSource = ClipManager.Instance.ClipAudioSource;
         AudioSource.clip = AudioClip;
         AudioSource.Play();
     }
 
     public void OnUpdate(float time) {
         float progress = (float)AudioSource.timeSamples / AudioClip.samples * AudioClip.length;
-        Debug.Log("prog: " + progress);
 
         if (CurrentModeIndex < Modes.Length) {
             var modeTrigger = Modes[CurrentModeIndex];

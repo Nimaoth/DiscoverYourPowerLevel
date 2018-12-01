@@ -11,8 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f90fb03eb35ad4bb6f2968921ce507, type: 3}
   m_Name: TestClip
   m_EditorClassIdentifier: 
-  CurrentProgress: 0
+  Done: 0
   AudioSource: {fileID: 0}
   AudioClip: {fileID: 8300000, guid: c0ec1600c77d9ad41be683977cdbbedf, type: 3}
+  Modes:
+  - StartTime: 0
+    Mode: {fileID: 11400000, guid: cd8b12bcb9c23e54ca013af56802e164, type: 2}
   CurrentModeIndex: 0
   CurrentMode: {fileID: 0}
