@@ -22,8 +22,8 @@ public class MashAlternatingMode : Mode {
         ButtonUIManager.instance.SetupDoubleMash((int)Player1Key1, (int) Player1Key2, (int) Player2Key1, (int) Player2Key2 );
         Player1Key = true;
         Player2Key = true;
-
     }
+    
     public override void OnUpdate(float time)
     {
         int p1key1 = (int)Player1Key1;

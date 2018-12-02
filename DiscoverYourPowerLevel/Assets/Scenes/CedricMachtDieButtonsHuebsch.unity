@@ -144,7 +144,7 @@ MonoBehaviour:
   debugStart: 0
   debugPercent: 0.4
   Clips:
-  - {fileID: 11400000, guid: 77271eb68e91feb4f9b17e41e31ce1c5, type: 2}
+  - {fileID: 11400000, guid: cac006efaa4fa6f458e6ce582df368b6, type: 2}
   ClipAudioSource: {fileID: 318986}
 --- !u!4 &318985
 Transform:
@@ -2073,7 +2073,7 @@ MonoBehaviour:
   - StartPower: 300
     Effect: {fileID: 11400000, guid: 07f3aadd53fdf7042923e698750462c7, type: 2}
   CurrentEffectIndex: 0
-  VideoEffectCanvas: {fileID: 635601498}
+  VideoEffectCanvas: {fileID: 0}
   Player1PowerLevelText: {fileID: 621023983}
   Player2PowerLevelText: {fileID: 187784411}
   HitCirclePlayer1: {fileID: 1238160176}
