@@ -12,9 +12,58 @@ public class HighScoreReader : MonoBehaviour {
     public GameObject panel2to5Place;
     public GameObject panel6to9Place;
 
+    public GameObject inputNameBox1;
+    public GameObject inputNameBox2;
+
     // Use this for initialization
     void Start () {
         highscoreMan = HighScoreManager._instance;
+
+        updateList();
+
+        InputField player1NameInpField = inputNameBox1.GetComponentInChildren<InputField>();
+        InputField player2NameInpField = inputNameBox2.GetComponentInChildren<InputField>();
+
+        inputNameBox1.transform.Find("PlayerName").GetComponent<Text>().text += (int)GameManager.Instance.Player1.PowerLevel;
+        inputNameBox2.transform.Find("PlayerName").GetComponent<Text>().text += (int)GameManager.Instance.Player2.PowerLevel;
+        //player1NameInpField.
+        player1NameInpField.onEndEdit.AddListener((a) => {
+            inputNameBox1.SetActive(false);
+            highscoreMan.SaveHighScore(a, (int)GameManager.Instance.Player1.PowerLevel);
+            inputNameBox2.SetActive(true);
+        });
+        //player2NameInpField.
+        player2NameInpField.onEndEdit.AddListener((a) => {
+            inputNameBox2.SetActive(false);
+            highscoreMan.SaveHighScore(a, (int)GameManager.Instance.Player2.PowerLevel);
+            updateList();
+        });
+
+
+       
+    }
+
+    // Update is called once per frame
+    void Update () {
+		
+	}
+    void updateList()
+    {
+        foreach (Transform child in panelFirstPlace.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
+        foreach (Transform child in panel2to5Place.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
+        foreach (Transform child in panel6to9Place.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
         List<Scores> scoreList = highscoreMan.GetHighScore();
         if (scoreList.Count > 0)
         {
@@ -39,9 +88,4 @@ public class HighScoreReader : MonoBehaviour {
             }
         }
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }
