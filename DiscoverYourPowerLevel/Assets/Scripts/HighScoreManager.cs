@@ -22,6 +22,10 @@ public class HighScoreManager : MonoBehaviour
         SaveHighScore("OmegaLul4", 50000);
         SaveHighScore("OmegaLul5", 15000);
         SaveHighScore("OmegaLul6", 3000);
+        SaveHighScore("OmegaLul6", 3000);
+        SaveHighScore("OmegaLul6", 3000);
+        SaveHighScore("OmegaLul6", 3000);
+        SaveHighScore("OmegaLul6", 3000);
 
         var highscores = GetHighScore();
         Debug.Log(string.Join("\n" , highscores.Select((a) => a.name + " score: " + a.score)));
