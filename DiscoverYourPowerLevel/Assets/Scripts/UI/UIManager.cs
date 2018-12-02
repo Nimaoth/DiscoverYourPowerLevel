@@ -37,8 +37,7 @@ public class UIManager : MonoBehaviour {
     public PowerBar Player1PowerBar;
     public PowerBar Player2PowerBar;
 
-    float timer;
-    bool canChangeScene;
+    public Material m_Material1;
 
 
     //To be set in Inspector
@@ -97,10 +96,10 @@ public class UIManager : MonoBehaviour {
 
         //Update Progress
         float p1 = Player1PowerLevel - lowerThresholdPlayer1;
-
         currentLevelProgressPlayer1 = p1/(upperThresholdPlayer1-lowerThresholdPlayer1);
 
         float p2 = Player2PowerLevel - lowerThresholdPlayer2;
+
         currentLevelProgressPlayer2 = p2/(upperThresholdPlayer2- lowerThresholdPlayer2);
 
         //Update text
@@ -117,6 +116,11 @@ public class UIManager : MonoBehaviour {
             if (Player1PowerLevel >= effectTrigger.StartPower || Player1PowerLevel >= effectTrigger.StartPower) {
                 PlayEffect(effectTrigger.Effect);
             }
+        }
+
+        if(upperThresholdPlayer1 > 30000)
+        {
+            m_Material1.SetFloat("_GlowThickness", 0.3f);
         }
 
         /*timer += Time.deltaTime;
@@ -150,12 +154,6 @@ public class UIManager : MonoBehaviour {
             CurrentEffectIndex = -1;
         }
         
-    }
-
-    IEnumerator waitSeconds()
-    {
-        yield return new WaitForSeconds(2);
-        canChangeScene = true;
     }
 
 
