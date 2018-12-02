@@ -35,6 +35,7 @@ public class RhythmMode : Mode {
         base.Start();
         timer = tickOffset;
         ButtonUIManager.instance.SetupRhythm((int)Player1Key, (int) Player2Key);
+        ButtonUIManager.instance.SetupRhythmButtons();
     }
 
     float lastTimer = 0;
