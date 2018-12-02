@@ -24,8 +24,14 @@ public class HighScoreReader : MonoBehaviour {
         InputField player1NameInpField = inputNameBox1.GetComponentInChildren<InputField>();
         InputField player2NameInpField = inputNameBox2.GetComponentInChildren<InputField>();
 
-        inputNameBox1.transform.Find("PlayerName").GetComponent<Text>().text += (int)GameManager.Instance.Player1.PowerLevel;
-        inputNameBox2.transform.Find("PlayerName").GetComponent<Text>().text += (int)GameManager.Instance.Player2.PowerLevel;
+        var p1Score = inputNameBox1.transform.Find("Score");
+        var p1ScoreText = p1Score.GetComponent<Text>();
+        p1ScoreText.text = "Your Score: " + (int)GameManager.Instance.Player1.PowerLevel;
+
+        var p2Score = inputNameBox2.transform.Find("Score");
+        var p2ScoreText = p2Score.GetComponent<Text>();
+        p2ScoreText.text = "Your Score: " + (int)GameManager.Instance.Player2.PowerLevel;
+
         //player1NameInpField.
         player1NameInpField.onEndEdit.AddListener((a) => {
             inputNameBox1.SetActive(false);
@@ -37,6 +43,7 @@ public class HighScoreReader : MonoBehaviour {
             inputNameBox2.SetActive(false);
             highscoreMan.SaveHighScore(a, (int)GameManager.Instance.Player2.PowerLevel);
             updateList();
+            inputNameBox2.transform.parent.gameObject.SetActive(false);
         });
 
 
@@ -70,21 +77,27 @@ public class HighScoreReader : MonoBehaviour {
 
             GameObject tempObj = Instantiate(firstPlacePrefab);
             tempObj.transform.SetParent(panelFirstPlace.transform, false);
-            tempObj.GetComponent<Text>().text = "1. " + scoreList[0].name + " - " + scoreList[0].score;
+            tempObj.transform.Find("Place").GetComponent<Text>().text = "1.";
+            tempObj.transform.Find("Name").GetComponent<Text>().text = scoreList[0].name;
+            tempObj.transform.Find("Score").GetComponent<Text>().text = scoreList[0].score + "";
 
 
             for (int i = 1; i < 5 && i < scoreList.Count; i++)
             {
                 tempObj = Instantiate(HighscorePrefab);
                 tempObj.transform.SetParent(panel2to5Place.transform);
-                tempObj.GetComponent<Text>().text = i + 1 + ". " + scoreList[i].name + " - " + scoreList[i].score;
+                tempObj.transform.Find("Place").GetComponent<Text>().text = (i + 1) + ".";
+                tempObj.transform.Find("Name").GetComponent<Text>().text = scoreList[i].name;
+                tempObj.transform.Find("Score").GetComponent<Text>().text = scoreList[i].score + "";
             }
 
             for (int i = 5; i < 9 && i < scoreList.Count; i++)
             {
                 tempObj = Instantiate(HighscorePrefab);
                 tempObj.transform.SetParent(panel6to9Place.transform);
-                tempObj.GetComponent<Text>().text = i + 1 + ". " + scoreList[i].name + " - " + scoreList[i].score;
+                tempObj.transform.Find("Place").GetComponent<Text>().text = (i + 1) + ".";
+                tempObj.transform.Find("Name").GetComponent<Text>().text = scoreList[i].name;
+                tempObj.transform.Find("Score").GetComponent<Text>().text = scoreList[i].score + "";
             }
         }
     }
