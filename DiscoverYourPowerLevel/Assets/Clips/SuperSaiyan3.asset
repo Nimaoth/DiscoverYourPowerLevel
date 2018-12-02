@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08f90fb03eb35ad4bb6f2968921ce507, type: 3}
-  m_Name: TestClip
+  m_Name: SuperSaiyan3
   m_EditorClassIdentifier: 
   Done: 0
   VideoClip: {fileID: 32900000, guid: 224cf85924cfc3540a42240ac63b4bcb, type: 3}
@@ -22,8 +22,8 @@ MonoBehaviour:
     Mode: {fileID: 11400000, guid: 8a2e0a2da23499a46a32032b0a9e347d, type: 2}
   - StartTime: 59
     Mode: {fileID: 11400000, guid: 930ffdc2c1d10e748ab5436728cba092, type: 2}
-  CurrentModeIndex: 2
-  CurrentMode: {fileID: 11400000, guid: 930ffdc2c1d10e748ab5436728cba092, type: 2}
+  CurrentModeIndex: 0
+  CurrentMode: {fileID: 11400000, guid: 24a1e80b9e43b2f4cb823a070a6295d2, type: 2}
   Effects:
   - StartTime: 5
     Effect: {fileID: 11400000, guid: 0b8e80bbadee70140ac978e4cd320887, type: 2}

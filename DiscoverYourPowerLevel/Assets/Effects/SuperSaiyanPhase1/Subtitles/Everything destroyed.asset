@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02b167237e8e1444c8f8fb7df7ac0479, type: 3}
-  m_Name: Everything is going to be destroyed!
+  m_Name: Everything destroyed
   m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  text: 
-  fontSize: 0
+  x: 30
+  y: -250
+  text: Everything is going to be destroyed!
+  fontSize: 80
   appearanceEffect: 0
-  appearDuration: 0
-  duration: 0
+  appearDuration: 0.1
+  duration: 3
