@@ -4,39 +4,63 @@ using UnityEngine;
 
 public class spriteMovement : MonoBehaviour
 {
+    public float MinSpeed = 10;
+    public float MaxSpeed = 100;
 
-    Vector3 velocity;
-    public int bounds_x;
-    public int bounds_y;
+    private Vector2 velocity;
+    private RectTransform rect;
+    private RectTransform parent;
 
     // Use this for initialization
     void Start()
     {
+        rect = GetComponent<RectTransform>();
+        parent = UIManager.Instance.VideoEffectCanvas.GetComponent<RectTransform>();
+        rect.SetParent(parent, false);
+
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.zero;
+        rect.pivot = Vector2.zero;
+
+        float panelWidth = parent.rect.width * parent.localScale.x;
+        float panelHeight = parent.rect.height * parent.localScale.y;
+
+
+
+        float xMin = -rect.rect.width;
+        float xMax = panelWidth;
+        
+        float yMin = -rect.rect.height;
+        float yMax = panelHeight;
+
+
+
         var horizontal = Random.Range(0, 2) < 0.5;
         var coin_flip = Random.Range(0, 2) < 0.5;
         if (horizontal)
         {
-            var x_random = Random.Range(-bounds_x, bounds_x);
-            var y_random = coin_flip ? bounds_y : -bounds_y;
-            transform.position = new Vector3(x_random, y_random, 10);
-
+            var x_random = Random.Range(xMin, xMax);
+            var y_random = coin_flip ? yMin : yMax;
+            rect.anchoredPosition = new Vector2(x_random, y_random);
         }
         else
         {
-            var y_random = Random.Range(-bounds_y, bounds_y);
-            var x_random = coin_flip ? bounds_x : -bounds_x;
-            transform.position = new Vector3(x_random, y_random, 10);
+            var x_random = coin_flip ? xMin : xMax;
+            var y_random = Random.Range(yMin, yMax);
+            rect.anchoredPosition = new Vector2(x_random, y_random);
         }
-        var target = Random.insideUnitCircle * 4;
-        var direction_vec = new Vector3(target.x, target.y, transform.position.z) - transform.position;
-        velocity = direction_vec.normalized * Random.Range(8, 14);
+
+        var target = new Vector2(Random.Range(panelWidth / 4, 3 * panelWidth / 4), Random.Range(panelHeight / 4, 3 * panelHeight / 4));
+        var direction_vec = target - rect.anchoredPosition;
+        velocity = direction_vec.normalized * Random.Range(MinSpeed, MaxSpeed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += velocity * Time.deltaTime;
-        if (transform.position.x < -bounds_x - 1 || transform.position.x > bounds_x + 1 || transform.position.y < -bounds_y - 1 || transform.position.y > bounds_y + 1)
+        rect.anchoredPosition += velocity * Time.deltaTime;
+        if (rect.anchoredPosition.x < - rect.rect.width - 100 || rect.anchoredPosition.x > parent.rect.width + 100
+            || rect.anchoredPosition.y < - rect.rect.height - 100 || rect.anchoredPosition.y > parent.rect.height + 100)
         {
             Destroy(gameObject);
         }

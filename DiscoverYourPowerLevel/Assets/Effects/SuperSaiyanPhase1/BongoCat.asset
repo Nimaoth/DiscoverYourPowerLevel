@@ -8,13 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b167237e8e1444c8f8fb7df7ac0479, type: 3}
-  m_Name: It's... Unreal.
+  m_Script: {fileID: 11500000, guid: db555235bdc032042b74d474e01bf92e, type: 3}
+  m_Name: BongoCat
   m_EditorClassIdentifier: 
-  x: 30
-  y: -350
-  text: 'It''s... unreal. '
-  fontSize: 80
-  appearanceEffect: 0
-  appearDuration: 0.1
-  duration: 1
+  sprites: []
+  obj: {fileID: 1579956735763088, guid: 8ffaba1b9ccbdbd49828dfab3e88ff7c, type: 2}
+  bounds_x: 20
+  bounds_y: 10

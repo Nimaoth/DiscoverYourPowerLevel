@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Shaking
   m_EditorClassIdentifier: 
   x: 30
-  y: -250
+  y: -350
   text: It feels like the whole world is shaking apart!
   fontSize: 70
   appearanceEffect: 0

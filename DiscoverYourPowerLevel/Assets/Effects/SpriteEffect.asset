@@ -17,6 +17,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0c03ede526848184fa7dec414be8d761, type: 3}
   - {fileID: 21300000, guid: eefda4a98a8f6ff4d93890a2665bbb2c, type: 3}
   - {fileID: 21300000, guid: 5218527f9b51ba24dad79e64aca035f1, type: 3}
-  obj: {fileID: 1210370709499060, guid: b654126d5dcf67545b82a2a551960a85, type: 2}
-  bounds_x: 20
-  bounds_y: 10
+  obj: {fileID: 1891765643443860, guid: 6c45398dc636386429dab0a9e2d0e46a, type: 2}
+  MinSpeed: 0
+  MaxSpeed: 0
