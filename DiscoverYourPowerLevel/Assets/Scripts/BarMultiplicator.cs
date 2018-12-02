@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class BarMultiplicator : MonoBehaviour {
 
+
+	public PowerBar player1Bar;
+	public PowerBar player2Bar;
+
 	public Text player1Multi;
 	public Text player2Multi;
 
@@ -53,6 +57,7 @@ public class BarMultiplicator : MonoBehaviour {
 		}
 		player1Multi.text = s;
 		isBoucingUp = true;
+		player1Bar.UpdateColor();
 	}
 
 	public void progressPlayer2(int level)
@@ -64,5 +69,7 @@ public class BarMultiplicator : MonoBehaviour {
 		}
 		player2Multi.text = s;
 		isBoucingUp = true;		
+		player2Bar.UpdateColor();
+
 	}
 }
