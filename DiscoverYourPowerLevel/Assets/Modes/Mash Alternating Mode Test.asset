@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: Mash Alternating Mode Test
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 0}
-  Player1Key1: x
-  Player1Key2: v
-  Player2Key1: q
-  Player2Key2: f
+  Player1Key1: 0
+  Player1Key2: 3
+  Player2Key1: 5
+  Player2Key2: 4
   LossPerSecond: 5
   GainPerHit: 100
