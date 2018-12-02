@@ -28,6 +28,8 @@ public class RhythmMode : Mode {
 
     public AudioClip testSound;
 
+    public Effect tickEffect;
+
     public override void Start()
     {
         base.Start();
@@ -49,6 +51,10 @@ public class RhythmMode : Mode {
         if (Mathf.Abs(timer - lastTimer) > 0.5f * tbb) {
             // EffectManager.Instance.PlayPosEffect();
             AudioSource.PlayClipAtPoint(testSound, Vector3.zero);
+
+            if (tickEffect != null) {
+                tickEffect.Spawn();
+            }
         }
         lastTimer = timer;
 

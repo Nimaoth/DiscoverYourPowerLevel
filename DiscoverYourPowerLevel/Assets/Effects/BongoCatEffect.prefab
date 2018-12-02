@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114102893694918470}
   - component: {fileID: 95373791208274120}
   - component: {fileID: 114256749687376000}
+  - component: {fileID: 114874203341924058}
   m_Layer: 5
   m_Name: BongoCatEffect
   m_TagString: Untagged
@@ -86,6 +87,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be77ef9b4f288884996f8bbcb5a11b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114874203341924058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1579956735763088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f287c44bc7e79364f8642a8ae71ce198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounds_x: 0
+  bounds_y: 0
 --- !u!222 &222741033756262592
 CanvasRenderer:
   m_ObjectHideFlags: 1
