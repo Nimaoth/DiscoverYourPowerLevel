@@ -120,7 +120,7 @@ public class UIManager : MonoBehaviour {
 
         if(upperThresholdPlayer1 > 30000)
         {
-            m_Material1.SetFloat("_GlowThickness", 0.3f);
+            m_Material1.SetFloat("_GlowThickness", 1.3f);
         }
 
         /*timer += Time.deltaTime;

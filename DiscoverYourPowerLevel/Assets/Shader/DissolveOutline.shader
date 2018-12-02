@@ -127,19 +127,19 @@
 			float _GlowThickness;
 			float _Size;
 			float _Speed;
-			float3 _Emission;
+			float _Emission;
 			float3 _Emission2;
-			float3 _Color;
+			float4 _Color;
 			sampler2D _MainTex;
 			float _Flow;
 
 			fixed4 frag (v2f i) : SV_TARGET
 			{
-				float4 tex = tex2D(_MainTex, i.uv);
+				//float4 tex = tex2D(_MainTex, i.uv);
 
 				float time = _Flow * 2  - 1 - i.objPos.y;
 				clip(time);
-				return tex;
+				return fixed4(_Color.rgb, 1) * _GlowThickness;
 			}
 
 			ENDCG
