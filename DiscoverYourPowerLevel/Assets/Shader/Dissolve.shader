@@ -49,12 +49,15 @@
 
             float v = noise - t * 2;
             clip(v);
-            o.Albedo = tex2D(_MainTex, i.uv_MainTex).rgb;
+            //o.Albedo = tex2D(_MainTex, i.uv_MainTex).rgb;
+			o.Albedo = _Color;
 
             if (v < _GlowThickness) {
-                o.Emission = _Emission;
+                o.Emission = _Emission *  100;
+				o.Albedo = o.Emission;
             } else if (v < _GlowThickness * 2) {
-                o.Emission = _Emission2;
+                o.Emission = _Emission2 *  100;
+				o.Albedo = o.Emission;
             }
         }
 
