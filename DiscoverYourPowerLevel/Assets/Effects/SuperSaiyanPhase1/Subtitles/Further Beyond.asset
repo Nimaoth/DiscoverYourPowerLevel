@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02b167237e8e1444c8f8fb7df7ac0479, type: 3}
-  m_Name: TestEffect
+  m_Name: Further Beyond
   m_EditorClassIdentifier: 
-  x: 127
-  y: -111
-  text: And this
-  fontSize: 50
+  x: 30
+  y: -250
+  text: Is... To go... Even further... Beyond!
+  fontSize: 80
   appearanceEffect: 0
   appearDuration: 0.1
-  duration: 2
+  duration: 4

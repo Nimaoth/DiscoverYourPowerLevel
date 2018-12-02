@@ -29,7 +29,7 @@ public class spriteMovement : MonoBehaviour
         }
         var target = Random.insideUnitCircle * 4;
         var direction_vec = new Vector3(target.x, target.y, transform.position.z) - transform.position;
-        velocity = direction_vec.normalized * 8;
+        velocity = direction_vec.normalized * Random.Range(8, 14);
     }
 
     // Update is called once per frame
