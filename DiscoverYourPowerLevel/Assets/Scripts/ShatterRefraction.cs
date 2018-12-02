@@ -7,6 +7,7 @@ using UnityEngine;
 public class ShatterRefraction : MonoBehaviour {
 
     public Material shatterMaterial;
+    public bool inTitleScreen;
 
     public static ShatterRefraction Instance;
 
@@ -28,7 +29,8 @@ public class ShatterRefraction : MonoBehaviour {
     }
     private IEnumerator Shatter()
     {
-        //GetComponent<AudioSource>().Play();
+        if(inTitleScreen)
+            GetComponent<AudioSource>().Play();
         for (float i = 0; i < 0.1f; i += Time.deltaTime)
         {
             shatterMaterial.SetFloat("_Strength", i);
