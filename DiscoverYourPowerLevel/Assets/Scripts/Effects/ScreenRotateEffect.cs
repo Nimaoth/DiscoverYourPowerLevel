@@ -29,7 +29,7 @@ public class ScreenRotateEffect : MonoBehaviour {
             Debug.Log("Rotation timer: " + rotTimer);
             Debug.Log("Rotation: " + cameraAnchorToRotate.transform.rotation.z);
             rotTimer -= Time.deltaTime;
-            cameraAnchorToRotate.transform.RotateAround(Vector3.forward, 360 / (50 * rotationDuration) * 0.864f * Time.deltaTime);
+            cameraAnchorToRotate.transform.Rotate(Vector3.forward, 360 / (50 * rotationDuration) * 0.864f * Time.deltaTime);
             //cameraAnchorToRotate.transform.rotation = new Quaternion(cameraAnchorToRotate.transform.rotation.x, cameraAnchorToRotate.transform.rotation.y, cameraAnchorToRotate.transform.rotation.z + (- 360 / (50 * rotationDuration)), 1);
         }
         
