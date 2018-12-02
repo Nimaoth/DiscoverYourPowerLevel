@@ -121,6 +121,7 @@ public class ButtonUIManager : MonoBehaviour {
 
 	IEnumerator Flash1()
 	{
+		SetButtonPlayer1(player1Pattern[player1Counter], true);
 		smallerBox1.enabled = true;
 		yield return new WaitForSeconds(flashSpeed);
 		biggerBox1.enabled = true;
@@ -128,18 +129,21 @@ public class ButtonUIManager : MonoBehaviour {
 		biggerBox1.enabled = false;
 		yield return new WaitForSeconds(flashSpeed);
 		smallerBox1.enabled = false;
+		SetButtonPlayer1(player1Pattern[player1Counter], false);
 		yield return 0;
 	}
 
 	IEnumerator Flash2()
 	{
+		SetButtonPlayer1(player2Pattern[player2Counter], true);
 		smallerBox2.enabled = true;
 		yield return new WaitForSeconds(flashSpeed);
 		biggerBox2.enabled = true;
-		yield return new WaitForSeconds(flashSpeed);
+		SetButtonPlayer1(player2Pattern[player2Counter], false);
 		biggerBox2.enabled = false;
 		yield return new WaitForSeconds(flashSpeed);
 		smallerBox2.enabled = false;
+		yield return new WaitForSeconds(flashSpeed);
 		yield return 0;
 	}
 }

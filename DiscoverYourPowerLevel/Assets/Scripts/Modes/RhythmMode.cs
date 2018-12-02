@@ -57,7 +57,10 @@ public class RhythmMode : Mode {
 
         if (Input.GetKeyDown(p1key.ToString())) {
             if (timer2 < timingAccuracy || timer2 > tbb - timingAccuracy)
+            {
                 player1.PowerLevel += GainPerHit;
+                ButtonUIManager.instance.ProgressPlayer1();
+            }
             else
                 player1.PowerLevel -= LossPerHit;
         }
@@ -65,7 +68,11 @@ public class RhythmMode : Mode {
 
         if (Input.GetKeyDown(p2key.ToString())) {
             if (timer2 < timingAccuracy || timer2 > tbb - timingAccuracy)
+            {
                 player2.PowerLevel += GainPerHit;
+                ButtonUIManager.instance.ProgressPlayer2();
+            }
+
             else
                 player2.PowerLevel -= LossPerHit;
         }
