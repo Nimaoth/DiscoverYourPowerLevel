@@ -121,7 +121,7 @@ public class Clip : ScriptableObject {
     }
 
     private void PlayEffect(Effect effect) {  
-        Debug.Log("Effect played");
+        //Debug.Log("Effect played");
         if (CurrentEffectIndex < Effects.Length) {
             // Call EffectManager
             EffectManager.PlayEffect(effect);
