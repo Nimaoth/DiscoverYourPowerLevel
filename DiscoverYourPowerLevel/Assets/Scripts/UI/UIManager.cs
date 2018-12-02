@@ -22,6 +22,8 @@ public class UIManager : MonoBehaviour {
 
     private EffectManager EffectManager;
 
+    public GameObject VideoEffectCanvas;
+
     public static UIManager Instance;
 
     public Text Player1PowerLevelText;
@@ -102,7 +104,7 @@ public class UIManager : MonoBehaviour {
         Player1PowerBar.UpdateBar(currentLevelProgressPlayer1);
         Player2PowerBar.UpdateBar(currentLevelProgressPlayer2);
 
-        if(CurrentEffectIndex != -1)
+        if(CurrentEffectIndex != -1 && CurrentEffectIndex<Effects.Length)
         {
             var effectTrigger = Effects[CurrentEffectIndex];
             if (Player1PowerLevel >= effectTrigger.StartPower || Player1PowerLevel >= effectTrigger.StartPower) {

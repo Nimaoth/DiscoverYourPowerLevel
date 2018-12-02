@@ -55,9 +55,7 @@ public class Clip : ScriptableObject {
         EffectManager = GameObject.FindGameObjectWithTag("EffectManager").GetComponent<EffectManager>();
         VideoPlayer = GameObject.FindGameObjectWithTag("VideoPlayer").GetComponent<VideoPlayer>();
 
-
-
-
+       
         AudioSource = ClipManager.Instance.ClipAudioSource;
         AudioSource.clip = AudioClip;
         VideoPlayer.clip = VideoClip;
@@ -82,6 +80,11 @@ public class Clip : ScriptableObject {
 
 
     public void OnUpdate(float time) {
+        if(AudioSource==null)
+        {
+            
+            return;
+        }
         float progress = (float)AudioSource.timeSamples / AudioClip.samples * AudioClip.length;
         //Switch to next Mode
         if (CurrentModeIndex + 1 < Modes.Length) {
