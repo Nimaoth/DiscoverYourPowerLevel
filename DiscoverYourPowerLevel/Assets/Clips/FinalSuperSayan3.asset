@@ -34,9 +34,25 @@ MonoBehaviour:
     Mode: {fileID: 11400000, guid: 1611d70c82e09664ba3e7c95efa8c5a4, type: 2}
   - StartTime: 169
     Mode: {fileID: 11400000, guid: e9ff6180822ede94cbeaeaf1d34374e8, type: 2}
-  CurrentModeIndex: 7
-  CurrentMode: {fileID: 11400000, guid: 1611d70c82e09664ba3e7c95efa8c5a4, type: 2}
+  CurrentModeIndex: 5
+  CurrentMode: {fileID: 11400000, guid: 24a1e80b9e43b2f4cb823a070a6295d2, type: 2}
   Effects:
-  - StartTime: 0
+  - StartTime: 30
+    Effect: {fileID: 11400000, guid: 57e4d3e04af1cf241985e9f14dafb3d6, type: 2}
+  - StartTime: 50
     Effect: {fileID: 11400000, guid: 0b8e80bbadee70140ac978e4cd320887, type: 2}
+  - StartTime: 52
+    Effect: {fileID: 11400000, guid: 6141198b2818fff4086f30add737a48d, type: 2}
+  - StartTime: 55
+    Effect: {fileID: 11400000, guid: 5e60ebf6bc9cf0340b4a9ab8eb48c0bd, type: 2}
+  - StartTime: 91
+    Effect: {fileID: 11400000, guid: 3be42e65cf128a04b9482ba12b6cafc6, type: 2}
+  - StartTime: 93
+    Effect: {fileID: 11400000, guid: 412ae4403d2ab404a893283631406b32, type: 2}
+  - StartTime: 97
+    Effect: {fileID: 11400000, guid: d18522cc5445a7546a8fef4f29331412, type: 2}
+  - StartTime: 101
+    Effect: {fileID: 11400000, guid: 4bba0fba95717664ca49c80647a03199, type: 2}
+  - StartTime: 103
+    Effect: {fileID: 11400000, guid: 55c613e300e527746a6a0d94490f65b5, type: 2}
   CurrentEffectIndex: -1
