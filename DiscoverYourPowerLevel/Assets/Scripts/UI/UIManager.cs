@@ -74,7 +74,6 @@ public class UIManager : MonoBehaviour {
         lowerThresholdPlayer2 = 0;
         upperThresholdPlayer2 = levelThresholds[0];
 
-        videoClip.loopPointReached += videoClipEnded;
     }
     private void Update() {
 
@@ -159,9 +158,6 @@ public class UIManager : MonoBehaviour {
         canChangeScene = true;
     }
 
-    private void videoClipEnded(UnityEngine.Video.VideoPlayer vp)
-    {
-        SceneManager.LoadScene("HighscoreTestScene");
-    }
+
 
 }
