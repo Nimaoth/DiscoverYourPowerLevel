@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f90fb03eb35ad4bb6f2968921ce507, type: 3}
+  m_Name: FinalSuperSayan3
+  m_EditorClassIdentifier: 
+  Done: 0
+  VideoClip: {fileID: 32900000, guid: 224cf85924cfc3540a42240ac63b4bcb, type: 3}
+  AudioSource: {fileID: 0}
+  AudioClip: {fileID: 8300000, guid: f8b31c2b38a8c1741966c6faf063490b, type: 3}
+  Modes:
+  - StartTime: 0
+    Mode: {fileID: 11400000, guid: e9ff6180822ede94cbeaeaf1d34374e8, type: 2}
+  - StartTime: 7.2
+    Mode: {fileID: 11400000, guid: 24a1e80b9e43b2f4cb823a070a6295d2, type: 2}
+  - StartTime: 30
+    Mode: {fileID: 11400000, guid: 8a2e0a2da23499a46a32032b0a9e347d, type: 2}
+  - StartTime: 59
+    Mode: {fileID: 11400000, guid: 930ffdc2c1d10e748ab5436728cba092, type: 2}
+  - StartTime: 89
+    Mode: {fileID: 11400000, guid: e9ff6180822ede94cbeaeaf1d34374e8, type: 2}
+  - StartTime: 97
+    Mode: {fileID: 11400000, guid: 24a1e80b9e43b2f4cb823a070a6295d2, type: 2}
+  - StartTime: 112
+    Mode: {fileID: 11400000, guid: 8a2e0a2da23499a46a32032b0a9e347d, type: 2}
+  - StartTime: 142
+    Mode: {fileID: 11400000, guid: 1611d70c82e09664ba3e7c95efa8c5a4, type: 2}
+  - StartTime: 169
+    Mode: {fileID: 11400000, guid: e9ff6180822ede94cbeaeaf1d34374e8, type: 2}
+  CurrentModeIndex: 7
+  CurrentMode: {fileID: 11400000, guid: 1611d70c82e09664ba3e7c95efa8c5a4, type: 2}
+  Effects:
+  - StartTime: 0
+    Effect: {fileID: 11400000, guid: 0b8e80bbadee70140ac978e4cd320887, type: 2}
+  CurrentEffectIndex: -1

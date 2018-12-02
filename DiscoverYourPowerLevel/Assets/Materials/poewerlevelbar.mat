@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: powerlevelbarTitle
-  m_Shader: {fileID: 4800000, guid: b66d36141bbb8f94d9650a5df908cbf7, type: 3}
+  m_Name: poewerlevelbar
+  m_Shader: {fileID: 4800000, guid: 62acf4d15d031b149aa9f332ea5fd428, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -151,7 +151,7 @@ Material:
     - _EnableSpecularOcclusion: 0
     - _EnableWind: 0
     - _EnergyConservingSpecularColor: 1
-    - _Flow: 0
+    - _Flow: 0.394
     - _GlowThickness: 0.13
     - _HdrpVersion: 1
     - _HeightAmplitude: 0.02
@@ -225,6 +225,7 @@ Material:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _Outline: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}

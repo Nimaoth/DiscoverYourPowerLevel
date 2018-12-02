@@ -21,7 +21,7 @@ public class TextEffect : Effect {
 	public float duration;
     public override void Spawn(Vector3 location)
     {
-		TextManager.instance.SpawnT(text, x, y, appearanceEffect, appearDuration, duration);
+		TextManager.instance.SpawnT(text, x, y, appearanceEffect, appearDuration, duration, fontSize);
     }
 
 

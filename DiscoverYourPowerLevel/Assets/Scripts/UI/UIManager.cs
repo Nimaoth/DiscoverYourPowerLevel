@@ -1,10 +1,28 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+[Serializable]
+public struct PlayerEffectTrigger {
+    public int StartPower;
+    public Effect Effect;
+}
+
 public class UIManager : MonoBehaviour {
 
+
+    public PlayerEffectTrigger[] Effects;
+
+    [SerializeField]
+    private int CurrentEffectIndex = 0;
+
+
+    private EffectManager EffectManager;
+
+    public GameObject VideoEffectCanvas;
 
     public static UIManager Instance;
 
@@ -42,6 +60,9 @@ public class UIManager : MonoBehaviour {
 
     private void Start()
     {
+        EffectManager = GameObject.FindGameObjectWithTag("EffectManager").GetComponent<EffectManager>();
+
+
         lowerThresholdPlayer1 = 0;
         upperThresholdPlayer1 = levelThresholds[0];
         lowerThresholdPlayer2 = 0;
@@ -69,9 +90,6 @@ public class UIManager : MonoBehaviour {
 
         //Update Progress
         float p1 = Player1PowerLevel - lowerThresholdPlayer1;
-        Debug.Log("power player1" + Player1PowerLevel);
-        Debug.Log("p1" + p1);
-        Debug.Log("uppertrhes" + upperThresholdPlayer1);
 
         currentLevelProgressPlayer1 = p1/(upperThresholdPlayer1-lowerThresholdPlayer1);
 
@@ -85,5 +103,29 @@ public class UIManager : MonoBehaviour {
         //Update Bars
         Player1PowerBar.UpdateBar(currentLevelProgressPlayer1);
         Player2PowerBar.UpdateBar(currentLevelProgressPlayer2);
+
+        if(CurrentEffectIndex != -1 && CurrentEffectIndex<Effects.Length)
+        {
+            var effectTrigger = Effects[CurrentEffectIndex];
+            if (Player1PowerLevel >= effectTrigger.StartPower || Player1PowerLevel >= effectTrigger.StartPower) {
+                PlayEffect(effectTrigger.Effect);
+            }
+        }
+
     }
+
+    private void PlayEffect(Effect effect) {  
+        Debug.Log("Effect played");
+        if (CurrentEffectIndex < Effects.Length) {
+            // Call EffectManager
+            EffectManager.PlayEffect(effect);
+            CurrentEffectIndex += 1;
+        }
+        if (CurrentEffectIndex == Effects.Length)
+        {
+            CurrentEffectIndex = -1;
+        }
+        
+    }
+
 }
