@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
@@ -49,6 +50,11 @@ public class Clip : ScriptableObject {
 
 
     public void StartClip(bool debugStart, float debugPercent) {
+        // sort effects+
+        var l = new List<EffectTrigger>(Effects);
+        l.Sort((a, b) => a.StartTime.CompareTo(b.StartTime));
+        Effects = l.ToArray();
+
         CurrentModeIndex = -1;
         CurrentMode = null;
         StartNextMode();
