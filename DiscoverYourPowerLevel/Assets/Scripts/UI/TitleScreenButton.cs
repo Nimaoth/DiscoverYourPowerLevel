@@ -27,16 +27,22 @@ public class TitleScreenButton : MonoBehaviour {
     public Sprite buttonDefault;
     public Sprite buttonPressed;
     public Button button;
+    bool canClick;
     int p1key;
     int p1key2;
     int p1key3;
     int p2key;
     int p2key2;
     int p2key3;
+    bool flowDOwn;
+
+    public ShatterRefraction shatterRefractionScript;
 
     public float powerLevel = 0;
 	void Start () {
         button.onClick.AddListener(ChangeImageOnClick);
+        canClick = true;
+        flowDOwn = false;
 
         p1key = (int)Player1Key;
         p1key2 = (int)Player1Key2;
@@ -49,28 +55,61 @@ public class TitleScreenButton : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Debug.Log("Power is over " + powerLevel + "!!!");
-        if(powerLevel > 0)
-            powerLevel -= 0.001f;
+        if(canClick)
+        {
+            if (powerLevel > 0)
+                powerLevel -= 0.001f;
+        }
+            
 
-        if (Input.GetKeyDown(p1key.ToString()) ||
+        if (powerLevel >= 1 && canClick)
+        {
+            shatterRefractionScript.ShatterScreen();
+            canClick = false;
+        }
+
+        if(canClick)
+        {
+            if (Input.GetKeyDown(p1key.ToString()) ||
             Input.GetKeyDown(p1key2.ToString()) ||
             Input.GetKeyDown(p1key3.ToString()) ||
             Input.GetKeyDown(p2key.ToString()) ||
             Input.GetKeyDown(p2key2.ToString()) ||
             Input.GetKeyDown(p2key3.ToString()))
-        {
-            button.image.sprite = buttonPressed;
-            if (powerLevel <= 1)
-                powerLevel += 0.025f;
+            {
+                button.image.sprite = buttonPressed;
+                if (powerLevel <= 1)
+                    powerLevel += 0.025f;
+            }
         }
+
+        if(!canClick)
+        {
+            StartCoroutine(WaitSeconds());
+            if(flowDOwn)
+                powerLevel -= 0.005f;
+        }
+
+        
 
     } //muss später getestet werden mit dem Input
 
     void ChangeImageOnClick()
     {
-        button.image.sprite = buttonPressed;
-        if(powerLevel <= 1)
-            powerLevel += 0.025f;
+        if (canClick)
+        {
+            button.image.sprite = buttonPressed;
+            if (powerLevel <= 1)
+                powerLevel += 0.25f;
+        }
+        
+    }
+
+    IEnumerator WaitSeconds()
+    {
+        
+        yield return new WaitForSeconds(2f);
+        flowDOwn = true;    
     }
 
     

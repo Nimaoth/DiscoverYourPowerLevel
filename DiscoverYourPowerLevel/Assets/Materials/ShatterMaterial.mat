@@ -47,7 +47,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
-        m_Texture: {fileID: 2800000, guid: 66d3ea6cd35924547920089c0f5a8c62, type: 3}
+        m_Texture: {fileID: 2800000, guid: f76785172686a654a89625b9a4b74ebd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -73,7 +73,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Strength: 1
+    - _Strength: 0
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
