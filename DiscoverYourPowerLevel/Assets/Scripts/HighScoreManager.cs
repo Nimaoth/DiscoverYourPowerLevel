@@ -57,6 +57,11 @@ public class HighScoreManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void Start ()
+    {
+        minTimeSpent = 10;
+    }
+
     public void SaveHighScore(string name, int score)
     {
         List<Scores> HighScores = GetHighScore();
@@ -112,6 +117,7 @@ public class HighScoreManager : MonoBehaviour
 
         if((Input.GetKeyDown("1") || Input.GetKeyDown("2")) && minTimeSpent <= 0)
         {
+            minTimeSpent = 10;
             SceneManager.LoadScene("TitleScreen");
         }
     }
