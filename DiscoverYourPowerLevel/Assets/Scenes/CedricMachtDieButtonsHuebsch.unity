@@ -690,6 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cylinder: {fileID: 629315228}
+  fireTransform: {fileID: 0}
 --- !u!1 &635601498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,6 +1011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cylinder: {fileID: 736101626}
+  fireTransform: {fileID: 0}
 --- !u!1 &809657152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,8 +1336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ae73e1059719349804c765bfe9592d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraShakeIntesity: 1
-  CameraShakeDecay: 0.1
   CameraShake: {fileID: 0}
   Player1: {fileID: 11400000, guid: 897c7e3f0991c784e85ea67a5af9c7bf, type: 2}
   Player2: {fileID: 11400000, guid: 0d92dbc29fdc87b488fecd2dcd09cd7a, type: 2}
@@ -2083,6 +2083,7 @@ MonoBehaviour:
   levelThresholds: e80300008813000010270000983a0000ffffff7f
   currentLevelProgressPlayer1: 0
   currentLevelProgressPlayer2: 0
+  videoClip: {fileID: 1934617215}
 --- !u!1 &1598975327
 GameObject:
   m_ObjectHideFlags: 0

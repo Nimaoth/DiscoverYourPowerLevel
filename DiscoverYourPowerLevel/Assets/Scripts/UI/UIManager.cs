@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using UnityEngine.Video;
 
 [Serializable]
 public struct PlayerEffectTrigger {
@@ -36,6 +37,9 @@ public class UIManager : MonoBehaviour {
     public PowerBar Player1PowerBar;
     public PowerBar Player2PowerBar;
 
+    float timer;
+    bool canChangeScene;
+
 
     //To be set in Inspector
     public int[] levelThresholds;
@@ -54,6 +58,8 @@ public class UIManager : MonoBehaviour {
     int Player1PowerLevel;
     int Player2PowerLevel;
 
+    public VideoPlayer videoClip;
+
     private void Awake() {
         Instance = this;
     }
@@ -67,6 +73,8 @@ public class UIManager : MonoBehaviour {
         upperThresholdPlayer1 = levelThresholds[0];
         lowerThresholdPlayer2 = 0;
         upperThresholdPlayer2 = levelThresholds[0];
+
+        videoClip.loopPointReached += videoClipEnded;
     }
     private void Update() {
 
@@ -112,7 +120,24 @@ public class UIManager : MonoBehaviour {
             }
         }
 
+        /*timer += Time.deltaTime;
+        int seconds = (int) timer % 60;
+
+        
+
+        if(200 == seconds)
+        {
+            StartCoroutine(waitSeconds());
+            if(canChangeScene)
+            {
+                SceneManager.LoadScene("HighscoreTestScene");
+            }
+        }*/
+
+        
+
     }
+
 
     private void PlayEffect(Effect effect) {  
         Debug.Log("Effect played");
@@ -126,6 +151,17 @@ public class UIManager : MonoBehaviour {
             CurrentEffectIndex = -1;
         }
         
+    }
+
+    IEnumerator waitSeconds()
+    {
+        yield return new WaitForSeconds(2);
+        canChangeScene = true;
+    }
+
+    private void videoClipEnded(UnityEngine.Video.VideoPlayer vp)
+    {
+        SceneManager.LoadScene("HighscoreTestScene");
     }
 
 }
