@@ -86,8 +86,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f287c44bc7e79364f8642a8ae71ce198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinSpeed: 0
-  MaxSpeed: 0
+  MinSpeed: 300
+  MaxSpeed: 500
 --- !u!222 &222741033756262592
 CanvasRenderer:
   m_ObjectHideFlags: 1
