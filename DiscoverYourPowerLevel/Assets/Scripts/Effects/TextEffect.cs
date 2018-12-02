@@ -8,7 +8,7 @@ public class TextEffect : Effect {
 	[Range(-544.5f , 544.5f)]
 	public float x;
 	
-	[Range(-293f , 293f)]
+	[Range(-350f , 350f)]
 	public float y;
 
 	public string text;

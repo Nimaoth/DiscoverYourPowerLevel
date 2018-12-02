@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Hair Change
   m_EditorClassIdentifier: 
   x: 30
-  y: -250
+  y: -350
   text: You've changed your hair, so what?
   fontSize: 80
   appearanceEffect: 0

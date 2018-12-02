@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02b167237e8e1444c8f8fb7df7ac0479, type: 3}
-  m_Name: It's... Unreal.
+  m_Name: 2
   m_EditorClassIdentifier: 
-  x: 30
-  y: -350
-  text: 'It''s... unreal. '
-  fontSize: 80
+  x: 0
+  y: -100
+  text: 2
+  fontSize: 100
   appearanceEffect: 0
   appearDuration: 0.1
   duration: 1

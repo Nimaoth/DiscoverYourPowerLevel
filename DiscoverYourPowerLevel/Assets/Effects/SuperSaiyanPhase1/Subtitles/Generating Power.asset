@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Generating Power
   m_EditorClassIdentifier: 
   x: 30
-  y: -250
+  y: -350
   text: How is he generating that much power?
   fontSize: 70
   appearanceEffect: 0
