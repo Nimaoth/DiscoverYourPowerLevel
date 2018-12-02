@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Everything destroyed
   m_EditorClassIdentifier: 
   x: 30
-  y: -250
+  y: -350
   text: Everything is going to be destroyed!
   fontSize: 80
   appearanceEffect: 0

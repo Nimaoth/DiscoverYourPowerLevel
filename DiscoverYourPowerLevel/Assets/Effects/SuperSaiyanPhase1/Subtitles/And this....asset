@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: And this...
   m_EditorClassIdentifier: 
   x: 30
-  y: -250
+  y: -350
   text: And this
   fontSize: 80
   appearanceEffect: 0
