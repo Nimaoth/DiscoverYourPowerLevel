@@ -41,7 +41,8 @@ public class PowerBar : MonoBehaviour
         0xFF, 0xF7, 0xF0, 0xE8, 0xE0, 0xD9, 0xD1, 0xCA, 0xC2, 0xBA, 0xB3, 0xAB, 0xA5, 0x9F, 0x9A, 0x94, 0x8E, 0x88, 0x82, 0x7C, 0x77, 0x71, 0x6B, 0x61, 0x58, 0x4E, 0x44, 0x3A, 0x31, 0x27, 0x1D, 0x13, 0x0A, 0x00
     };
 
-    public Color[] farbVerlauf = new Color[28];
+    public Color[] farbVerlaufPlayerOne = new Color[28];
+    public Color[] farbVerlaufPlayerTwo = new Color[28];
 
     // Use this for initialization
     void Start()
@@ -51,9 +52,10 @@ public class PowerBar : MonoBehaviour
         //startPosition = new Vector3(fireTransform.position.x, 0.0271f, fireTransform.position.z);
         //fireTransform.position = startPosition;
         distance = 0.0641f - 0.0271f;
-        for(int i = 0; i < farbVerlauf.Length; i++)
+        for(int i = 0; i < farbVerlaufPlayerOne.Length; i++)
         {
-            farbVerlauf[i] = new Color(rArray[i], gArray[i], 0);
+            farbVerlaufPlayerOne[i] = new Color(rArray[i], gArray[i], 0);
+            farbVerlaufPlayerTwo[i] = new Color(0, gArray[i], rArray[i]);
         }
     }
 
