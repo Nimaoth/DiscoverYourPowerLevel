@@ -151,7 +151,7 @@ Material:
     - _EnableSpecularOcclusion: 0
     - _EnableWind: 0
     - _EnergyConservingSpecularColor: 1
-    - _Flow: 0.394
+    - _Flow: 0.755
     - _GlowThickness: 0.13
     - _HdrpVersion: 1
     - _HeightAmplitude: 0.02
