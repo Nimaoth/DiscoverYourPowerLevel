@@ -16,6 +16,9 @@ public class MashAlternatingMode : Mode {
     public int LossPerSecond;
     public int GainPerHit;
 
+    public ButtonInput[] P1Buttons;
+    public ButtonInput[] P2Buttons;
+
     public override void Start()
     {
         base.Start();
@@ -24,6 +27,16 @@ public class MashAlternatingMode : Mode {
         Player2Key = true;
         
         ButtonUIManager.instance.SetupButtons(Player1Key1, Player1Key2, Player2Key1, Player2Key2);
+
+        RandomButtons(P1Buttons, ref Player1Key1, ref Player1Key2);
+        RandomButtons(P2Buttons, ref Player2Key1, ref Player2Key2);
+    }
+
+    private void RandomButtons(ButtonInput[] buttons, ref ButtonInput b1, ref ButtonInput b2) {
+        b1 = buttons[Random.Range(0, buttons.Length)];
+        do {
+            b2 = buttons[Random.Range(0, buttons.Length)];
+        } while (b2 == b1);
     }
     
     public override void OnUpdate(float time)
