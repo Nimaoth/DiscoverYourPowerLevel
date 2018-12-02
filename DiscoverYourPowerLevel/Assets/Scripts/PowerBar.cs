@@ -17,9 +17,9 @@ public class PowerBar : MonoBehaviour
     void Start()
     {
         rend = cylinder.GetComponent<Renderer>();
-        // fireTransform = cylinder.GetComponentInChildren<ParticleSystem>().transform;
-        startPosition = new Vector3(fireTransform.position.x, 0.0271f, fireTransform.position.z);
-        fireTransform.position = startPosition;
+        //fireTransform = cylinder.GetComponentInChildren<ParticleSystem>().transform;
+        //startPosition = new Vector3(fireTransform.position.x, 0.0271f, fireTransform.position.z);
+        //fireTransform.position = startPosition;
         distance = 0.0641f - 0.0271f;
     }
 
@@ -27,9 +27,8 @@ public class PowerBar : MonoBehaviour
     public void UpdateBar(float p)
     {
         //0,0271 bis 0,0641
-        // fireTransform.position = new Vector3(startPosition.x, startPosition.y + p * distance, startPosition.z);
+        //fireTransform.position = new Vector3(startPosition.x, startPosition.y + p * distance, startPosition.z);
         rend.material.SetFloat("_Flow", p);
-        // Debug.Log(p);
-        // fireTransform.position = new Vector3(fireTransform.position.x, fireTransform.position.y + p, transform.position.z);
+        //fireTransform.position = new Vector3(fireTransform.position.x, fireTransform.position.y + p, transform.position.z);
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HighScoreManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class HighScoreManager : MonoBehaviour
     private static HighScoreManager m_instance;
     //Anzahl Elemente die in der Highscore Liste gespeichert werden
     private const int LeaderboardLength = 10;
-
+    public float minTimeSpent = 10;
     //Start() ist nur zum testen der klasse da
     /*
     private void Start()
@@ -102,6 +103,17 @@ public class HighScoreManager : MonoBehaviour
     void OnApplicationQuit()
     {
         PlayerPrefs.Save();
+    }
+
+    private void Update()
+    {
+        if(minTimeSpent > 0)
+             minTimeSpent -= Time.deltaTime;
+
+        if((Input.GetKeyDown("1") || Input.GetKeyDown("2")) && minTimeSpent <= 0)
+        {
+            SceneManager.LoadScene("TitleScreen");
+        }
     }
 }
 

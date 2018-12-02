@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -27,6 +28,8 @@ public class TitleScreenButton : MonoBehaviour {
     public Sprite buttonDefault;
     public Sprite buttonPressed;
     public Button button;
+    public GameObject titleText;
+    bool nextScene;
     bool canClick;
     int p1key;
     int p1key2;
@@ -43,6 +46,7 @@ public class TitleScreenButton : MonoBehaviour {
         button.onClick.AddListener(ChangeImageOnClick);
         canClick = true;
         flowDOwn = false;
+        nextScene = false;
 
         p1key = (int)Player1Key;
         p1key2 = (int)Player1Key2;
@@ -85,9 +89,27 @@ public class TitleScreenButton : MonoBehaviour {
 
         if(!canClick)
         {
+            titleText.SetActive(true);
             StartCoroutine(WaitSeconds());
             if(flowDOwn)
+            {
                 powerLevel -= 0.005f;
+                SpriteRenderer[] colors = titleText.GetComponents<SpriteRenderer>();
+                for(int i = 0; i < colors.Length; i++)
+                {
+                   colors[i].color  = new Color(titleText.GetComponentInChildren<Color>().r, titleText.GetComponentInChildren<Color>().g, titleText.GetComponentInChildren<Color>().b, titleText.GetComponentInChildren<Color>().a - 0.01f);
+                }
+                if (powerLevel <= 0)
+                {
+                    nextScene = true;
+                }
+
+                if(nextScene)
+                {
+                    SceneManager.LoadScene("CedricMachtdieButtonsHuebsch");
+                }
+            }
+                
         }
 
         
@@ -100,7 +122,7 @@ public class TitleScreenButton : MonoBehaviour {
         {
             button.image.sprite = buttonPressed;
             if (powerLevel <= 1)
-                powerLevel += 0.25f;
+                powerLevel += 0.025f;
         }
         
     }
