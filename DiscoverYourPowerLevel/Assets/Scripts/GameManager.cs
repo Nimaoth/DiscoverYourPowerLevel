@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
         get {
             if (_instance == null) {
                 _instance = new GameObject("GameManager").AddComponent<GameManager>();
+                _instance.Player1 = ScriptableObject.CreateInstance<Player>();
+                _instance.Player2 = ScriptableObject.CreateInstance<Player>();
                 DontDestroyOnLoad(_instance.gameObject);
             }
 
@@ -28,8 +30,6 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start () {
-        Player1 = ScriptableObject.CreateInstance<Player>();
-        Player2 = ScriptableObject.CreateInstance<Player>();
     }
 
     void Update () {
