@@ -1987,7 +1987,7 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 0
+  m_HDR: 1
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
@@ -2191,6 +2191,7 @@ MonoBehaviour:
   HitCirclePlayer2: {fileID: 1598975328}
   Player1PowerBar: {fileID: 736101627}
   Player2PowerBar: {fileID: 629315229}
+  m_Material1: {fileID: 2100000, guid: ec8b6a1b7a92ab04b87ce427980d4c22, type: 2}
   levelThresholds: 28230000f82a0000c8320000983a000068420000384a000008520000d8590000a8610000786900004871000018790000e8800000b8880000889000005898000080bb000050c3000020cb0000f0d20000c0da000090e2000060ea000030f2000000fa0000d0010100a009010058150100281d0100ffffff7f
   currentLevelProgressPlayer1: 0
   currentLevelProgressPlayer2: 0
