@@ -32,17 +32,18 @@ public class TextManager : MonoBehaviour {
 		myText.gameObject.transform.SetParent(EffectCanvas.transform, false);
 	}
  */
-	public void SpawnT(string text, float x, float y, AppearanceEffect appearanceEffect, float appearDuration, float duration)
+	public void SpawnT(string text, float x, float y, AppearanceEffect appearanceEffect, float appearDuration, float duration, int fontsize)
 	{
-			StartCoroutine(SpawnText(text, x, y, appearanceEffect, appearDuration, duration));
+			StartCoroutine(SpawnText(text, x, y, appearanceEffect, appearDuration, duration, fontsize));
 	}
-	public IEnumerator SpawnText(string text, float x, float y, AppearanceEffect appearanceEffect, float appearDuration, float duration)
+	public IEnumerator SpawnText(string text, float x, float y, AppearanceEffect appearanceEffect, float appearDuration, float duration, int fontsize)
 	{
 		if(appearanceEffect == AppearanceEffect.APPEARS_OUT_OF_NOWHERE)
 		{
 			Debug.Log("testo");
 			Text myText = Instantiate(TextPrefab).GetComponent<Text>();
 			myText.text = text;
+            myText.fontSize = fontsize;
 			myText.rectTransform.anchoredPosition = new Vector2(x,y);
 			myText.rectTransform.localScale = new Vector3(0f,0f,0f);
 			myText.gameObject.transform.SetParent(EffectCanvas.transform, false);
