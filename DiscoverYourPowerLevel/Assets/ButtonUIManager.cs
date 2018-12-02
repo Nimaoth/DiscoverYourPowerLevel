@@ -75,6 +75,30 @@ public class ButtonUIManager : MonoBehaviour {
 			SetButtonPlayer2(player2Pattern[player2Counter], false);
 	}
 
+	public void SetupTripleMash(int player1Key1, int player1Key2, int player1Key3, int player2Key1, int player2Key2, int player2Key3)
+	{
+		
+			patternLength = 3;
+			player1Pattern = new int[3];
+			player1Pattern[0] = player1Key1;
+			player1Pattern[1] = player1Key2;
+			player1Pattern[2] = player1Key3;
+			player1Counter = 0;
+
+			player2Pattern = new int[3];
+			player2Pattern[0] = player2Key1;
+			player2Pattern[1] = player2Key2;
+			player2Pattern[2] = player2Key3;
+			player2Counter = 0;
+
+			SetButtonPlayer1(player1Pattern[player1Counter], false);
+			SetButtonPlayer2(player2Pattern[player2Counter], false);
+	}
+	public void SetupIdle()
+	{
+		//TODO
+	}
+
 
 
 	public void SetButtonPlayer1(int id, bool pressed)
@@ -110,7 +134,7 @@ public class ButtonUIManager : MonoBehaviour {
 		StartCoroutine(Flash1());
 	}
 
-		public void ProgressPlayer2()
+	public void ProgressPlayer2()
 	{
 		player2Counter = (player2Counter + 1) % patternLength;
 		SetButtonPlayer2(player2Pattern[player2Counter], false);
@@ -135,15 +159,16 @@ public class ButtonUIManager : MonoBehaviour {
 
 	IEnumerator Flash2()
 	{
-		SetButtonPlayer1(player2Pattern[player2Counter], true);
+		SetButtonPlayer2(player2Pattern[player2Counter], true);
 		smallerBox2.enabled = true;
 		yield return new WaitForSeconds(flashSpeed);
 		biggerBox2.enabled = true;
-		SetButtonPlayer1(player2Pattern[player2Counter], false);
+		yield return new WaitForSeconds(flashSpeed);
 		biggerBox2.enabled = false;
 		yield return new WaitForSeconds(flashSpeed);
 		smallerBox2.enabled = false;
-		yield return new WaitForSeconds(flashSpeed);
+		SetButtonPlayer2(player2Pattern[player2Counter], false);
+
 		yield return 0;
 	}
 }

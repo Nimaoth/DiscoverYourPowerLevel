@@ -16,12 +16,14 @@ public class VideoEffect : Effect {
     {
         var x = Instantiate(obj, location, Quaternion.identity);
         var videoRenderer = x.GetComponent<VideoPlayer>();
-        var rawImmage = x.GetComponent<RawImage>();
+        var rawImage = x.GetComponent<RawImage>();
+        RectTransform m_rect = x.GetComponent<RectTransform>();
+;       m_rect.sizeDelta = new Vector2(clip.width, clip.height);
         var renderTexture = new RenderTexture((int)clip.width, (int)clip.height, 0, RenderTextureFormat.ARGB32);
         videoRenderer.renderMode = UnityEngine.Video.VideoRenderMode.RenderTexture;
         videoRenderer.targetTexture = renderTexture;
         videoRenderer.clip = clip;
-        rawImmage.texture = renderTexture;
+        rawImage.texture = renderTexture;
 
     }
 }
