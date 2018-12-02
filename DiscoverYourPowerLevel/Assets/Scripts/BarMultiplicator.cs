@@ -43,16 +43,26 @@ public class BarMultiplicator : MonoBehaviour {
         transform.localScale = new Vector3(currentScale, currentScale, currentScale);
     }
 
-	
+
 	public void progressPlayer1(int level)
 	{
-		player1Multi.text = level.ToString();
+		string s = "";
+		if(level != 0)
+		{
+			s = "x" + level.ToString();
+		}
+		player1Multi.text = s;
 		isBoucingUp = true;
 	}
 
 	public void progressPlayer2(int level)
 	{
-		player2Multi.text = level.ToString();
+		string s = "";
+		if(level != 0)
+		{
+			s = "x" + level.ToString();
+		}
+		player2Multi.text = s;
 		isBoucingUp = true;		
 	}
 }
