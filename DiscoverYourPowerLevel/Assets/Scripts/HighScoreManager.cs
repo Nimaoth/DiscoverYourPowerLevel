@@ -115,7 +115,8 @@ public class HighScoreManager : MonoBehaviour
         if(minTimeSpent > 0)
              minTimeSpent -= Time.deltaTime;
 
-        if((Input.GetKeyDown("1") || Input.GetKeyDown("2")) && minTimeSpent <= 0)
+
+        if(Input.GetKeyDown(KeyCode.F5) && minTimeSpent <= 0)
         {
             minTimeSpent = 10;
             SceneManager.LoadScene("TitleScreen");

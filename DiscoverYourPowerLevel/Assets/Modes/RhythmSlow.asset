@@ -14,8 +14,8 @@ MonoBehaviour:
   AudioSource: {fileID: 0}
   Player1Key: 0
   Player2Key: 5
-  LossPerHit: 100
-  GainPerHit: 50
+  LossPerHit: 50
+  GainPerHit: 75
   bpm: 128
   timingAccuracy: 0.1
   tickOffset: 0.49
