@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
+
 
 [Serializable]
 public struct ModeTrigger {
@@ -59,9 +61,11 @@ public class Clip : ScriptableObject {
         AudioSource = ClipManager.Instance.ClipAudioSource;
         AudioSource.clip = AudioClip;
         VideoPlayer.clip = VideoClip;
+        VideoPlayer.loopPointReached += videoClipEnded;
 
-        
-        if(debugStart)
+
+
+        if (debugStart)
         {
             //DICKES TODO
             double seekTime = (200567.034264208f / 1000.0) * debugPercent;
@@ -141,5 +145,10 @@ public class Clip : ScriptableObject {
             else
                 return 0;
         }
+    }
+
+    private void videoClipEnded(UnityEngine.Video.VideoPlayer vp)
+    {
+        SceneManager.LoadScene("HighscoreTestScene");
     }
 }
