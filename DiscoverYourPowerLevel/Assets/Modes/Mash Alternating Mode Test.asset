@@ -18,3 +18,5 @@ MonoBehaviour:
   Player2Key2: 4
   LossPerSecond: 5
   GainPerHit: 100
+  P1Buttons: 010000000000000003000000
+  P2Buttons: 020000000500000004000000
