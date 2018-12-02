@@ -1064,6 +1064,11 @@ Prefab:
       propertyPath: sonGokuImage
       value: 
       objectReference: {fileID: 1228943633}
+    - target: {fileID: 114925816609597980, guid: 0a47bc0b53123ad4f97d6a738d401d5f,
+        type: 2}
+      propertyPath: redImage
+      value: 
+      objectReference: {fileID: 950406772}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a47bc0b53123ad4f97d6a738d401d5f, type: 2}
   m_IsPrefabAsset: 0
