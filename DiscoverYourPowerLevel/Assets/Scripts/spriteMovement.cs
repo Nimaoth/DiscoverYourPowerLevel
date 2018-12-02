@@ -18,6 +18,9 @@ public class spriteMovement : MonoBehaviour
         parent = UIManager.Instance.VideoEffectCanvas.GetComponent<RectTransform>();
         rect.SetParent(parent, false);
 
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.zero;
+        rect.pivot = Vector2.zero;
 
         float panelWidth = parent.rect.width * parent.localScale.x;
         float panelHeight = parent.rect.height * parent.localScale.y;

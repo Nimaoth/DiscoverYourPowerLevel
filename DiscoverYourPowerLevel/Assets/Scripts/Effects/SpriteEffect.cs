@@ -14,12 +14,14 @@ public class SpriteEffect : Effect
     public override void Spawn(Vector3 location)
     {
         var x = Instantiate(obj, location, Quaternion.identity);
-        
+
 
         var image = x.GetComponent<Image>();
 
         if (sprites != null && sprites.Length > 0) {
             image.sprite = sprites[Random.Range(0, sprites.Length)];
+            var rect = x.GetComponent<RectTransform>();
+            rect.offsetMax = new Vector2(image.sprite.texture.width, image.sprite.texture.height);
         }
     }
 }
