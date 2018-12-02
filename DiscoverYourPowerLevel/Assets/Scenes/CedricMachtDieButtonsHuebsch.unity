@@ -365,6 +365,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36b73e4b8b226f43820aa6583d372a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: 4
+  min: 0.8
+  max: 1.3
+  isBoucingUp: 0
+  currentScale: 0
+  bounceSpeed: 7
 --- !u!1 &187784409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,6 +1460,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36b73e4b8b226f43820aa6583d372a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: 5
+  min: 0.8
+  max: 1.3
+  isBoucingUp: 0
+  currentScale: 0
+  bounceSpeed: 7
 --- !u!1001 &1159122726
 Prefab:
   m_ObjectHideFlags: 0
@@ -2356,6 +2368,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36b73e4b8b226f43820aa6583d372a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: 3
+  min: 0.8
+  max: 1.3
+  isBoucingUp: 0
+  currentScale: 0
+  bounceSpeed: 7
 --- !u!1 &1657475376
 GameObject:
   m_ObjectHideFlags: 0
@@ -2437,6 +2455,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36b73e4b8b226f43820aa6583d372a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: 2
+  min: 0.8
+  max: 1.3
+  isBoucingUp: 0
+  currentScale: 0
+  bounceSpeed: 7
 --- !u!1001 &1854649998
 Prefab:
   m_ObjectHideFlags: 0
@@ -2653,6 +2677,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36b73e4b8b226f43820aa6583d372a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: 1
+  min: 0.8
+  max: 1.3
+  isBoucingUp: 0
+  currentScale: 0
+  bounceSpeed: 7
 --- !u!1 &1992225697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,6 +2764,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36b73e4b8b226f43820aa6583d372a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: 0
+  min: 0.8
+  max: 1.3
+  isBoucingUp: 0
+  currentScale: 0
+  bounceSpeed: 7
 --- !u!1001 &2094696025
 Prefab:
   m_ObjectHideFlags: 0

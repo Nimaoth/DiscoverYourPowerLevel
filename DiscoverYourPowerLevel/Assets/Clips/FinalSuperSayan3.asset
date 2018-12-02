@@ -34,8 +34,8 @@ MonoBehaviour:
     Mode: {fileID: 11400000, guid: 1611d70c82e09664ba3e7c95efa8c5a4, type: 2}
   - StartTime: 169
     Mode: {fileID: 11400000, guid: e9ff6180822ede94cbeaeaf1d34374e8, type: 2}
-  CurrentModeIndex: 7
-  CurrentMode: {fileID: 11400000, guid: 1611d70c82e09664ba3e7c95efa8c5a4, type: 2}
+  CurrentModeIndex: 1
+  CurrentMode: {fileID: 11400000, guid: 24a1e80b9e43b2f4cb823a070a6295d2, type: 2}
   Effects:
   - StartTime: 1.2
     Effect: {fileID: 11400000, guid: 41a7caaa8805d954399e369bb8b77c3e, type: 2}
@@ -159,4 +159,4 @@ MonoBehaviour:
     Effect: {fileID: 11400000, guid: 3ade91c85f56d564d8dd33548d4678df, type: 2}
   - StartTime: 169
     Effect: {fileID: 11400000, guid: 8d891f2f49854a644be130a5613d3f56, type: 2}
-  CurrentEffectIndex: 55
+  CurrentEffectIndex: 7
