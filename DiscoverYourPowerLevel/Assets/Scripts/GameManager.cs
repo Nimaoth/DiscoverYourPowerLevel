@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,5 +22,9 @@ public class GameManager : MonoBehaviour {
         if (Player2.PowerLevel < 0) {
             Player2.PowerLevel = 0;
         }
+    }
+
+    public Coroutine StartCoroutineEnum(IEnumerator func) {
+        return StartCoroutine(func);
     }
 }
