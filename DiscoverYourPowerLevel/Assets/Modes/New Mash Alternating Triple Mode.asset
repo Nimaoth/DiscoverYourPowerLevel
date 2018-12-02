@@ -18,5 +18,5 @@ MonoBehaviour:
   Player2Key1: 5
   Player2Key2: 4
   Player2Key3: 2
-  LossPerSecond: 0
-  GainPerHit: 0
+  LossPerSecond: 5
+  GainPerHit: 100

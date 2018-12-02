@@ -134,7 +134,7 @@ public class ButtonUIManager : MonoBehaviour {
 		StartCoroutine(Flash1());
 	}
 
-		public void ProgressPlayer2()
+	public void ProgressPlayer2()
 	{
 		player2Counter = (player2Counter + 1) % patternLength;
 		SetButtonPlayer2(player2Pattern[player2Counter], false);
@@ -159,15 +159,16 @@ public class ButtonUIManager : MonoBehaviour {
 
 	IEnumerator Flash2()
 	{
-		SetButtonPlayer1(player2Pattern[player2Counter], true);
+		SetButtonPlayer2(player2Pattern[player2Counter], true);
 		smallerBox2.enabled = true;
 		yield return new WaitForSeconds(flashSpeed);
 		biggerBox2.enabled = true;
-		SetButtonPlayer1(player2Pattern[player2Counter], false);
+		yield return new WaitForSeconds(flashSpeed);
 		biggerBox2.enabled = false;
 		yield return new WaitForSeconds(flashSpeed);
 		smallerBox2.enabled = false;
-		yield return new WaitForSeconds(flashSpeed);
+		SetButtonPlayer2(player2Pattern[player2Counter], false);
+
 		yield return 0;
 	}
 }
