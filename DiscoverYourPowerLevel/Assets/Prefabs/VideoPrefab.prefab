@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222190401113084742}
   - component: {fileID: 114248347981331736}
   - component: {fileID: 328532054462644236}
-  - component: {fileID: 114688293943939734}
+  - component: {fileID: 114275665980194936}
   m_Layer: 9
   m_Name: VideoPrefab
   m_TagString: Untagged
@@ -56,7 +56,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &114688293943939734
+--- !u!114 &114275665980194936
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1720955876807512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d61366eed1b5cd4196f19048e689ae3, type: 3}
+  m_Script: {fileID: 11500000, guid: 00b3f90f1b631004794860ba85b223a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!222 &222190401113084742

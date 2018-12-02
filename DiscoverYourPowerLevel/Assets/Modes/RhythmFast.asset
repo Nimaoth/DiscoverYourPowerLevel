@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: RhythmFast
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 0}
-  Player1Key: x
-  Player2Key: q
+  Player1Key: 0
+  Player2Key: 5
   LossPerHit: 100
   GainPerHit: 50
   bpm: 256
   timingAccuracy: 0.1
   tickOffset: 0.49
   klickOffset: -0.2
-  timer: 0
+  timer: 0.17976975
   testSound: {fileID: 8300000, guid: 4bcf0673b76bb2540ba38f814c84bc74, type: 3}

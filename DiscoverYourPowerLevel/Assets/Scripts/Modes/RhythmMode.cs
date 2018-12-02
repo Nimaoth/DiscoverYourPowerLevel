@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ButtonInput
+{
+    RED,
+    BLACK,
+    WHITE,
+    GREEN,
+    YELLOW,
+    BLUE
+};
+
 [CreateAssetMenu(menuName = "Custom/Modes/RhythmMode")]
 public class RhythmMode : Mode {
-    public string Player1Key;
-    public string Player2Key;
+    public ButtonInput Player1Key;
+    public ButtonInput Player2Key;
 
     public int LossPerHit;
     public int GainPerHit;
@@ -22,6 +32,7 @@ public class RhythmMode : Mode {
     {
         base.Start();
         timer = tickOffset;
+        ButtonUIManager.instance.SetupRhythm((int)Player1Key, (int) Player2Key);
     }
 
     float lastTimer = 0;
@@ -42,15 +53,26 @@ public class RhythmMode : Mode {
         lastTimer = timer;
 
         var timer2 = (timer + klickOffset) % tbb;
-        if (Input.GetKeyDown(Player1Key)) {
+        int p1key = (int)Player1Key;
+
+        if (Input.GetKeyDown(p1key.ToString())) {
             if (timer2 < timingAccuracy || timer2 > tbb - timingAccuracy)
+            {
                 player1.PowerLevel += GainPerHit;
+                ButtonUIManager.instance.ProgressPlayer1();
+            }
             else
                 player1.PowerLevel -= LossPerHit;
         }
-        if (Input.GetKeyDown(Player2Key)) {
+        int p2key = (int)Player2Key;
+
+        if (Input.GetKeyDown(p2key.ToString())) {
             if (timer2 < timingAccuracy || timer2 > tbb - timingAccuracy)
+            {
                 player2.PowerLevel += GainPerHit;
+                ButtonUIManager.instance.ProgressPlayer2();
+            }
+
             else
                 player2.PowerLevel -= LossPerHit;
         }

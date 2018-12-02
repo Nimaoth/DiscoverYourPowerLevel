@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08f90fb03eb35ad4bb6f2968921ce507, type: 3}
-  m_Name: TestClip
+  m_Name: SuperSaiyan3
   m_EditorClassIdentifier: 
   Done: 0
   VideoClip: {fileID: 32900000, guid: 224cf85924cfc3540a42240ac63b4bcb, type: 3}
