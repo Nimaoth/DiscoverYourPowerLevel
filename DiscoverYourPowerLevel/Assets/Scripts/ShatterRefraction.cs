@@ -28,7 +28,7 @@ public class ShatterRefraction : MonoBehaviour {
     }
     private IEnumerator Shatter()
     {
-        //GetComponent<AudioSource>().Play();
+        GetComponent<AudioSource>().Play();
         for (float i = 0; i < 0.1f; i += Time.deltaTime)
         {
             shatterMaterial.SetFloat("_Strength", i);

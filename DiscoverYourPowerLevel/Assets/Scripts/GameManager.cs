@@ -8,28 +8,24 @@ public class GameManager : MonoBehaviour {
     public static GameManager Instance {
         get {
             if (_instance == null) {
-                _instance = new GameObject("GameManager").AddComponent<GameManager>();
+                var go = new GameObject("GameManager");
+                _instance = go.AddComponent<GameManager>();
                 _instance.Player1 = ScriptableObject.CreateInstance<Player>();
                 _instance.Player2 = ScriptableObject.CreateInstance<Player>();
-                DontDestroyOnLoad(_instance.gameObject);
+                DontDestroyOnLoad(go);
             }
 
             return _instance;
         }
     }
 
-    public CameraShake CameraShake;
-
     public Player Player1;
     public Player Player2;
 
     private void Awake() {
-        if (_instance != null) {
+        if (_instance != this) {
             Destroy(gameObject);
         }
-    }
-
-    void Start () {
     }
 
     void Update () {
