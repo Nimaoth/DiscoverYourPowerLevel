@@ -27,6 +27,7 @@ public class TitleScreenButton : MonoBehaviour {
     public Sprite buttonDefault;
     public Sprite buttonPressed;
     public Button button;
+    public GameObject titleText;
     bool canClick;
     int p1key;
     int p1key2;
@@ -85,9 +86,18 @@ public class TitleScreenButton : MonoBehaviour {
 
         if(!canClick)
         {
+            titleText.SetActive(true);
             StartCoroutine(WaitSeconds());
             if(flowDOwn)
+            {
                 powerLevel -= 0.005f;
+                SpriteRenderer[] colors = titleText.GetComponents<SpriteRenderer>();
+                for(int i = 0; i < colors.Length; i++)
+                {
+                   colors[i].color  = new Color(titleText.GetComponentInChildren<Color>().r, titleText.GetComponentInChildren<Color>().g, titleText.GetComponentInChildren<Color>().b, titleText.GetComponentInChildren<Color>().a - 0.01f);
+                }
+            }
+                
         }
 
         
@@ -100,7 +110,7 @@ public class TitleScreenButton : MonoBehaviour {
         {
             button.image.sprite = buttonPressed;
             if (powerLevel <= 1)
-                powerLevel += 0.25f;
+                powerLevel += 0.025f;
         }
         
     }
