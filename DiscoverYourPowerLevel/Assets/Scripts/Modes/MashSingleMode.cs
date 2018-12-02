@@ -11,6 +11,11 @@ public class MashSingleMode : Mode
     public int LossPerSecond;
     public int GainPerHit;
 
+    public override void Start() {
+        base.Start();
+        ButtonUIManager.instance.SetupButtons(Player1Key, Player2Key);
+    }
+
     public override void OnUpdate(float time)
     {
         int p1key = (int)Player1Key;

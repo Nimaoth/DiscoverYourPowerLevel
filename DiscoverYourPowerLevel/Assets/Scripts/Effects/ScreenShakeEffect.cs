@@ -10,6 +10,6 @@ public class ScreenShakeEffect : Effect {
 
     public override void Spawn(Vector3 location)
     {
-        GameManager.Instance.CameraShake.Shake(Insensity, Decay);
+        //GameManager.Instance.CameraShake.Shake(Insensity, Decay);
     }
 }

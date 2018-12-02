@@ -4,32 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-    private static GameManager _instance = null;
-    public static GameManager Instance {
-        get {
-            if (_instance == null) {
-                _instance = new GameObject("GameManager").AddComponent<GameManager>();
-                _instance.Player1 = ScriptableObject.CreateInstance<Player>();
-                _instance.Player2 = ScriptableObject.CreateInstance<Player>();
-                DontDestroyOnLoad(_instance.gameObject);
-            }
-
-            return _instance;
-        }
-    }
-
-    public CameraShake CameraShake;
+    public static GameManager Instance;
 
     public Player Player1;
     public Player Player2;
 
     private void Awake() {
-        if (_instance != null) {
-            Destroy(gameObject);
-        }
-    }
-
-    void Start () {
+        Instance = this;
     }
 
     void Update () {

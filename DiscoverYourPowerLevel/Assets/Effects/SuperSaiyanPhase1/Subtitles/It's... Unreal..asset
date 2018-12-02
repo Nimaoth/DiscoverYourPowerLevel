@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: It's... Unreal.
   m_EditorClassIdentifier: 
   x: 30
-  y: -250
+  y: -350
   text: 'It''s... unreal. '
   fontSize: 80
   appearanceEffect: 0

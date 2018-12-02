@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: If he doesn't stop this...
   m_EditorClassIdentifier: 
   x: 30
-  y: -250
+  y: -350
   text: If he doesn't stop this...
   fontSize: 80
   appearanceEffect: 0
