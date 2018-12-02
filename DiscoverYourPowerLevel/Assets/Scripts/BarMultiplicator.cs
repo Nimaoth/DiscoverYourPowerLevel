@@ -60,7 +60,7 @@ public class BarMultiplicator : MonoBehaviour {
 		string s = "";
 		if(level != 0)
 		{
-			s = "x" + level.ToString();
+			s = level.ToString() + "x";
 		}
 		player2Multi.text = s;
 		isBoucingUp = true;		

@@ -39,6 +39,8 @@ public class UIManager : MonoBehaviour {
 
     public Material m_Material1;
 
+    public BarMultiplicator multiplicator;
+
 
     //To be set in Inspector
     public int[] levelThresholds;
@@ -85,6 +87,7 @@ public class UIManager : MonoBehaviour {
             currentUILevelPlayer1 += 1;
             lowerThresholdPlayer1 = levelThresholds[currentUILevelPlayer1-1];
             upperThresholdPlayer1 = levelThresholds[currentUILevelPlayer1];
+            multiplicator.progressPlayer1(currentUILevelPlayer1);
         }
         //check progress player 2
         if(Player2PowerLevel > upperThresholdPlayer2)
@@ -92,6 +95,8 @@ public class UIManager : MonoBehaviour {
             currentUILevelPlayer2 += 1;
             lowerThresholdPlayer2 = levelThresholds[currentUILevelPlayer2-1];
             upperThresholdPlayer2 = levelThresholds[currentUILevelPlayer2];
+            multiplicator.progressPlayer2(currentUILevelPlayer2);
+
         }
 
         //Update Progress
