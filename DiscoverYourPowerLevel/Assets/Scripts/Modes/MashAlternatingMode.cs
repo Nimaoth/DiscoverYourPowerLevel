@@ -22,14 +22,16 @@ public class MashAlternatingMode : Mode {
     public override void Start()
     {
         base.Start();
+        RandomButtons(P1Buttons, ref Player1Key1, ref Player1Key2);
+        RandomButtons(P2Buttons, ref Player2Key1, ref Player2Key2);
+
+
+        ButtonUIManager.instance.SetupButtons(Player1Key1, Player1Key2, Player2Key1, Player2Key2);
         ButtonUIManager.instance.SetupDoubleMash((int)Player1Key1, (int) Player1Key2, (int) Player2Key1, (int) Player2Key2 );
         Player1Key = true;
         Player2Key = true;
         
-        ButtonUIManager.instance.SetupButtons(Player1Key1, Player1Key2, Player2Key1, Player2Key2);
 
-        RandomButtons(P1Buttons, ref Player1Key1, ref Player1Key2);
-        RandomButtons(P2Buttons, ref Player2Key1, ref Player2Key2);
     }
 
     private void RandomButtons(ButtonInput[] buttons, ref ButtonInput b1, ref ButtonInput b2) {

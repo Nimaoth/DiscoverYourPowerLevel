@@ -6,30 +6,30 @@ using UnityEngine.UI;
 public class BarMultiplicator : MonoBehaviour {
 
 
-	public PowerBar player1Bar;
-	public PowerBar player2Bar;
+    public PowerBar player1Bar;
+    public PowerBar player2Bar;
 
-	public Text player1Multi;
-	public Text player2Multi;
+    public Text player1Multi;
+    public Text player2Multi;
 
-	public float maxScale;
+    public float maxScale;
     public float bounceSpeed = 1;
 
 
-	[SerializeField]
+    [SerializeField]
     private bool isBoucingUp;
     [SerializeField]
     private float currentScale;
 
 
 
-	void Start () {
+    void Start () {
 
         currentScale = 1;
         isBoucingUp = false;
     }
 
-	void Update () {
+    void Update () {
         if (isBoucingUp) {
             currentScale += bounceSpeed * Time.deltaTime;
         } else {
@@ -48,28 +48,33 @@ public class BarMultiplicator : MonoBehaviour {
     }
 
 
-	public void progressPlayer1(int level)
-	{
-		string s = "";
-		if(level != 0)
-		{
-			s = "x" + level.ToString();
-		}
-		player1Multi.text = s;
-		isBoucingUp = true;
-		player1Bar.UpdateColor();
-	}
+    public void progressPlayer1(int level)
+    {
+        level = level+1;
 
-	public void progressPlayer2(int level)
-	{
-		string s = "";
-		if(level != 0)
-		{
-			s = level.ToString() + "x";
-		}
-		player2Multi.text = s;
-		isBoucingUp = true;		
-		player2Bar.UpdateColor();
 
-	}
+        string s = "";
+        if(level != 1)
+        {
+            s = "x" + level.ToString();
+        }
+        player1Multi.text = s;
+        isBoucingUp = true;
+        player1Bar.UpdateColor();
+    }
+
+    public void progressPlayer2(int level)
+    {
+        level += 1;
+
+        string s = "";
+        if(level != 1)
+        {
+            s = level.ToString() + "x";
+        }
+        player2Multi.text = s;
+        isBoucingUp = true;		
+        player2Bar.UpdateColor();
+
+    }
 }
