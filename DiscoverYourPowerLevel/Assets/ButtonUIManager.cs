@@ -39,14 +39,21 @@ public class ButtonUIManager : MonoBehaviour {
     public GameObject Rhythm1;
     public GameObject Rhythm2;
 
-    public GameObject ButtonBlack;
-    public GameObject ButtonRed;
-    public GameObject ButtonGreen;
-    public GameObject ButtonWhite;
-    public GameObject ButtonBlue;
-    public GameObject ButtonYellow;
+    public GameObject Button1Black;
+    public GameObject Button1Red;
+    public GameObject Button1Green;
+    public GameObject Button1White;
+    public GameObject Button1Blue;
+    public GameObject Button1Yellow;
+    public GameObject Button2Black;
+    public GameObject Button2Red;
+    public GameObject Button2Green;
+    public GameObject Button2White;
+    public GameObject Button2Blue;
+    public GameObject Button2Yellow;
 
-    public Dictionary<ButtonInput, GameObject> ButtonMap;
+    public Dictionary<ButtonInput, GameObject> Button1Map;
+    public Dictionary<ButtonInput, GameObject> Button2Map;
 
     // Use this for initialization
     void Awake () {
@@ -54,30 +61,51 @@ public class ButtonUIManager : MonoBehaviour {
     }
 
     private void Start() {
-        ButtonMap = new Dictionary<ButtonInput, GameObject> {
-            { ButtonInput.BLACK, ButtonBlack },
-            { ButtonInput.RED, ButtonRed },
-            { ButtonInput.GREEN, ButtonGreen },
-            { ButtonInput.WHITE, ButtonWhite },
-            { ButtonInput.BLUE, ButtonBlue },
-            { ButtonInput.YELLOW, ButtonYellow },
+        Button1Map = new Dictionary<ButtonInput, GameObject> {
+            { ButtonInput.BLACK, Button1Black },
+            { ButtonInput.RED, Button1Red },
+            { ButtonInput.GREEN, Button1Green },
+            { ButtonInput.WHITE, Button1White },
+            { ButtonInput.BLUE, Button1Blue },
+            { ButtonInput.YELLOW, Button1Yellow },
+        };
+        Button2Map = new Dictionary<ButtonInput, GameObject> {
+            { ButtonInput.BLACK, Button2Black },
+            { ButtonInput.RED, Button2Red },
+            { ButtonInput.GREEN, Button2Green },
+            { ButtonInput.WHITE, Button2White },
+            { ButtonInput.BLUE, Button2Blue },
+            { ButtonInput.YELLOW, Button2Yellow },
         };
     }
 
-    public void SetupButtons(params ButtonInput[] types) {
+    public void SetupButtons1(params ButtonInput[] types) {
         Rhythm1.SetActive(false);
         Rhythm2.SetActive(false);
-        foreach (var kv in ButtonMap) {
+        foreach (var kv in Button1Map) {
             kv.Value.SetActive(false);
         }
 
         foreach (var k in types) {
-            ButtonMap[k].SetActive(true);
+            Button1Map[k].SetActive(true);
+        }
+    }
+
+    public void SetupButtons2(params ButtonInput[] types) {
+        Rhythm1.SetActive(false);
+        Rhythm2.SetActive(false);
+        foreach (var kv in Button2Map) {
+            kv.Value.SetActive(false);
+        }
+
+        foreach (var k in types) {
+            Button2Map[k].SetActive(true);
         }
     }
 
     public void SetupRhythmButtons() {
-        SetupButtons();
+        SetupButtons1();
+        SetupButtons2();
 
         Rhythm1.SetActive(true);
         Rhythm2.SetActive(true);

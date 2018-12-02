@@ -24,9 +24,13 @@ public class MashAlternatingTripleMode : Mode {
 	public override void Start()
     {
         base.Start();
+        ButtonUIManager.instance.SetupButtons1(Player1Key1, Player1Key2, Player1Key3);
+        ButtonUIManager.instance.SetupButtons2(Player2Key1, Player2Key2, Player2Key3);
         ButtonUIManager.instance.SetupTripleMash((int)Player1Key1, (int) Player1Key2, (int) Player1Key3, (int) Player2Key1, (int) Player2Key2, (int) Player2Key3 );
         Player1Key = 0;
         Player2Key = 0;
+
+        
     }
 
 

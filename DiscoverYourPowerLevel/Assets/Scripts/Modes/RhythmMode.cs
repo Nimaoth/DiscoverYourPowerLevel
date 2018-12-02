@@ -40,6 +40,9 @@ public class RhythmMode : Mode {
 
     float lastTimer = 0;
 
+    private bool p1canHit = true;
+    private bool p2canHit = true;
+
     public override void OnUpdate(float time)
     {
         float progress = AudioSource.time;
@@ -61,27 +64,51 @@ public class RhythmMode : Mode {
 
         var timer2 = (timer + klickOffset) % tbb;
         int p1key = (int)Player1Key;
-
-        if (Input.GetKeyDown(p1key.ToString())) {
-            if (timer2 < timingAccuracy || timer2 > tbb - timingAccuracy)
-            {
-                player1.PowerLevel += GainPerHit;
-                ButtonUIManager.instance.ProgressPlayer1();
-            }
-            else
-                player1.PowerLevel -= LossPerHit;
-        }
         int p2key = (int)Player2Key;
 
-        if (Input.GetKeyDown(p2key.ToString())) {
-            if (timer2 < timingAccuracy || timer2 > tbb - timingAccuracy)
-            {
+        // if (Input.GetKeyDown(p1key.ToString())) {
+        //     if ((timer2 < timingAccuracy || timer2 > tbb - timingAccuracy) && p1canHit)
+        //     {
+        //         player1.PowerLevel += GainPerHit;
+        //         ButtonUIManager.instance.ProgressPlayer1();
+        //         p1canHit = false;
+        //     }
+        //     else
+        //         player1.PowerLevel -= LossPerHit;
+        // }
+
+        // if (Input.GetKeyDown(p2key.ToString())) {
+        //     if ((timer2 < timingAccuracy || timer2 > tbb - timingAccuracy) && p2canHit)
+        //     {
+        //         player2.PowerLevel += GainPerHit;
+        //         ButtonUIManager.instance.ProgressPlayer2();
+        //         p2canHit = false;
+        //     }
+
+        //     else
+        //         player2.PowerLevel -= LossPerHit;
+        // }
+
+        if (timer2 < timingAccuracy || timer2 > tbb - timingAccuracy) {
+            if (Input.GetKeyDown(p1key.ToString()) && p1canHit) {
+                player1.PowerLevel += GainPerHit;
+                ButtonUIManager.instance.ProgressPlayer1();
+                p1canHit = false;
+            }
+            if (Input.GetKeyDown(p2key.ToString()) && p2canHit) {
                 player2.PowerLevel += GainPerHit;
                 ButtonUIManager.instance.ProgressPlayer2();
+                p2canHit = false;
             }
-
-            else
+        } else {
+            p1canHit = true;
+            p2canHit = true;
+            if (Input.GetKeyDown(p1key.ToString())) {
+                player1.PowerLevel -= LossPerHit;
+            }
+            if (Input.GetKeyDown(p2key.ToString())) {
                 player2.PowerLevel -= LossPerHit;
+            }
         }
 
         var timer3 = (progress + 0) % tbb;

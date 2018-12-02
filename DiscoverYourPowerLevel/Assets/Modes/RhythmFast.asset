@@ -17,8 +17,9 @@ MonoBehaviour:
   LossPerHit: 100
   GainPerHit: 50
   bpm: 256
-  timingAccuracy: 0.1
+  timingAccuracy: 0.01
   tickOffset: 0.49
   klickOffset: -0.2
-  timer: 0.17976975
+  timer: 0.17931962
   testSound: {fileID: 8300000, guid: 4bcf0673b76bb2540ba38f814c84bc74, type: 3}
+  tickEffect: {fileID: 0}

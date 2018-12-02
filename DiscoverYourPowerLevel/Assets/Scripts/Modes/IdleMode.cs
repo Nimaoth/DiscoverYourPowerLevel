@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class IdleMode : Mode {
 
-	public override void Start()
+    public override void Start()
     {
         base.Start();
         ButtonUIManager.instance.SetupIdle();
+        ButtonUIManager.instance.SetupButtons1();
+        ButtonUIManager.instance.SetupButtons2();
     }
-	public override void OnUpdate(float time)
+    public override void OnUpdate(float time)
     {
-	}
+    }
 }

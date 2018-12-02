@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,8 +26,17 @@ public class MashAlternatingMode : Mode {
         RandomButtons(P1Buttons, ref Player1Key1, ref Player1Key2);
         RandomButtons(P2Buttons, ref Player2Key1, ref Player2Key2);
 
+        List<ButtonInput> buttons = new List<ButtonInput>((ButtonInput[])Enum.GetValues(typeof(ButtonInput)));
 
-        ButtonUIManager.instance.SetupButtons(Player1Key1, Player1Key2, Player2Key1, Player2Key2);
+
+        AssignRandom(ref Player1Key1, buttons);
+        AssignRandom(ref Player1Key2, buttons);
+        AssignRandom(ref Player2Key1, buttons);
+        AssignRandom(ref Player2Key2, buttons);
+
+
+        ButtonUIManager.instance.SetupButtons1(Player1Key1, Player1Key2);
+        ButtonUIManager.instance.SetupButtons2(Player2Key1, Player2Key2);
         ButtonUIManager.instance.SetupDoubleMash((int)Player1Key1, (int) Player1Key2, (int) Player2Key1, (int) Player2Key2 );
         Player1Key = true;
         Player2Key = true;
@@ -34,10 +44,16 @@ public class MashAlternatingMode : Mode {
 
     }
 
+    private void AssignRandom(ref ButtonInput button, List<ButtonInput> list) {
+        int i = UnityEngine.Random.Range(0, list.Count);
+        button = list[i];
+        list.RemoveAt(i);
+    }
+
     private void RandomButtons(ButtonInput[] buttons, ref ButtonInput b1, ref ButtonInput b2) {
-        b1 = buttons[Random.Range(0, buttons.Length)];
+        b1 = buttons[UnityEngine.Random.Range(0, buttons.Length)];
         do {
-            b2 = buttons[Random.Range(0, buttons.Length)];
+            b2 = buttons[UnityEngine.Random.Range(0, buttons.Length)];
         } while (b2 == b1);
     }
     

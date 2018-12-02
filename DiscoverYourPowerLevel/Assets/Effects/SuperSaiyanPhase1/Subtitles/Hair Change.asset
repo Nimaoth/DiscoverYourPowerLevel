@@ -14,7 +14,7 @@ MonoBehaviour:
   x: 30
   y: -350
   text: You've changed your hair, so what?
-  fontSize: 80
+  fontSize: 70
   appearanceEffect: 0
   appearDuration: 0.1
   duration: 2
