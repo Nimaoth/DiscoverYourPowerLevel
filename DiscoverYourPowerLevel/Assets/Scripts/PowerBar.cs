@@ -5,8 +5,8 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class PowerBar : MonoBehaviour
 {
-
-
+    public bool player1;
+    int currentColorIndex = 0;
     public GameObject cylinder;
     Renderer rend;
     public Transform fireTransform;
@@ -54,10 +54,22 @@ public class PowerBar : MonoBehaviour
         distance = 0.0641f - 0.0271f;
         for(int i = 0; i < farbVerlaufPlayerOne.Length; i++)
         {
-            farbVerlaufPlayerOne[i] = new Color(rArray[i], gArray[i], 0);
-            farbVerlaufPlayerTwo[i] = new Color(0, gArray[i], rArray[i]);
+            farbVerlaufPlayerOne[i] = new Color((rArray[i]-30 / 255), gArray[i] / 255, 0);
+            farbVerlaufPlayerTwo[i] = new Color(0, gArray[i] / 255, (rArray[i]-30) / 255);
         }
+        currentColorIndex = 0;
+        if(player1)
+        {
+            rend.material.color = farbVerlaufPlayerOne[currentColorIndex];
+        }
+        else
+        {
+            rend.material.color = farbVerlaufPlayerTwo[currentColorIndex];                
+        }
+
     }
+
+
 
     // Update is called once per frame
     public void UpdateBar(float p)
@@ -66,5 +78,23 @@ public class PowerBar : MonoBehaviour
         //fireTransform.position = new Vector3(startPosition.x, startPosition.y + p * distance, startPosition.z);
         rend.material.SetFloat("_Flow", p);
         //fireTransform.position = new Vector3(fireTransform.position.x, fireTransform.position.y + p, transform.position.z);
+    }
+
+    public void UpdateColor()
+    {
+        Debug.Log("Colorupdated");
+        if(currentColorIndex < 27)
+        {
+            currentColorIndex++;
+            if(player1)
+            {
+                rend.material.color = farbVerlaufPlayerOne[currentColorIndex];
+            }
+            else
+            {
+                rend.material.color = farbVerlaufPlayerTwo[currentColorIndex];                
+            }
+           
+        }
     }
 }
