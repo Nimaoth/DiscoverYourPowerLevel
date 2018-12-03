@@ -72,23 +72,22 @@ public class PowerBar : MonoBehaviour
     {
         //0,0271 bis 0,0641
         //fireTransform.position = new Vector3(startPosition.x, startPosition.y + p * distance, startPosition.z);
-        rend.material.SetFloat("_Flow", p);
+        rend.sharedMaterial.SetFloat("_Flow", p);
         //fireTransform.position = new Vector3(fireTransform.position.x, fireTransform.position.y + p, transform.position.z);
     }
 
     public void UpdateColor()
     {
-        Debug.Log("Colorupdated");
         if(currentColorIndex < 27)
         {
             currentColorIndex++;
             if(player1)
             {
-                rend.material.color = farbVerlaufPlayerOne[currentColorIndex];
+                rend.sharedMaterial.color = farbVerlaufPlayerOne[currentColorIndex];
             }
             else
             {
-                rend.material.color = farbVerlaufPlayerTwo[currentColorIndex];                
+                rend.sharedMaterial.color = farbVerlaufPlayerTwo[currentColorIndex];                
             }
            
         }
