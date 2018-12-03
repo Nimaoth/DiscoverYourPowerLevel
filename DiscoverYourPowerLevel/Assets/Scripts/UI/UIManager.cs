@@ -113,6 +113,9 @@ public class UIManager : MonoBehaviour {
         Player1PowerLevelText.text = Player1PowerLevel.ToString();
         Player2PowerLevelText.text = Player2PowerLevel.ToString();
 
+        Player1PowerLevelText.fontSize = (int)Mathf.Lerp(60, 150, (float)GameManager.Instance.Player1.PowerLevel / 125000);
+        Player2PowerLevelText.fontSize = (int)Mathf.Lerp(60, 150, (float)GameManager.Instance.Player2.PowerLevel / 125000);
+
         //Update Bars
         Player1PowerBar.UpdateBar(currentLevelProgressPlayer1);
         Player2PowerBar.UpdateBar(currentLevelProgressPlayer2);
