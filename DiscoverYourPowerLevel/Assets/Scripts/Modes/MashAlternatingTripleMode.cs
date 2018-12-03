@@ -6,35 +6,30 @@ using UnityEngine;
 
 public class MashAlternatingTripleMode : Mode {
 
-	public ButtonInput Player1Key1;
+    public ButtonInput Player1Key1;
     public ButtonInput Player1Key2;
     public ButtonInput Player1Key3;
 
     private int Player1Key = 0;
 
-	public ButtonInput Player2Key1;
+    public ButtonInput Player2Key1;
     public ButtonInput Player2Key2;
     public ButtonInput Player2Key3;
 
     private int Player2Key = 0;
 
-	public int LossPerSecond;
+    public int LossPerSecond;
     public int GainPerHit;
 
-	public override void Start()
+    public override void Start()
     {
         base.Start();
-        ButtonUIManager.instance.SetupButtons1(Player1Key1, Player1Key2, Player1Key3);
-        ButtonUIManager.instance.SetupButtons2(Player2Key1, Player2Key2, Player2Key3);
-        ButtonUIManager.instance.SetupTripleMash((int)Player1Key1, (int) Player1Key2, (int) Player1Key3, (int) Player2Key1, (int) Player2Key2, (int) Player2Key3 );
         Player1Key = 0;
         Player2Key = 0;
-
-        
     }
 
 
-	public override void OnUpdate(float time)
+    public override void OnUpdate(float time)
     {
         int p1key1 = (int)Player1Key1;
         int p1key2 = (int)Player1Key2;
@@ -45,33 +40,27 @@ public class MashAlternatingTripleMode : Mode {
 
         if (Player1Key == 0 && Input.GetKeyDown(p1key1.ToString())) {
             player1.PowerLevel += GainPerHit;
-            ButtonUIManager.instance.ProgressPlayer1();
             Player1Key = (Player1Key + 1) % 3;
         }
         if (Player1Key == 1 && Input.GetKeyDown(p1key2.ToString())) {
             player1.PowerLevel += GainPerHit;
-            ButtonUIManager.instance.ProgressPlayer1();
             Player1Key = (Player1Key + 1) % 3;
         }
-		if (Player1Key == 2 && Input.GetKeyDown(p1key3.ToString())) {
+        if (Player1Key == 2 && Input.GetKeyDown(p1key3.ToString())) {
             player1.PowerLevel += GainPerHit;
-            ButtonUIManager.instance.ProgressPlayer1();
             Player1Key = (Player1Key + 1) % 3;
         }
 
         if (Player2Key == 0 && Input.GetKeyDown(p2key1.ToString())) {
             player2.PowerLevel += GainPerHit;
-            ButtonUIManager.instance.ProgressPlayer2();
             Player2Key = (Player2Key+1)%3;
         }
         if (Player2Key == 1 && Input.GetKeyDown(p2key2.ToString())) {
             player2.PowerLevel += GainPerHit;
-            ButtonUIManager.instance.ProgressPlayer2();
             Player2Key = (Player2Key+1)%3;
         }
-		if (Player2Key == 2 && Input.GetKeyDown(p2key3.ToString())) {
+        if (Player2Key == 2 && Input.GetKeyDown(p2key3.ToString())) {
             player2.PowerLevel += GainPerHit;
-            ButtonUIManager.instance.ProgressPlayer2();
             Player2Key = (Player2Key+1)%3;
         }
 

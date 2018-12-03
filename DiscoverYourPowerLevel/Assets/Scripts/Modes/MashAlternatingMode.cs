@@ -23,25 +23,21 @@ public class MashAlternatingMode : Mode {
     public override void Start()
     {
         base.Start();
-        RandomButtons(P1Buttons, ref Player1Key1, ref Player1Key2);
-        RandomButtons(P2Buttons, ref Player2Key1, ref Player2Key2);
 
+        // assign random buttons
         List<ButtonInput> buttons = new List<ButtonInput>((ButtonInput[])Enum.GetValues(typeof(ButtonInput)));
-
-
         AssignRandom(ref Player1Key1, buttons);
         AssignRandom(ref Player1Key2, buttons);
         AssignRandom(ref Player2Key1, buttons);
         AssignRandom(ref Player2Key2, buttons);
 
-
-        ButtonUIManager.instance.SetupButtons1(Player1Key1, Player1Key2);
-        ButtonUIManager.instance.SetupButtons2(Player2Key1, Player2Key2);
-        ButtonUIManager.instance.SetupDoubleMash((int)Player1Key1, (int) Player1Key2, (int) Player2Key1, (int) Player2Key2 );
-        Player1Key = true;
-        Player2Key = true;
+        var p1 = UI.transform.Find("p1");
+        p1.transform.Find(Player1Key1.ToString()).gameObject.SetActive(true);
+        p1.transform.Find(Player1Key2.ToString()).gameObject.SetActive(true);
         
-
+        var p2 = UI.transform.Find("p2");
+        p2.transform.Find(Player2Key1.ToString()).gameObject.SetActive(true);
+        p2.transform.Find(Player2Key2.ToString()).gameObject.SetActive(true);
     }
 
     private void AssignRandom(ref ButtonInput button, List<ButtonInput> list) {
@@ -66,23 +62,19 @@ public class MashAlternatingMode : Mode {
 
         if (Player1Key && Input.GetKeyDown(p1key1.ToString())) {
             player1.PowerLevel += GainPerHit;
-            ButtonUIManager.instance.ProgressPlayer1();
             Player1Key = !Player1Key;
         }
         if (!Player1Key && Input.GetKeyDown(p1key2.ToString())) {
             player1.PowerLevel += GainPerHit;
-            ButtonUIManager.instance.ProgressPlayer1();
             Player1Key = !Player1Key;
         }
 
         if (Player2Key && Input.GetKeyDown(p2key1.ToString())) {
             player2.PowerLevel += GainPerHit;
-            ButtonUIManager.instance.ProgressPlayer2();
             Player2Key = !Player2Key;
         }
         if (!Player2Key && Input.GetKeyDown(p2key2.ToString())) {
             player2.PowerLevel += GainPerHit;
-            ButtonUIManager.instance.ProgressPlayer2();
             Player2Key = !Player2Key;
         }
 

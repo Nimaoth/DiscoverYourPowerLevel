@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = System.Random;
 
 public enum ButtonInput
 {
@@ -17,6 +20,8 @@ public class RhythmMode : Mode {
     public ButtonInput Player1Key;
     public ButtonInput Player2Key;
 
+    public bool RandomiseButtons = true;
+
     public int LossPerHit;
     public int GainPerHit;
 
@@ -24,24 +29,68 @@ public class RhythmMode : Mode {
     public float timingAccuracy;
     public float tickOffset;
     public float klickOffset;
+    public float circleOffset;
     public float timer;
 
     public AudioClip testSound;
 
     public Effect tickEffect;
 
-    public override void Start()
-    {
-        base.Start();
-        timer = tickOffset;
-        ButtonUIManager.instance.SetupRhythm((int)Player1Key, (int) Player2Key);
-        ButtonUIManager.instance.SetupRhythmButtons();
-    }
+    private HitCircle hitCircle1;
+    private HitCircle hitCircle2;
+
+    private Image flash1;
+    private Image flash2;
+
+    public float flashSpeed = 5;
+    public float circleSize = 5;
 
     float lastTimer = 0;
 
     private bool p1canHit = true;
     private bool p2canHit = true;
+
+    public override void Start()
+    {
+        base.Start();
+        timer = tickOffset;
+
+        Player1Key = ButtonInput.RED;
+        Player2Key = ButtonInput.BLUE;
+
+        // if (RandomiseButtons) {
+        //     List<ButtonInput> buttons = new List<ButtonInput>((ButtonInput[])Enum.GetValues(typeof(ButtonInput)));
+        //     Player1Key = buttons[UnityEngine.Random.Range(0, buttons.Count)];
+        //     Player2Key = buttons[UnityEngine.Random.Range(0, buttons.Count)];
+        // }
+
+        var p1 = UI.transform.Find("p1");
+        var p2 = UI.transform.Find("p2");
+
+        foreach (var c in p1.gameObject.GetChildren())
+            c.SetActive(false);
+        foreach (var c in p2.gameObject.GetChildren())
+            c.SetActive(false);
+
+        var b1 = p1.transform.Find(Player1Key.ToString());
+        var b2 = p2.transform.Find(Player2Key.ToString());
+
+        b1.gameObject.SetActive(true);
+        b2.gameObject.SetActive(true);
+
+        hitCircle1 = b1.GetComponent<HitCircle>();
+        hitCircle2 = b2.GetComponent<HitCircle>();
+
+        hitCircle1.MaxScale = circleSize;
+        hitCircle2.MaxScale = circleSize;
+
+        flash1 = b1.transform.Find("Flash").GetComponent<Image>();
+        flash2 = b2.transform.Find("Flash").GetComponent<Image>();
+    }
+
+    public override void Stop() {
+        base.Stop();
+    }
 
     public override void OnUpdate(float time)
     {
@@ -66,39 +115,16 @@ public class RhythmMode : Mode {
         int p1key = (int)Player1Key;
         int p2key = (int)Player2Key;
 
-        // if (Input.GetKeyDown(p1key.ToString())) {
-        //     if ((timer2 < timingAccuracy || timer2 > tbb - timingAccuracy) && p1canHit)
-        //     {
-        //         player1.PowerLevel += GainPerHit;
-        //         ButtonUIManager.instance.ProgressPlayer1();
-        //         p1canHit = false;
-        //     }
-        //     else
-        //         player1.PowerLevel -= LossPerHit;
-        // }
-
-        // if (Input.GetKeyDown(p2key.ToString())) {
-        //     if ((timer2 < timingAccuracy || timer2 > tbb - timingAccuracy) && p2canHit)
-        //     {
-        //         player2.PowerLevel += GainPerHit;
-        //         ButtonUIManager.instance.ProgressPlayer2();
-        //         p2canHit = false;
-        //     }
-
-        //     else
-        //         player2.PowerLevel -= LossPerHit;
-        // }
-
         if (timer2 < timingAccuracy || timer2 > tbb - timingAccuracy) {
             if (Input.GetKeyDown(p1key.ToString()) && p1canHit) {
                 player1.PowerLevel += GainPerHit;
-                ButtonUIManager.instance.ProgressPlayer1();
                 p1canHit = false;
+                StartCoroutine(Flash(flash1));
             }
             if (Input.GetKeyDown(p2key.ToString()) && p2canHit) {
                 player2.PowerLevel += GainPerHit;
-                ButtonUIManager.instance.ProgressPlayer2();
                 p2canHit = false;
+                StartCoroutine(Flash(flash2));
             }
         } else {
             p1canHit = true;
@@ -111,8 +137,30 @@ public class RhythmMode : Mode {
             }
         }
 
-        var timer3 = (progress + 0) % tbb;
-        UIManager.Instance.HitCirclePlayer1.openness = 1 - (timer3 / tbb);
-        UIManager.Instance.HitCirclePlayer2.openness = 1 - (timer3 / tbb);
+        var timer3 = (progress + circleOffset) % tbb;
+        hitCircle1.openness = 1 - (timer3 / tbb);
+        hitCircle2.openness = 1 - (timer3 / tbb);
+    }
+
+    private Dictionary<Image, Coroutine> _coroutines = new Dictionary<Image, Coroutine>();
+    IEnumerator Flash(Image image)
+    {
+        Coroutine co;
+        if (_coroutines.TryGetValue(image, out co)) {
+            StopCoroutine(co);
+        }
+
+        {
+            var c = image.color;
+            c.a = 1;
+            image.color = c;
+        }
+
+        while (image.color.a > 0) {
+            var c = image.color;
+            c.a  -= flashSpeed * Time.deltaTime;
+            image.color = c;
+            yield return null;
+        }
     }
 }

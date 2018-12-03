@@ -25,6 +25,8 @@ public class UIManager : MonoBehaviour {
 
     public GameObject VideoEffectCanvas;
 
+    public GameObject ModeUICanvas;
+
     public static UIManager Instance;
 
     public Text Player1PowerLevelText;

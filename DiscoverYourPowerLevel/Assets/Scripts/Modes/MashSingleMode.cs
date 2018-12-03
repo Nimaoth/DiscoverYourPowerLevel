@@ -13,8 +13,6 @@ public class MashSingleMode : Mode
 
     public override void Start() {
         base.Start();
-        ButtonUIManager.instance.SetupButtons1(Player1Key);
-        ButtonUIManager.instance.SetupButtons2(Player2Key);
     }
 
     public override void OnUpdate(float time)

@@ -121,6 +121,9 @@ public class Clip : ScriptableObject {
     }
 
     private void StartNextMode() {
+        if (CurrentMode != null) {
+            CurrentMode.Stop();
+        }
         CurrentMode = null;
         CurrentModeIndex++;
         if (CurrentModeIndex < Modes.Length) {

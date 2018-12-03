@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Name: Mash Alternating Mode Test
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 0}
+  UIPrefab: {fileID: 1626466462869652, guid: d25087371668c0c478f3a108b5572077, type: 2}
+  UI: {fileID: 0}
   Player1Key1: 0
-  Player1Key2: 3
-  Player2Key1: 5
-  Player2Key2: 4
+  Player1Key2: 4
+  Player2Key1: 2
+  Player2Key2: 1
   LossPerSecond: 5
   GainPerHit: 100
   P1Buttons: 010000000000000003000000

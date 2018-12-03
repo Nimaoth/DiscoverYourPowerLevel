@@ -9,9 +9,6 @@ public class IdleMode : Mode {
     public override void Start()
     {
         base.Start();
-        ButtonUIManager.instance.SetupIdle();
-        ButtonUIManager.instance.SetupButtons1();
-        ButtonUIManager.instance.SetupButtons2();
     }
     public override void OnUpdate(float time)
     {

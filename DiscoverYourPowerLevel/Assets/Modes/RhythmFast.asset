@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Name: RhythmFast
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 0}
+  UIPrefab: {fileID: 1997424470072338, guid: 3081e258c48735e4d9f526c3f9cf915d, type: 2}
+  UI: {fileID: 0}
   Player1Key: 0
   Player2Key: 5
+  RandomiseButtons: 1
   LossPerHit: 50
   GainPerHit: 75
   bpm: 256
   timingAccuracy: 0.01
   tickOffset: 0.49
   klickOffset: -0.2
-  timer: 0.17931962
+  circleOffset: -0.1
+  timer: 0.10444093
   testSound: {fileID: 8300000, guid: 4bcf0673b76bb2540ba38f814c84bc74, type: 3}
   tickEffect: {fileID: 0}
+  flashSpeed: 5
+  circleSize: 5
