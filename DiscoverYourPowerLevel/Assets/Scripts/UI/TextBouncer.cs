@@ -11,18 +11,12 @@ public class TextBouncer : MonoBehaviour {
     public Player Player;
 
     [SerializeField]
-    private Text text;
-
-
-    [SerializeField]
     private bool isBoucingUp;
     [SerializeField]
     private float currentScale;
 
     // Use this for initialization
     void Start () {
-        text = GetComponent<Text>();
-
         currentScale = 1;
         isBoucingUp = false;
 
@@ -30,7 +24,7 @@ public class TextBouncer : MonoBehaviour {
             isBoucingUp = true;
         };
     }
-    
+
     // Update is called once per frame
     void Update () {
         if (isBoucingUp) {

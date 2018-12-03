@@ -11,7 +11,6 @@ public class PowerBar : MonoBehaviour
     Renderer rend;
     public Transform fireTransform;
     Vector3 startPosition;
-    float distance;
     private float[] rArray =
     {
         0xAB, 0xB3, 0xBA, 0xC2, 0xCA, 0xD1, 0xD9, 0xE0, 0xE8, 0xF0, 0xF7,
@@ -51,7 +50,6 @@ public class PowerBar : MonoBehaviour
         //fireTransform = cylinder.GetComponentInChildren<ParticleSystem>().transform;
         //startPosition = new Vector3(fireTransform.position.x, 0.0271f, fireTransform.position.z);
         //fireTransform.position = startPosition;
-        distance = 0.0641f - 0.0271f;
         for(int i = 0; i < farbVerlaufPlayerOne.Length; i++)
         {
             farbVerlaufPlayerOne[i] = new Color((rArray[i]-30 / 255), gArray[i] / 255, 0);
@@ -60,16 +58,14 @@ public class PowerBar : MonoBehaviour
         currentColorIndex = 0;
         if(player1)
         {
-            rend.material.color = farbVerlaufPlayerOne[currentColorIndex];
+            rend.sharedMaterial.color = farbVerlaufPlayerOne[currentColorIndex];
         }
         else
         {
-            rend.material.color = farbVerlaufPlayerTwo[currentColorIndex];                
+            rend.sharedMaterial.color = farbVerlaufPlayerTwo[currentColorIndex];                
         }
 
     }
-
-
 
     // Update is called once per frame
     public void UpdateBar(float p)
