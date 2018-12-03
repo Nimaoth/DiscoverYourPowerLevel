@@ -8,17 +8,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ae121803a2d6824da98c6a094232492, type: 3}
-  m_Name: Mash Alternating Mode Test
+  m_Script: {fileID: 11500000, guid: 24fc527fc3ea81f4186149b8b96ef71c, type: 3}
+  m_Name: Triple Clockwise
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 0}
-  UIPrefab: {fileID: 1626466462869652, guid: d25087371668c0c478f3a108b5572077, type: 2}
+  UIPrefab: {fileID: 1410255810835836, guid: 7f0a5ea0e73a23b45a2dc1a126879889, type: 2}
   UI: {fileID: 0}
   Player1Key1: 0
-  Player1Key2: 4
-  Player2Key1: 2
-  Player2Key2: 1
+  Player1Key2: 1
+  Player1Key3: 3
+  Player2Key1: 5
+  Player2Key2: 4
+  Player2Key3: 2
   LossPerSecond: 5
   GainPerHit: 100
-  P1Buttons: 010000000000000003000000
-  P2Buttons: 020000000500000004000000

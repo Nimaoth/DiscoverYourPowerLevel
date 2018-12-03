@@ -4,7 +4,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class SelectObjects {
+namespace EditorExtensions {
+public static class EditorSelection {
     public static IEnumerable<Transform> GetChildren(this Transform self) {
         for (int i = 0; i < self.childCount; i++)
             yield return self.GetChild(i);
@@ -182,4 +183,5 @@ public static class SelectObjects {
         window.position = new Rect(Screen.width / 2, Screen.height / 2, 250, 150);
         window.ShowPopup();
     }
+}
 }

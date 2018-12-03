@@ -8,15 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24fc527fc3ea81f4186149b8b96ef71c, type: 3}
-  m_Name: New Mash Alternating Triple Mode
+  m_Script: {fileID: 11500000, guid: 928dfc7ea8eddaa46b87430f1b9d3ad5, type: 3}
+  m_Name: Idle
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 0}
-  Player1Key1: 0
-  Player1Key2: 1
-  Player1Key3: 3
-  Player2Key1: 5
-  Player2Key2: 4
-  Player2Key3: 2
-  LossPerSecond: 5
-  GainPerHit: 100
+  UIPrefab: {fileID: 0}
+  UI: {fileID: 0}
