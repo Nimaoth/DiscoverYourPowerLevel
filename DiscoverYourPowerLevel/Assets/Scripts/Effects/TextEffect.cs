@@ -5,25 +5,22 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Custom/Effect/TextEffect")]
 public class TextEffect : Effect {
 
-	[Range(-544.5f , 544.5f)]
-	public float x;
-	
-	[Range(-350f , 350f)]
-	public float y;
+    [Range(-544.5f , 544.5f)]
+    public float x;
+    
+    [Range(-350f , 350f)]
+    public float y;
 
-	public string text;
-	public int fontSize;
+    public string text;
+    public int fontSize;
 
-	public AppearanceEffect appearanceEffect;
+    public AppearanceEffect appearanceEffect;
 
-	public float appearDuration;
+    public float appearDuration;
 
-	public float duration;
+    public float duration;
     public override void Spawn(Vector3 location)
     {
-		TextManager.instance.SpawnT(text, x, y, appearanceEffect, appearDuration, duration, fontSize);
+        TextManager.instance.SpawnT(text, x, y, appearanceEffect, appearDuration, duration, fontSize);
     }
-
-
-
 }
