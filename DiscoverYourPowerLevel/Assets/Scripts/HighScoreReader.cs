@@ -19,8 +19,6 @@ public class HighScoreReader : MonoBehaviour {
     void Start () {
         highscoreMan = HighScoreManager._instance;
 
-        updateList();
-
         InputField player1NameInpField = inputNameBox1.GetComponentInChildren<InputField>();
         InputField player2NameInpField = inputNameBox2.GetComponentInChildren<InputField>();
 
@@ -32,11 +30,16 @@ public class HighScoreReader : MonoBehaviour {
         var p2ScoreText = p2Score.GetComponent<Text>();
         p2ScoreText.text = "Your Score: " + (int)GameManager.Instance.Player2.PowerLevel;
 
+        inputNameBox1.GetComponentInChildren<InputField>().Select();
+        inputNameBox1.GetComponentInChildren<InputField>().ActivateInputField();
+
         //player1NameInpField.
         player1NameInpField.onEndEdit.AddListener((a) => {
             inputNameBox1.SetActive(false);
             highscoreMan.SaveHighScore(a, (int)GameManager.Instance.Player1.PowerLevel);
             inputNameBox2.SetActive(true);
+            inputNameBox2.GetComponentInChildren<InputField>().Select();
+            inputNameBox2.GetComponentInChildren<InputField>().ActivateInputField();
         });
         //player2NameInpField.
         player2NameInpField.onEndEdit.AddListener((a) => {
@@ -45,15 +48,12 @@ public class HighScoreReader : MonoBehaviour {
             updateList();
             inputNameBox2.transform.parent.gameObject.SetActive(false);
         });
-
-
-       
     }
 
     // Update is called once per frame
     void Update () {
-		
-	}
+        
+    }
     void updateList()
     {
         foreach (Transform child in panelFirstPlace.transform)
@@ -82,7 +82,7 @@ public class HighScoreReader : MonoBehaviour {
             tempObj.transform.Find("Score").GetComponent<Text>().text = scoreList[0].score + "";
 
 
-            for (int i = 1; i < 5 && i < scoreList.Count; i++)
+            for (int i = 1; i < 9 && i < scoreList.Count; i++)
             {
                 tempObj = Instantiate(HighscorePrefab);
                 tempObj.transform.SetParent(panel2to5Place.transform);
@@ -91,7 +91,7 @@ public class HighScoreReader : MonoBehaviour {
                 tempObj.transform.Find("Score").GetComponent<Text>().text = scoreList[i].score + "";
             }
 
-            for (int i = 5; i < 9 && i < scoreList.Count; i++)
+            for (int i = 9; i < 17 && i < scoreList.Count; i++)
             {
                 tempObj = Instantiate(HighscorePrefab);
                 tempObj.transform.SetParent(panel6to9Place.transform);
