@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour {
     public Player Player1;
     public Player Player2;
 
+    // events
+    public Event<int> OnLevelIncreased = new Event<int>();
+    //
+
     private void Awake() {
         Instance = this;
     }

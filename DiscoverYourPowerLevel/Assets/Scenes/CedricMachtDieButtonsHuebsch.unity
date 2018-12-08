@@ -897,7 +897,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: c30f622bb998b4c4284da3d470ad581e, type: 3}
-    m_FontSize: 150
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -908,7 +908,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 200000
+  m_Text: 0
 --- !u!222 &621023984
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1812,8 +1812,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 167.14
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1894,7 +1894,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1533758645}
-  m_PlaneDistance: 33.54
+  m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -20,20 +21,14 @@ public class UIManager : MonoBehaviour {
     [SerializeField]
     private int CurrentEffectIndex = 0;
 
-
-    private EffectManager EffectManager;
-
     public GameObject VideoEffectCanvas;
 
     public GameObject ModeUICanvas;
 
     public static UIManager Instance;
 
-    public Text Player1PowerLevelText;
-    public Text Player2PowerLevelText;
-
-    public HitCircle HitCirclePlayer1;
-    public HitCircle HitCirclePlayer2;
+    public TextMeshPro Player1PowerLevelText;
+    public TextMeshPro Player2PowerLevelText;
 
 
     public PowerBar Player1PowerBar;
@@ -41,14 +36,12 @@ public class UIManager : MonoBehaviour {
 
     public Material m_Material1;
 
-    public BarMultiplicator multiplicator;
-
 
     //To be set in Inspector
     public int[] levelThresholds;
 
-    private int currentUILevelPlayer1 = 0;
-    private int currentUILevelPlayer2 = 0;
+    private int currentUILevelPlayer1 = 1;
+    private int currentUILevelPlayer2 = 1;
     private int lowerThresholdPlayer1;
     private int upperThresholdPlayer1 = 1;
 
@@ -58,10 +51,6 @@ public class UIManager : MonoBehaviour {
     public float currentLevelProgressPlayer1 = 0.0f;
     public float currentLevelProgressPlayer2 = 0.0f;
 
-    int Player1PowerLevel;
-    int Player2PowerLevel;
-
-    public VideoPlayer videoClip;
 
     private void Awake() {
         Instance = this;
@@ -69,9 +58,6 @@ public class UIManager : MonoBehaviour {
 
     private void Start()
     {
-        EffectManager = GameObject.FindGameObjectWithTag("EffectManager").GetComponent<EffectManager>();
-
-
         lowerThresholdPlayer1 = 0;
         upperThresholdPlayer1 = levelThresholds[0];
         lowerThresholdPlayer2 = 0;
@@ -80,8 +66,8 @@ public class UIManager : MonoBehaviour {
     }
     private void Update() {
 
-        Player1PowerLevel = (int)GameManager.Instance.Player1.PowerLevel;
-        Player2PowerLevel = (int)GameManager.Instance.Player2.PowerLevel;
+        int Player1PowerLevel = (int)GameManager.Instance.Player1.PowerLevel;
+        int Player2PowerLevel = (int)GameManager.Instance.Player2.PowerLevel;
         
         //check progress player 1
         if(Player1PowerLevel > upperThresholdPlayer1)
@@ -89,7 +75,7 @@ public class UIManager : MonoBehaviour {
             currentUILevelPlayer1 += 1;
             lowerThresholdPlayer1 = levelThresholds[currentUILevelPlayer1-1];
             upperThresholdPlayer1 = levelThresholds[currentUILevelPlayer1];
-            multiplicator.progressPlayer1(currentUILevelPlayer1);
+            GameManager.Instance.Player1.OnMultiplierIncreased.Invoke(currentUILevelPlayer1);
         }
         //check progress player 2
         if(Player2PowerLevel > upperThresholdPlayer2)
@@ -97,8 +83,7 @@ public class UIManager : MonoBehaviour {
             currentUILevelPlayer2 += 1;
             lowerThresholdPlayer2 = levelThresholds[currentUILevelPlayer2-1];
             upperThresholdPlayer2 = levelThresholds[currentUILevelPlayer2];
-            multiplicator.progressPlayer2(currentUILevelPlayer2);
-
+            GameManager.Instance.Player2.OnMultiplierIncreased.Invoke(currentUILevelPlayer2);
         }
 
         //Update Progress
@@ -113,8 +98,8 @@ public class UIManager : MonoBehaviour {
         Player1PowerLevelText.text = Player1PowerLevel.ToString();
         Player2PowerLevelText.text = Player2PowerLevel.ToString();
 
-        Player1PowerLevelText.fontSize = (int)Mathf.Lerp(60, 150, (float)GameManager.Instance.Player1.PowerLevel / 125000);
-        Player2PowerLevelText.fontSize = (int)Mathf.Lerp(60, 150, (float)GameManager.Instance.Player2.PowerLevel / 125000);
+        Player1PowerLevelText.fontSize = (int)Mathf.Lerp(20, 50, (float)GameManager.Instance.Player1.PowerLevel / 125000);
+        Player2PowerLevelText.fontSize = (int)Mathf.Lerp(20, 50, (float)GameManager.Instance.Player2.PowerLevel / 125000);
 
         //Update Bars
         Player1PowerBar.UpdateBar(currentLevelProgressPlayer1);
@@ -123,7 +108,7 @@ public class UIManager : MonoBehaviour {
         if(CurrentEffectIndex != -1 && CurrentEffectIndex<Effects.Length)
         {
             var effectTrigger = Effects[CurrentEffectIndex];
-            if (Player1PowerLevel >= effectTrigger.StartPower || Player1PowerLevel >= effectTrigger.StartPower) {
+            if (Player1PowerLevel >= effectTrigger.StartPower || Player2PowerLevel >= effectTrigger.StartPower) {
                 PlayEffect(effectTrigger.Effect);
             }
         }
@@ -132,23 +117,6 @@ public class UIManager : MonoBehaviour {
         {
             m_Material1.SetFloat("_GlowThickness", 1.3f);
         }
-
-        /*timer += Time.deltaTime;
-        int seconds = (int) timer % 60;
-
-        
-
-        if(200 == seconds)
-        {
-            StartCoroutine(waitSeconds());
-            if(canChangeScene)
-            {
-                SceneManager.LoadScene("HighscoreTestScene");
-            }
-        }*/
-
-        
-
     }
 
 
@@ -156,7 +124,7 @@ public class UIManager : MonoBehaviour {
         //Debug.Log("Effect played");
         if (CurrentEffectIndex < Effects.Length) {
             // Call EffectManager
-            EffectManager.PlayEffect(effect);
+            EffectManager.Instance.PlayEffect(effect);
             CurrentEffectIndex += 1;
         }
         if (CurrentEffectIndex == Effects.Length)
@@ -165,7 +133,4 @@ public class UIManager : MonoBehaviour {
         }
         
     }
-
-
-
 }

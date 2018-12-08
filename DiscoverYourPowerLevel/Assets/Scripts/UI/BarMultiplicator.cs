@@ -1,32 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BarMultiplicator : MonoBehaviour {
 
+    public Player player;
+    public TextMeshPro text;
 
-    public PowerBar player1Bar;
-    public PowerBar player2Bar;
-
-    public Text player1Multi;
-    public Text player2Multi;
-
+    public bool left = true;
     public float maxScale;
     public float bounceSpeed = 1;
 
 
-    [SerializeField]
     private bool isBoucingUp;
-    [SerializeField]
     private float currentScale;
 
 
-
     void Start () {
-
+        if (text != null) text = GetComponentInChildren<TextMeshPro>();
         currentScale = 1;
         isBoucingUp = false;
+
+        player.OnMultiplierIncreased.AddListener(level => {
+            string s = level.ToString();
+            if (left) s = $"x{s}";
+            else s = $"{s}x";
+            text.text = s;
+            isBoucingUp = true;
+        });
     }
 
     void Update () {
@@ -45,36 +48,5 @@ public class BarMultiplicator : MonoBehaviour {
         }
 
         transform.localScale = new Vector3(currentScale, currentScale, currentScale);
-    }
-
-
-    public void progressPlayer1(int level)
-    {
-        level = level+1;
-
-
-        string s = "";
-        if(level != 1)
-        {
-            s = "x" + level.ToString();
-        }
-        player1Multi.text = s;
-        isBoucingUp = true;
-        player1Bar.UpdateColor();
-    }
-
-    public void progressPlayer2(int level)
-    {
-        level += 1;
-
-        string s = "";
-        if(level != 1)
-        {
-            s = level.ToString() + "x";
-        }
-        player2Multi.text = s;
-        isBoucingUp = true;		
-        player2Bar.UpdateColor();
-
     }
 }

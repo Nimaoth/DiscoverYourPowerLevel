@@ -24,9 +24,6 @@ public class VideoEffectComponent : MonoBehaviour {
 
         RectTransform m_RectTransform = videoplayer.GetComponent<RectTransform>();
 
-        Debug.Log("panelWidth = " + panelWidth);
-        Debug.Log("panelHeight = " + panelHeight);
-
         m_XAxis = Random.Range(0, panelWidth - m_RectTransform.rect.width);
         m_YAxis = Random.Range(0, panelHeight - m_RectTransform.rect.height);
 

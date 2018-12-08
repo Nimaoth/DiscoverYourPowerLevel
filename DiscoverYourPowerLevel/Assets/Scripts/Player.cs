@@ -6,11 +6,7 @@ using UnityEngine.Events;
 [CreateAssetMenu]
 public class Player : ScriptableObject {
 
-    public delegate void PowerLevelIncreasedDel(double newLevel);
-
-    public event PowerLevelIncreasedDel OnPowerLevelIncreased;
-
-    private double _powerLevel;
+    public double _powerLevel;
     public double PowerLevel {
         get {
             return _powerLevel;
@@ -24,6 +20,12 @@ public class Player : ScriptableObject {
             }
         }
     }
+
+    // events
+    public Event<int> OnMultiplierIncreased = new Event<int>();
+
+    public delegate void PowerLevelIncreasedDel(double newLevel);
+    public event PowerLevelIncreasedDel OnPowerLevelIncreased;
 
     public void Start() {
         _powerLevel = 0;
