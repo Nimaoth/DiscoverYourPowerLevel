@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class ClipManager : MonoBehaviour {
 
@@ -15,6 +16,7 @@ public class ClipManager : MonoBehaviour {
     private Clip currentClip = null;
 
     public AudioSource ClipAudioSource;
+    public VideoPlayer VideoPlayer;
 
     private void Awake() {
         Instance = this;

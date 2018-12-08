@@ -11,4 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa5de78f03d3f4e449036abc7d44c1df, type: 3}
   m_Name: Player2
   m_EditorClassIdentifier: 
-  _powerLevel: 141347
+  MultiplierIncreased: {fileID: 11400000, guid: 00af1ef5406665e41a032c0ace24a523,
+    type: 2}
+  PowerLevelIncreased: {fileID: 11400000, guid: 077b31e3616ca8041acca9589e5c7abb,
+    type: 2}

@@ -25,10 +25,12 @@ public class UIManager : MonoBehaviour {
 
     public GameObject ModeUICanvas;
 
+    public GameObject VideoCanvas;
+
     public static UIManager Instance;
 
-    public TextMeshPro Player1PowerLevelText;
-    public TextMeshPro Player2PowerLevelText;
+    public TMP_Text Player1PowerLevelText;
+    public TMP_Text Player2PowerLevelText;
 
 
     public PowerBar Player1PowerBar;
@@ -40,8 +42,6 @@ public class UIManager : MonoBehaviour {
     //To be set in Inspector
     public int[] levelThresholds;
 
-    private int currentUILevelPlayer1 = 1;
-    private int currentUILevelPlayer2 = 1;
     private int lowerThresholdPlayer1;
     private int upperThresholdPlayer1 = 1;
 
@@ -51,6 +51,10 @@ public class UIManager : MonoBehaviour {
     public float currentLevelProgressPlayer1 = 0.0f;
     public float currentLevelProgressPlayer2 = 0.0f;
 
+    public Player player1;
+    public Player player2;
+
+    public PlayerEvent OnMultiplierIncreased;
 
     private void Awake() {
         Instance = this;
@@ -72,18 +76,18 @@ public class UIManager : MonoBehaviour {
         //check progress player 1
         if(Player1PowerLevel > upperThresholdPlayer1)
         {
-            currentUILevelPlayer1 += 1;
-            lowerThresholdPlayer1 = levelThresholds[currentUILevelPlayer1-1];
-            upperThresholdPlayer1 = levelThresholds[currentUILevelPlayer1];
-            GameManager.Instance.Player1.OnMultiplierIncreased.Invoke(currentUILevelPlayer1);
+            player1.Multiplier += 1;
+            lowerThresholdPlayer1 = levelThresholds[player1.Multiplier-1];
+            upperThresholdPlayer1 = levelThresholds[player1.Multiplier];
+            OnMultiplierIncreased.Dispatch(player1);
         }
         //check progress player 2
         if(Player2PowerLevel > upperThresholdPlayer2)
         {
-            currentUILevelPlayer2 += 1;
-            lowerThresholdPlayer2 = levelThresholds[currentUILevelPlayer2-1];
-            upperThresholdPlayer2 = levelThresholds[currentUILevelPlayer2];
-            GameManager.Instance.Player2.OnMultiplierIncreased.Invoke(currentUILevelPlayer2);
+            player2.Multiplier += 1;
+            lowerThresholdPlayer2 = levelThresholds[player2.Multiplier-1];
+            upperThresholdPlayer2 = levelThresholds[player2.Multiplier];
+            OnMultiplierIncreased.Dispatch(player2);
         }
 
         //Update Progress
@@ -98,8 +102,8 @@ public class UIManager : MonoBehaviour {
         Player1PowerLevelText.text = Player1PowerLevel.ToString();
         Player2PowerLevelText.text = Player2PowerLevel.ToString();
 
-        Player1PowerLevelText.fontSize = (int)Mathf.Lerp(20, 50, (float)GameManager.Instance.Player1.PowerLevel / 125000);
-        Player2PowerLevelText.fontSize = (int)Mathf.Lerp(20, 50, (float)GameManager.Instance.Player2.PowerLevel / 125000);
+        Player1PowerLevelText.fontSize = (int)Mathf.Lerp(60, 150, (float)GameManager.Instance.Player1.PowerLevel / 125000);
+        Player2PowerLevelText.fontSize = (int)Mathf.Lerp(60, 150, (float)GameManager.Instance.Player2.PowerLevel / 125000);
 
         //Update Bars
         Player1PowerBar.UpdateBar(currentLevelProgressPlayer1);

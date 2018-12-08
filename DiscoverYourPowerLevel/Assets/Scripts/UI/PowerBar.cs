@@ -5,7 +5,6 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class PowerBar : MonoBehaviour
 {
-    public Player player;
     public new Renderer renderer;
 
     public Gradient color;
@@ -17,10 +16,10 @@ public class PowerBar : MonoBehaviour
     {
         if (renderer == null) renderer = GetComponentInChildren<Renderer>();
         renderer.sharedMaterial.color = color.Evaluate(0);
+    }
 
-        player.OnMultiplierIncreased.AddListener(level => {
-            renderer.sharedMaterial.color = color.Evaluate(Mathf.Clamp01(level / maxLevel));
-        });
+    public void UpdateColor(Player p) {
+        renderer.sharedMaterial.color = color.Evaluate(Mathf.Clamp01(p.Multiplier / maxLevel));
     }
 
     public void UpdateBar(float p)

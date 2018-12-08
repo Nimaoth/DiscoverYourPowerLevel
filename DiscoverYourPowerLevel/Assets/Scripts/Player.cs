@@ -1,33 +1,70 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu]
 public class Player : ScriptableObject {
 
-    public double _powerLevel;
+    public PlayerEvent MultiplierIncreased;
+    public PlayerEvent PowerLevelIncreased;
+
+    private double _powerLevel;
     public double PowerLevel {
         get {
             return _powerLevel;
         }
         set {
-            var oldValue = _powerLevel;
+            double old = _powerLevel;
             _powerLevel = value;
-
-            if ((int)value > (int)oldValue) {
-                OnPowerLevelIncreased?.Invoke(value);
+            if (value > old){ 
+                PowerLevelIncreased.Dispatch(this);
             }
         }
     }
 
-    // events
-    public Event<int> OnMultiplierIncreased = new Event<int>();
+    private int _multiplier;
+    public int Multiplier {
+        get {
+            return _multiplier;
+        }
+        set {
+            int old = _multiplier;
+            _multiplier = value;
+            if (value > old){ 
+                MultiplierIncreased.Dispatch(this);
+            }
+        }
+    }
 
-    public delegate void PowerLevelIncreasedDel(double newLevel);
-    public event PowerLevelIncreasedDel OnPowerLevelIncreased;
+    public void Reset() {
+        PowerLevel = 0;
+        _multiplier = 1;
+    }
+}
 
-    public void Start() {
-        _powerLevel = 0;
+[CustomEditor(typeof(Player))]
+public class PlayerEditor : Editor {
+    public override void OnInspectorGUI() {
+        DrawDefaultInspector();
+
+        Player p = (Player)target;
+
+        EditorGUILayout.IntField("Power Level", (int)p.PowerLevel);
+        if (GUILayout.Button("Increase Power Level")) {
+            p.PowerLevel += 1000;
+        }
+
+
+        EditorGUILayout.IntField("Multiplier", p.Multiplier);
+        if (GUILayout.Button("Increase Multiplier")) {
+            p.Multiplier++;
+        }
+
+        GUILayout.Space(20);
+        if (GUILayout.Button("Reset")) {
+            p.Reset();
+        }
     }
 }
