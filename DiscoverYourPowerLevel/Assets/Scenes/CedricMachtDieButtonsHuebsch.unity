@@ -2465,7 +2465,7 @@ MonoBehaviour:
   EffectCanvas: {fileID: 635601499}
   NegEffects: []
   PosEffects:
-  - {fileID: 11400000, guid: 05c8fd7d6d4c66f44b9c0ba089bb88ee, type: 2}
+  - {fileID: 0}
   SuperPosEffects: []
   NegAudioEffects: []
   PosAudioEffects: []
