@@ -42,7 +42,7 @@ public static class EditorSelection {
         }
     }
 
-    [MenuItem("Selection/Select Previous Sibling _UP")]
+    [MenuItem("Selection/Select Previous Sibling _#UP")]
     public static void SelectPrevious() {
         var selection = Selection.gameObjects;
         var newSelection = new List<GameObject>();
@@ -78,7 +78,7 @@ public static class EditorSelection {
         Selection.objects = newSelection.ToArray();
     }
 
-    [MenuItem("Selection/Select Next Sibling _DOWN")]
+    [MenuItem("Selection/Select Next Sibling _#DOWN")]
     public static void SelectNext() {
         var selection = Selection.gameObjects;
         var newSelection = new List<GameObject>();

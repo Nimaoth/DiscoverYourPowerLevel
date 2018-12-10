@@ -77,16 +77,26 @@ public class UIManager : MonoBehaviour {
         if(Player1PowerLevel > upperThresholdPlayer1)
         {
             player1.Multiplier += 1;
-            lowerThresholdPlayer1 = levelThresholds[player1.Multiplier-1];
-            upperThresholdPlayer1 = levelThresholds[player1.Multiplier];
+            if (player1.Multiplier >= levelThresholds.Length) {
+                lowerThresholdPlayer1 = upperThresholdPlayer1;
+                upperThresholdPlayer1 += 5000;
+            } else {
+                lowerThresholdPlayer1 = levelThresholds[player1.Multiplier-1];
+                upperThresholdPlayer1 = levelThresholds[player1.Multiplier];
+            }
             OnMultiplierIncreased.Dispatch(player1);
         }
         //check progress player 2
         if(Player2PowerLevel > upperThresholdPlayer2)
         {
             player2.Multiplier += 1;
-            lowerThresholdPlayer2 = levelThresholds[player2.Multiplier-1];
-            upperThresholdPlayer2 = levelThresholds[player2.Multiplier];
+            if (player2.Multiplier >= levelThresholds.Length) {
+                lowerThresholdPlayer2 = upperThresholdPlayer2;
+                upperThresholdPlayer2 += 5000;
+            } else {
+                lowerThresholdPlayer2 = levelThresholds[player2.Multiplier-1];
+                upperThresholdPlayer2 = levelThresholds[player2.Multiplier];
+            }
             OnMultiplierIncreased.Dispatch(player2);
         }
 

@@ -110,7 +110,7 @@ public class Clip : ScriptableObject {
         {
             var effectTrigger = Effects[CurrentEffectIndex];
             if (progress >= effectTrigger.StartTime) {
-                //PlayEffect(effectTrigger.Effect);
+                PlayEffect(effectTrigger.Effect);
             }
         }
 
