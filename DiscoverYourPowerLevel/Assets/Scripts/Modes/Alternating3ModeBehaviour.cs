@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[Serializable]
 public class Alternating3ModeBehaviour : ModeBehaviour {
 
     public ButtonInput Player1Key1;
@@ -17,7 +18,6 @@ public class Alternating3ModeBehaviour : ModeBehaviour {
 
     private int Player2Key = 0;
 
-    public int LossPerSecond;
     public int GainPerHit;
 
     public override void OnStart()
@@ -25,7 +25,6 @@ public class Alternating3ModeBehaviour : ModeBehaviour {
         Player1Key = 0;
         Player2Key = 0;
     }
-
 
     public override void OnUpdate(float time)
     {
@@ -61,8 +60,5 @@ public class Alternating3ModeBehaviour : ModeBehaviour {
             player2.PowerLevel += GainPerHit;
             Player2Key = (Player2Key+1)%3;
         }
-
-        player1.PowerLevel -= LossPerSecond * time;
-        player2.PowerLevel -= LossPerSecond * time;
     }
 }

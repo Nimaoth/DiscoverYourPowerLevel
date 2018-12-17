@@ -200,6 +200,27 @@ MonoBehaviour:
     m_DisplayName: Stereo Sayan 3D sound only
     m_Version: 1
   m_Version: 2
+--- !u!114 &114298102273445886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62596ab22c0a40b4bb948eb4919ed732, type: 3}
+  m_Name: Alternating3ModeClip
+  m_EditorClassIdentifier: 
+  template:
+    UIPrefab: {fileID: 1410255810835836, guid: 7f0a5ea0e73a23b45a2dc1a126879889, type: 3}
+    Player1Key1: 0
+    Player1Key2: 1
+    Player1Key3: 2
+    Player2Key1: 3
+    Player2Key2: 4
+    Player2Key3: 5
+    GainPerHit: 75
 --- !u!114 &114398330695286688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -324,6 +345,75 @@ MonoBehaviour:
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
     m_DisplayName: Alternating2ModeClip
+    m_Version: 1
+  - m_Start: 49.1
+    m_ClipIn: 0
+    m_Asset: {fileID: 114298102273445886}
+    m_Duration: 55.16666666666667
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 114577568109935514}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: 0
+    m_BlendOutDuration: 0
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: Alternating3ModeClip
     m_Version: 1
   m_Version: 2
   Player1: {fileID: 11400000, guid: 897c7e3f0991c784e85ea67a5af9c7bf, type: 2}
