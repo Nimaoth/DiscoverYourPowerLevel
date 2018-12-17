@@ -21,9 +21,7 @@ public abstract class Mode : ScriptableObject {
         player2 = GameManager.Instance.Player2;
         AudioSource = ClipManager.Instance.ClipAudioSource;
 
-        if (UIPrefab != null) {
-            UI = Instantiate(UIPrefab, UIManager.Instance.ModeUICanvas.transform);
-        }
+        UI = UIManager.Instance.SetModeUI(UIPrefab);
     }
 
     public virtual void Stop() {

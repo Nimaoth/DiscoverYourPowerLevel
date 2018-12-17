@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 268251171}
   - component: {fileID: 268251170}
   - component: {fileID: 268251169}
+  - component: {fileID: 268251172}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -194,6 +195,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &268251172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268251168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a36e3692bf35448b97a43217a054f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1659395248
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +218,8 @@ GameObject:
   - component: {fileID: 1659395251}
   - component: {fileID: 1659395250}
   - component: {fileID: 1659395249}
+  - component: {fileID: 1659395252}
+  - component: {fileID: 1659395253}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -353,3 +368,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1659395252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659395248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ae73e1059719349804c765bfe9592d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player1: {fileID: 11400000, guid: 897c7e3f0991c784e85ea67a5af9c7bf, type: 2}
+  _player2: {fileID: 11400000, guid: 0d92dbc29fdc87b488fecd2dcd09cd7a, type: 2}
+--- !u!114 &1659395253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659395248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3317a7439fde64e4580aba6944378ced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugStart: 0
+  debugPercent: 0
+  Clips: []
+  ClipAudioSource: {fileID: 1659395249}
+  VideoPlayer: {fileID: 0}

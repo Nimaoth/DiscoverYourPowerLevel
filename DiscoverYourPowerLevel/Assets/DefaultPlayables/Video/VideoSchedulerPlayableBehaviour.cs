@@ -7,7 +7,7 @@ namespace UnityEngine.Timeline
 {
     public sealed class VideoSchedulerPlayableBehaviour : PlayableBehaviour
     {
-		private IEnumerable<TimelineClip> m_Clips;
+        private IEnumerable<TimelineClip> m_Clips;
         private PlayableDirector m_Director;
 
         internal PlayableDirector director
@@ -30,23 +30,21 @@ namespace UnityEngine.Timeline
             int inputPort = 0;
             foreach (TimelineClip clip in m_Clips)
             {
-				ScriptPlayable<VideoPlayableBehaviour> scriptPlayable =
-					(ScriptPlayable<VideoPlayableBehaviour>)playable.GetInput(inputPort);
+                var scriptPlayable = (ScriptPlayable<VideoPlayableBehaviour>)playable.GetInput(inputPort);
+                var videoPlayableBehaviour = scriptPlayable.GetBehaviour();
 
-				VideoPlayableBehaviour videoPlayableBehaviour = scriptPlayable.GetBehaviour();
-
-				if (videoPlayableBehaviour != null)
-				{
-					double preloadTime = Math.Max(0.0, videoPlayableBehaviour.preloadTime);
-					if (m_Director.time >= clip.start + clip.duration ||
-						m_Director.time <= clip.start - preloadTime)
-						videoPlayableBehaviour.StopVideo();
-					else if (m_Director.time > clip.start - preloadTime)
-						videoPlayableBehaviour.PrepareVideo();
-				}
-					
+                if (videoPlayableBehaviour != null)
+                {
+                    double preloadTime = Math.Max(0.0, videoPlayableBehaviour.preloadTime);
+                    if (m_Director.time >= clip.start + clip.duration ||
+                        m_Director.time <= clip.start - preloadTime)
+                        videoPlayableBehaviour.StopVideo();
+                    else if (m_Director.time > clip.start - preloadTime)
+                        videoPlayableBehaviour.PrepareVideo();
+                }
+                    
                 ++inputPort;
             }
         }
-	}
+    }
 }

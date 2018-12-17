@@ -6,6 +6,8 @@ using UnityEngine.Events;
 [CreateAssetMenu]
 public class Player : ScriptableObject {
 
+    public int Id;
+
     public PlayerEvent MultiplierIncreased;
     public PlayerEvent PowerLevelIncreased;
 

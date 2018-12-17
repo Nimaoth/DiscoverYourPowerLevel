@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour {
 
     public GameObject VideoEffectCanvas;
 
-    public GameObject ModeUICanvas;
+    public Transform ModeUICanvas;
 
     public GameObject VideoCanvas;
 
@@ -56,6 +56,8 @@ public class UIManager : MonoBehaviour {
 
     public PlayerEvent OnMultiplierIncreased;
 
+    private GameObject currentModeUI;
+
     private void Awake() {
         Instance = this;
     }
@@ -66,8 +68,9 @@ public class UIManager : MonoBehaviour {
         upperThresholdPlayer1 = levelThresholds[0];
         lowerThresholdPlayer2 = 0;
         upperThresholdPlayer2 = levelThresholds[0];
-
+        foreach (var c in ModeUICanvas.GetChildren()) GameObject.Destroy(c.gameObject);
     }
+
     private void Update() {
 
         int Player1PowerLevel = (int)GameManager.Instance.Player1.PowerLevel;
@@ -146,5 +149,18 @@ public class UIManager : MonoBehaviour {
             CurrentEffectIndex = -1;
         }
         
+    }
+
+    public GameObject SetModeUI(GameObject prefab) {
+        if (currentModeUI != null) {
+            GameObject.Destroy(currentModeUI);
+            currentModeUI = null;
+        }
+
+        if (prefab != null) {
+            currentModeUI = GameObject.Instantiate(prefab, ModeUICanvas);
+        }
+
+        return currentModeUI;
     }
 }
