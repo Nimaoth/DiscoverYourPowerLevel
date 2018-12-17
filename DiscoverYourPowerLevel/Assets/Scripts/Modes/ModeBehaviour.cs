@@ -19,10 +19,10 @@ public class ModeBehaviour : PlayableBehaviour
 
     private List<Coroutine> _coroutines = new List<Coroutine>();
 
-    public void OnStart(Playable playable, FrameData info, Player player1, Player player2) {
+    public void OnStart(Playable playable, FrameData info, Player player1, Player player2, AudioSource audioSource) {
         this.player1 = player1;
         this.player2 = player2;
-
+        this.AudioSource = audioSource;
 
         if (Application.isPlaying) {
             UI = UIManager.Instance.SetModeUI(UIPrefab);

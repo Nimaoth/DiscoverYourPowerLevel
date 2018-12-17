@@ -12,6 +12,7 @@ public class ModeTrack : TrackAsset
 {
     public Player Player1;
     public Player Player2;
+    public ExposedReference<AudioSource> AudioSource;
 
     public override Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)
     {
@@ -19,6 +20,7 @@ public class ModeTrack : TrackAsset
         var mixerBehaviour = mixer.GetBehaviour();
         mixerBehaviour.Player1 = Player1;
         mixerBehaviour.Player2 = Player2;
+        mixerBehaviour.AudioSource = AudioSource.Resolve(graph.GetResolver());
         return mixer;
     }
 }

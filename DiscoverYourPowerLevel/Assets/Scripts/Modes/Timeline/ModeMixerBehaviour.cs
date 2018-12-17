@@ -7,6 +7,7 @@ public class ModeMixerBehaviour : PlayableBehaviour
 {
     public Player Player1;
     public Player Player2;
+    public AudioSource AudioSource;
 
     private ModeBehaviour currentMode = null;
 
@@ -35,7 +36,7 @@ public class ModeMixerBehaviour : PlayableBehaviour
 
         if (nextMode != currentMode) {
             currentMode?.OnStop(playable, info);
-            nextMode?.OnStart(playable, info, Player1, Player2);
+            nextMode?.OnStart(playable, info, Player1, Player2, AudioSource);
             currentMode = nextMode;
         }
 

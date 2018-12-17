@@ -5,13 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
 
+[Serializable]
 public class RhythmModeBehaviour : ModeBehaviour {
     public ButtonInput Player1Key;
     public ButtonInput Player2Key;
 
-    public bool RandomiseButtons = true;
-
-    public int LossPerHit;
     public int GainPerHit;
 
     public float bpm;
@@ -19,22 +17,21 @@ public class RhythmModeBehaviour : ModeBehaviour {
     public float tickOffset;
     public float klickOffset;
     public float circleOffset;
-    public float timer;
-
-    public AudioClip testSound;
 
     public Effect tickEffect;
+    public float flashSpeed = 5;
+    public float circleSize = 5;
 
+
+    private float timer;
     private HitCircle hitCircle1;
     private HitCircle hitCircle2;
 
     private Image flash1;
     private Image flash2;
 
-    public float flashSpeed = 5;
-    public float circleSize = 5;
 
-    float lastTimer = 0;
+    private float lastTimer = 0;
 
     private bool p1canHit = true;
     private bool p2canHit = true;
@@ -45,12 +42,6 @@ public class RhythmModeBehaviour : ModeBehaviour {
 
         Player1Key = ButtonInput.RED;
         Player2Key = ButtonInput.BLUE;
-
-        // if (RandomiseButtons) {
-        //     List<ButtonInput> buttons = new List<ButtonInput>((ButtonInput[])Enum.GetValues(typeof(ButtonInput)));
-        //     Player1Key = buttons[UnityEngine.Random.Range(0, buttons.Count)];
-        //     Player2Key = buttons[UnityEngine.Random.Range(0, buttons.Count)];
-        // }
 
         var p1 = UI.transform.Find("p1");
         var p2 = UI.transform.Find("p2");
@@ -85,13 +76,8 @@ public class RhythmModeBehaviour : ModeBehaviour {
 
 
         timer = (progress + tickOffset) % tbb;
-        if (Mathf.Abs(timer - lastTimer) > 0.5f * tbb) {
-            // EffectManager.Instance.PlayPosEffect();
-            AudioSource.PlayClipAtPoint(testSound, Vector3.zero);
-
-            if (tickEffect != null) {
-                tickEffect.Spawn();
-            }
+        if (Mathf.Abs(timer - lastTimer) > 0.5f * tbb && tickEffect != null) {
+            tickEffect.Spawn();
         }
         lastTimer = timer;
 
@@ -113,12 +99,6 @@ public class RhythmModeBehaviour : ModeBehaviour {
         } else {
             p1canHit = true;
             p2canHit = true;
-            if (Input.GetKeyDown(p1key.ToString())) {
-                player1.PowerLevel -= LossPerHit;
-            }
-            if (Input.GetKeyDown(p2key.ToString())) {
-                player2.PowerLevel -= LossPerHit;
-            }
         }
 
         var timer3 = (progress + circleOffset) % tbb;

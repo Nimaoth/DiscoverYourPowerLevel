@@ -174,7 +174,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243221121302296544, guid: e04627c98c92ba0498db160a71f7cc43,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f8b31c2b38a8c1741966c6faf063490b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -277,13 +277,14 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 114577568109935514, guid: e95d6396d7b7f3b49a342b173214886c, type: 2}
     value: {fileID: 0}
-  - key: {fileID: 114255542629372344, guid: e95d6396d7b7f3b49a342b173214886c, type: 2}
-    value: {fileID: 318986}
   - key: {fileID: 114100236228179916, guid: e95d6396d7b7f3b49a342b173214886c, type: 2}
     value: {fileID: 1410703774}
+  - key: {fileID: 114674671657064726, guid: e95d6396d7b7f3b49a342b173214886c, type: 2}
+    value: {fileID: 318986}
   m_ExposedReferences:
     m_References:
     - 5421564430ab1014aa4870e665a7ef39: {fileID: 57270299}
+    - 7cdfc9c2cb283a14d955a2214387b713: {fileID: 318986}
     - 0e79e6e4dc419134baac312ceadced64: {fileID: 1410703773}
     - be9df5a5fdc4293479344cc61436b3e4: {fileID: 0}
 --- !u!1 &14252745
@@ -2285,7 +2286,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 1873867566}
+  m_Texture: {fileID: 2090472170}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2312,7 +2313,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 1873867566}
+  m_TargetTexture: {fileID: 2090472170}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
@@ -2909,7 +2910,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848081148}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!84 &1873867566
+--- !u!84 &2090472170
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
