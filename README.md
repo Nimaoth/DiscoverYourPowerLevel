@@ -1,2 +1,2 @@
 # DiscoverYourPoverLevel
-SGJ WS 2018
+TUM Semester Game Jam Winter Semester 2018
