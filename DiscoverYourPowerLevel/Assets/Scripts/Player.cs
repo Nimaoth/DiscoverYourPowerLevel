@@ -6,9 +6,10 @@ using UnityEngine.Events;
 [CreateAssetMenu]
 public class Player : ScriptableObject {
 
-    public delegate void PowerLevelIncreasedDel(double newLevel);
+    public int Id;
 
-    public event PowerLevelIncreasedDel OnPowerLevelIncreased;
+    public PlayerEvent MultiplierIncreased;
+    public PlayerEvent PowerLevelIncreased;
 
     private double _powerLevel;
     public double PowerLevel {
@@ -16,16 +17,30 @@ public class Player : ScriptableObject {
             return _powerLevel;
         }
         set {
-            var oldValue = _powerLevel;
+            double old = _powerLevel;
             _powerLevel = value;
-
-            if ((int)value > (int)oldValue) {
-                OnPowerLevelIncreased?.Invoke(value);
+            if (value > old){ 
+                PowerLevelIncreased.Dispatch(this);
             }
         }
     }
 
-    public void Start() {
-        _powerLevel = 0;
+    private int _multiplier;
+    public int Multiplier {
+        get {
+            return _multiplier;
+        }
+        set {
+            int old = _multiplier;
+            _multiplier = value;
+            if (value > old){ 
+                MultiplierIncreased.Dispatch(this);
+            }
+        }
+    }
+
+    public void Reset() {
+        PowerLevel = 0;
+        _multiplier = 1;
     }
 }

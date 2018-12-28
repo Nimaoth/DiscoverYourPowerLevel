@@ -5,7 +5,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Experimental.Rendering;
+using UnityEngine.UI;
 
 [Serializable]
 public struct ModeTrigger {
@@ -39,7 +40,6 @@ public class Clip : ScriptableObject {
     private Mode CurrentMode = null;
 
     //ScreenEffects
-    private EffectManager EffectManager;
     public EffectTrigger[] Effects;
 
     [SerializeField]
@@ -47,7 +47,6 @@ public class Clip : ScriptableObject {
 
     //Video
     private VideoPlayer VideoPlayer;
-
 
     public void StartClip(bool debugStart, float debugPercent) {
         // sort effects+
@@ -60,16 +59,16 @@ public class Clip : ScriptableObject {
         StartNextMode();
 
         CurrentEffectIndex = 0;
-        EffectManager = GameObject.FindGameObjectWithTag("EffectManager").GetComponent<EffectManager>();
-        VideoPlayer = GameObject.FindGameObjectWithTag("VideoPlayer").GetComponent<VideoPlayer>();
+        VideoPlayer = UIManager.Instance.VideoCanvas.GetComponent<VideoPlayer>();
 
-       
+        var renderTexture = new RenderTexture((int)VideoClip.width, (int)VideoClip.height, 0, RenderTextureFormat.ARGB32);
+        VideoPlayer.targetTexture = renderTexture;
+        UIManager.Instance.VideoCanvas.GetComponent<RawImage>().texture = renderTexture;
+
         AudioSource = ClipManager.Instance.ClipAudioSource;
         AudioSource.clip = AudioClip;
         VideoPlayer.clip = VideoClip;
         VideoPlayer.loopPointReached += videoClipEnded;
-
-
 
         if (debugStart)
         {
@@ -85,9 +84,6 @@ public class Clip : ScriptableObject {
         AudioSource.Play();
         VideoPlayer.Play();
     }
-
-    
-
 
     public void OnUpdate(float time) {
         if(AudioSource==null)
@@ -121,6 +117,9 @@ public class Clip : ScriptableObject {
     }
 
     private void StartNextMode() {
+        if (CurrentMode != null) {
+            CurrentMode.Stop();
+        }
         CurrentMode = null;
         CurrentModeIndex++;
         if (CurrentModeIndex < Modes.Length) {
@@ -134,7 +133,7 @@ public class Clip : ScriptableObject {
         //Debug.Log("Effect played");
         if (CurrentEffectIndex < Effects.Length) {
             // Call EffectManager
-            EffectManager.PlayEffect(effect);
+            EffectManager.Instance.PlayEffect(effect);
             CurrentEffectIndex += 1;
         }
         if (CurrentEffectIndex == Effects.Length)

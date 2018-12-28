@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -20,18 +21,16 @@ public class UIManager : MonoBehaviour {
     [SerializeField]
     private int CurrentEffectIndex = 0;
 
-
-    private EffectManager EffectManager;
-
     public GameObject VideoEffectCanvas;
+
+    public Transform ModeUICanvas;
+
+    public GameObject VideoCanvas;
 
     public static UIManager Instance;
 
-    public Text Player1PowerLevelText;
-    public Text Player2PowerLevelText;
-
-    public HitCircle HitCirclePlayer1;
-    public HitCircle HitCirclePlayer2;
+    public TMP_Text Player1PowerLevelText;
+    public TMP_Text Player2PowerLevelText;
 
 
     public PowerBar Player1PowerBar;
@@ -39,14 +38,10 @@ public class UIManager : MonoBehaviour {
 
     public Material m_Material1;
 
-    public BarMultiplicator multiplicator;
-
 
     //To be set in Inspector
     public int[] levelThresholds;
 
-    private int currentUILevelPlayer1 = 0;
-    private int currentUILevelPlayer2 = 0;
     private int lowerThresholdPlayer1;
     private int upperThresholdPlayer1 = 1;
 
@@ -56,10 +51,12 @@ public class UIManager : MonoBehaviour {
     public float currentLevelProgressPlayer1 = 0.0f;
     public float currentLevelProgressPlayer2 = 0.0f;
 
-    int Player1PowerLevel;
-    int Player2PowerLevel;
+    public Player player1;
+    public Player player2;
 
-    public VideoPlayer videoClip;
+    public PlayerEvent OnMultiplierIncreased;
+
+    private GameObject currentModeUI;
 
     private void Awake() {
         Instance = this;
@@ -67,36 +64,43 @@ public class UIManager : MonoBehaviour {
 
     private void Start()
     {
-        EffectManager = GameObject.FindGameObjectWithTag("EffectManager").GetComponent<EffectManager>();
-
-
         lowerThresholdPlayer1 = 0;
         upperThresholdPlayer1 = levelThresholds[0];
         lowerThresholdPlayer2 = 0;
         upperThresholdPlayer2 = levelThresholds[0];
-
+        foreach (var c in ModeUICanvas.GetChildren()) GameObject.Destroy(c.gameObject);
     }
+
     private void Update() {
 
-        Player1PowerLevel = (int)GameManager.Instance.Player1.PowerLevel;
-        Player2PowerLevel = (int)GameManager.Instance.Player2.PowerLevel;
+        int Player1PowerLevel = (int)GameManager.Instance.Player1.PowerLevel;
+        int Player2PowerLevel = (int)GameManager.Instance.Player2.PowerLevel;
         
         //check progress player 1
         if(Player1PowerLevel > upperThresholdPlayer1)
         {
-            currentUILevelPlayer1 += 1;
-            lowerThresholdPlayer1 = levelThresholds[currentUILevelPlayer1-1];
-            upperThresholdPlayer1 = levelThresholds[currentUILevelPlayer1];
-            multiplicator.progressPlayer1(currentUILevelPlayer1);
+            player1.Multiplier += 1;
+            if (player1.Multiplier >= levelThresholds.Length) {
+                lowerThresholdPlayer1 = upperThresholdPlayer1;
+                upperThresholdPlayer1 += 5000;
+            } else {
+                lowerThresholdPlayer1 = levelThresholds[player1.Multiplier-1];
+                upperThresholdPlayer1 = levelThresholds[player1.Multiplier];
+            }
+            OnMultiplierIncreased.Dispatch(player1);
         }
         //check progress player 2
         if(Player2PowerLevel > upperThresholdPlayer2)
         {
-            currentUILevelPlayer2 += 1;
-            lowerThresholdPlayer2 = levelThresholds[currentUILevelPlayer2-1];
-            upperThresholdPlayer2 = levelThresholds[currentUILevelPlayer2];
-            multiplicator.progressPlayer2(currentUILevelPlayer2);
-
+            player2.Multiplier += 1;
+            if (player2.Multiplier >= levelThresholds.Length) {
+                lowerThresholdPlayer2 = upperThresholdPlayer2;
+                upperThresholdPlayer2 += 5000;
+            } else {
+                lowerThresholdPlayer2 = levelThresholds[player2.Multiplier-1];
+                upperThresholdPlayer2 = levelThresholds[player2.Multiplier];
+            }
+            OnMultiplierIncreased.Dispatch(player2);
         }
 
         //Update Progress
@@ -111,6 +115,9 @@ public class UIManager : MonoBehaviour {
         Player1PowerLevelText.text = Player1PowerLevel.ToString();
         Player2PowerLevelText.text = Player2PowerLevel.ToString();
 
+        Player1PowerLevelText.fontSize = (int)Mathf.Lerp(60, 150, (float)GameManager.Instance.Player1.PowerLevel / 125000);
+        Player2PowerLevelText.fontSize = (int)Mathf.Lerp(60, 150, (float)GameManager.Instance.Player2.PowerLevel / 125000);
+
         //Update Bars
         Player1PowerBar.UpdateBar(currentLevelProgressPlayer1);
         Player2PowerBar.UpdateBar(currentLevelProgressPlayer2);
@@ -118,7 +125,7 @@ public class UIManager : MonoBehaviour {
         if(CurrentEffectIndex != -1 && CurrentEffectIndex<Effects.Length)
         {
             var effectTrigger = Effects[CurrentEffectIndex];
-            if (Player1PowerLevel >= effectTrigger.StartPower || Player1PowerLevel >= effectTrigger.StartPower) {
+            if (Player1PowerLevel >= effectTrigger.StartPower || Player2PowerLevel >= effectTrigger.StartPower) {
                 PlayEffect(effectTrigger.Effect);
             }
         }
@@ -127,23 +134,6 @@ public class UIManager : MonoBehaviour {
         {
             m_Material1.SetFloat("_GlowThickness", 1.3f);
         }
-
-        /*timer += Time.deltaTime;
-        int seconds = (int) timer % 60;
-
-        
-
-        if(200 == seconds)
-        {
-            StartCoroutine(waitSeconds());
-            if(canChangeScene)
-            {
-                SceneManager.LoadScene("HighscoreTestScene");
-            }
-        }*/
-
-        
-
     }
 
 
@@ -151,7 +141,7 @@ public class UIManager : MonoBehaviour {
         //Debug.Log("Effect played");
         if (CurrentEffectIndex < Effects.Length) {
             // Call EffectManager
-            EffectManager.PlayEffect(effect);
+            EffectManager.Instance.PlayEffect(effect);
             CurrentEffectIndex += 1;
         }
         if (CurrentEffectIndex == Effects.Length)
@@ -161,6 +151,16 @@ public class UIManager : MonoBehaviour {
         
     }
 
+    public GameObject SetModeUI(GameObject prefab) {
+        if (currentModeUI != null) {
+            GameObject.Destroy(currentModeUI);
+            currentModeUI = null;
+        }
 
+        if (prefab != null) {
+            currentModeUI = GameObject.Instantiate(prefab, ModeUICanvas);
+        }
 
+        return currentModeUI;
+    }
 }

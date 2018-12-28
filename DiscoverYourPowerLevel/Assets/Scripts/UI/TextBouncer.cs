@@ -8,30 +8,14 @@ public class TextBouncer : MonoBehaviour {
     public float maxScale;
     public float bounceSpeed = 1;
 
-    public Player Player;
-
-    [SerializeField]
-    private Text text;
-
-
-    [SerializeField]
     private bool isBoucingUp;
-    [SerializeField]
     private float currentScale;
 
-    // Use this for initialization
     void Start () {
-        text = GetComponent<Text>();
-
         currentScale = 1;
         isBoucingUp = false;
-
-        Player.OnPowerLevelIncreased += pl => {
-            isBoucingUp = true;
-        };
     }
-    
-    // Update is called once per frame
+
     void Update () {
         if (isBoucingUp) {
             currentScale += bounceSpeed * Time.deltaTime;
@@ -48,5 +32,9 @@ public class TextBouncer : MonoBehaviour {
         }
 
         transform.localScale = new Vector3(currentScale, currentScale, currentScale);
+    }
+
+    public void Bounce() {
+        isBoucingUp = true;
     }
 }
