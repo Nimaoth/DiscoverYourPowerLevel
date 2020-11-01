@@ -106,7 +106,7 @@ public class TitleScreenButton : MonoBehaviour {
 
                 if(nextScene)
                 {
-                    SceneManager.LoadScene("CedricMachtdieButtonsHuebsch");
+                    SceneManager.LoadScene("LoadScene");
                 }
             }
                 
